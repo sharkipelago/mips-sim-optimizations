@@ -231,12 +231,17 @@ void Processor::memory_stage(){
     // Write to memory only if mem_write is 1, i.e store
     memory->access(XMReg.alu_result, read_data_mem, write_data_mem, XMReg.mem_read_control, XMReg.mem_write_control);
     // Loads: lbu or lhu modify read data by masking
-    read_data_mem &= XMReg.halfword_control ? 0xffff : XMReg.byte_control ? 0xff : 0xffffffff;
+    MWBReg.read_data_mem &= XMReg.halfword_control ? 0xffff : XMReg.byte_control ? 0xff : 0xffffffff;
 
     //Stopped Here
 
     // Passing Values
     MWBReg.write_reg = XMReg.write_reg;
+    MWBReg.alu_result = XMReg.alu_result;
+
+    MWBReg.link_control = XMReg.link_control;
+    MWBReg.mem_to_reg_control = XMReg.mem_to_reg_control;
+    MWBReg.reg_write_control = XMReg.reg_write_control;
 
 }
 
