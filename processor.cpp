@@ -114,10 +114,75 @@ void Processor::single_cycle_processor_advance() {
     regfile.pc = control.jump_reg ? read_data_1 : control.jump ? (regfile.pc & 0xf0000000) & (addr << 2): regfile.pc;
 }
 
-void Processor::decode_stage(){
+void Processor::fetch_stage(){
+    uint32_t instruction;
+    // fetch
+    memory->access(regfile.pc, instruction, 0, 1, 0);
+    // increment pc
+    regfile.pc += 4;
+    // pass variables
+    FDReg.pc = regfile.pc;
+    FDReg.instruction = instruction;
+
 
 }
+void Processor::decode_stage(){
+    uint32_t instruction;
+    instruction = FDReg.instruction;
+    // decode into contol signals
+    control.decode(instruction);
 
+    // extract rs, rt, rd, imm, funct 
+    int opcode = (instruction >> 26) & 0x3f;
+    int rs = (instruction >> 21) & 0x1f;
+    int rt = (instruction >> 16) & 0x1f;
+    int rd = (instruction >> 11) & 0x1f;
+    int shamt = (instruction >> 6) & 0x1f;
+    int funct = instruction & 0x3f;
+    uint32_t imm = (instruction & 0xffff);
+    int addr = instruction & 0x3ffffff;
+    // Variables to read data into
+    uint32_t read_data_1 = 0;
+    uint32_t read_data_2 = 0;
+
+    // Read from reg file
+    regfile.access(rs, rt, read_data_1, read_data_2, 0, 0, 0);
+
+    // Sign Extend Or Zero Extend the immediate
+    // Using Arithmetic right shift in order to replicate 1 
+    imm = control.zero_extend ? imm : (imm >> 15) ? 0xffff0000 | imm : imm;
+
+    // Pass Variables
+    // Control
+    DXReg.reg_dest_control = control.reg_dest;
+    DXReg.jump_control = control.jump;
+    DXReg.jump_reg_control = control.jump_reg;
+    DXReg.link_control = control.link;
+    DXReg.shift_control = control.shift;
+    DXReg.branch_control = control.branch;
+    DXReg.bne_control = control.bne;
+    DXReg.mem_read_control = control.mem_read;
+    DXReg.mem_to_reg_control = control.mem_to_reg;
+    DXReg.ALU_op_control = control.ALU_op;
+    DXReg.mem_write_control = control.mem_write;
+    DXReg.halfword_control = control.halfword;
+    DXReg.byte_control = control.byte;
+    DXReg.ALU_src_control = control.ALU_src;
+    DXReg.reg_write_control = control.reg_write;
+    DXReg.zero_extend_control = control.zero_extend;
+
+    // Instructions
+    DXReg.imm = imm;
+    DXReg.read_data_1 = read_data_1;
+    DXReg.read_data_2 = read_data_2;
+    DXReg.pc = FDReg.pc;
+    DXReg.rd = rd;
+    DXReg.rt = rt;
+    DXReg.addr = addr;
+    DXReg.shamt = shamt;
+    DXReg.opcode = opcode;
+    DXReg.funct = funct;
+}
 
 void Processor::execute_stage(){
     alu.generate_control_inputs(DXReg.ALU_op_control, DXReg.funct, DXReg.opcode);
@@ -130,15 +195,29 @@ void Processor::execute_stage(){
     uint32_t alu_zero = 0;
 
     uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
+    XMReg.alu_zero = alu_zero;
     XMReg.alu_result = alu_result;
     
     int write_reg = DXReg.link_control ? 31 : DXReg.reg_dest_control ? DXReg.rd : DXReg.rt;  
     XMReg.write_reg = write_reg;
 
-    regfile.pc = control.jump_reg ? DXReg.read_data_1 : control.jump ? (DXReg.pc & 0xf0000000) & (DXReg.addr << 2): DXReg.pc;
+    XMReg.pc_add_result = DXReg.jump_reg_control ? DXReg.read_data_1 : DXReg.jump_control ? (DXReg.pc & 0xf0000000) & (DXReg.addr << 2): DXReg.pc;
 
+    // Pass Variables
+    // Control
 
-}
+    XMReg.link_control = DXReg.link_control;
+    XMReg.branch_control = DXReg.branch_control;
+    XMReg.bne_control = DXReg.bne_control;
+    XMReg.mem_read_control = DXReg.mem_read_control;
+    XMReg.mem_to_reg_control = DXReg.mem_to_reg_control;
+    XMReg.mem_write_control = DXReg.mem_write_control;
+    XMReg.halfword_control = DXReg.halfword_control;
+    XMReg.byte_control = DXReg.byte_control;
+    XMReg.reg_write_control = DXReg.reg_write_control;
+
+    XMReg.read_data_2 = DXReg.read_data_2;
+}    
 
 void Processor::memory_stage(){
     uint32_t read_data_mem = 0;
@@ -172,10 +251,10 @@ void Processor::pipelined_processor_advance() {
     // does nothing currently -- if you call it from the cmd line, you'll run into an infinite loop
     // might be helpful to implement stages in a separate module
 
-     FetchDecodePipeReg FDReg;
-        DecodeExPipeReg DXReg;
-        ExMemPipeReg XMReg;
-        MemWBPipeReg MWBReg;
+    FetchDecodePipeReg FDReg;
+    DecodeExPipeReg DXReg;
+    ExMemPipeReg XMReg;
+    MemWBPipeReg MWBReg;
         
     write_back()
 
