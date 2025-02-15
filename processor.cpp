@@ -114,9 +114,25 @@ void Processor::single_cycle_processor_advance() {
     regfile.pc = control.jump_reg ? read_data_1 : control.jump ? (regfile.pc & 0xf0000000) & (addr << 2): regfile.pc;
 }
 
-void Processor::execute_stage(){
-    int write_reg = XMReg.link_control ? 31 : XMReg.reg_dest_control ? rd : rt;  
+void Processor::decode_stage(){
 
+}
+
+
+void Processor::execute_stage(){
+    alu.generate_control_inputs(DXReg.ALU_op_control, DXReg.funct, DXReg.opcode);
+
+    // Find operands for the ALU Execution
+    // Operand 1 is always R[rs] -> read_data_1, except sll and srl
+    // Operand 2 is immediate if ALU_src = 1, for I-type
+    uint32_t operand_1 = DXReg.shift_control ? DXReg.shamt : DXReg.read_data_1;
+    uint32_t operand_2 = DXReg.ALU_src_control ? DXReg.imm : DXReg.read_data_2;
+    uint32_t alu_zero = 0;
+
+    uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
+    XMReg.alu_result = alu_result;
+    
+    int write_reg = DXReg.link_control ? 31 : DXReg.reg_dest_control ? DXReg.rd : DXReg.rt;  
     XMReg.write_reg = write_reg;
 
 }
