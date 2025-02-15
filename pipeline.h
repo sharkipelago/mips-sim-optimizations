@@ -32,14 +32,18 @@ struct DecodeExPipeReg {
     uint32_t read_data_1;
     uint32_t read_data_2;
 
-    int rd;
+
+    int opcode;
     int rt;
+    int rd;
+    int shamt;
+    int funct;
     uint32_t imm;
     uint32_t pc;
 };
 
 struct ExMemPipeReg {
-    bool reg_dest_control; 
+    // bool reg_dest_control; 
     // bool jump_control;
     // bool jump_reg_control;
     bool link_control;
