@@ -251,12 +251,13 @@ void Processor::pipelined_processor_advance() {
     // does nothing currently -- if you call it from the cmd line, you'll run into an infinite loop
     // might be helpful to implement stages in a separate module
 
-    FetchDecodePipeReg FDReg;
-    DecodeExPipeReg DXReg;
-    ExMemPipeReg XMReg;
-    MemWBPipeReg MWBReg;
+
         
-    write_back()
+    write_back_stage();
+    memory_stage();
+    execute_stage();
+    decode_stage();
+    fetch_stage();
 
 
 }
