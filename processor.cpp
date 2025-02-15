@@ -236,7 +236,7 @@ void Processor::memory_stage(){
     //Stopped Here
 
     // Passing Values
-    MWBReg.write_reg = XMReg.write_reg
+    MWBReg.write_reg = XMReg.write_reg;
 
 }
 
