@@ -34,6 +34,7 @@ struct DecodeExPipeReg {
 
 
     int opcode;
+    int addr;
     int rt;
     int rd;
     int shamt;

@@ -135,6 +135,9 @@ void Processor::execute_stage(){
     int write_reg = DXReg.link_control ? 31 : DXReg.reg_dest_control ? DXReg.rd : DXReg.rt;  
     XMReg.write_reg = write_reg;
 
+    regfile.pc = control.jump_reg ? DXReg.read_data_1 : control.jump ? (DXReg.pc & 0xf0000000) & (DXReg.addr << 2): DXReg.pc;
+
+
 }
 
 void Processor::memory_stage(){
