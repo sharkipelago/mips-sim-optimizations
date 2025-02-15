@@ -114,8 +114,51 @@ void Processor::single_cycle_processor_advance() {
     regfile.pc = control.jump_reg ? read_data_1 : control.jump ? (regfile.pc & 0xf0000000) & (addr << 2): regfile.pc;
 }
 
-void Processor::pipelined_processor_advance() {
+void Processor::execute_stage(){
+    int write_reg = XMReg.link_control ? 31 : XMReg.reg_dest_control ? rd : rt;  
+
+    XMReg.write_reg = write_reg;
+
+}
+
+void Processor::memory_stage(){
+    uint32_t read_data_mem = 0;
+    uint32_t write_data_mem = 0;
+
+      // First read no matter whether it is a load or a store
+    memory->access(XMReg.alu_result, read_data_mem, 0, XMReg.mem_read_control | XMReg.mem_write_control, 0);
+    // Stores: sb or sh mask and preserve original leftmost bits
+    write_data_mem = XMReg.halfword_control ? (read_data_mem & 0xffff0000) | (XMReg.read_data_2 & 0xffff) : 
+                    XMReg.byte_control ? (read_data_mem & 0xffffff00) | (XMReg.read_data_2 & 0xff): XMReg.read_data_2;
+    // Write to memory only if mem_write is 1, i.e store
+    memory->access(XMReg.alu_result, read_data_mem, write_data_mem, XMReg.mem_read_control, XMReg.mem_write_control);
+    // Loads: lbu or lhu modify read data by masking
+    read_data_mem &= XMReg.halfword_control ? 0xffff : XMReg.byte_control ? 0xff : 0xffffffff;
+
+    //Stopped Here
+
+    // Passing Values
+    MWBReg.write_reg = XMReg.write_reg
+
+}
+
+void Processor::write_back_stage() {
+    uint32_t read_data_dummy;
+    uint32_t write_data = MWBReg.link_control ? regfile.pc+8 : MWBReg.mem_to_reg_control ? MWBReg.read_data_mem : MWBReg.alu_result;  
+    regfile.access(0, 0, read_data_dummy, read_data_dummy, MWBReg.write_reg, MWBReg.reg_write_control, write_data);
+}
+
+void Processor::pipelined_processor_advance() { 
     // pipelined processor logic goes here
     // does nothing currently -- if you call it from the cmd line, you'll run into an infinite loop
     // might be helpful to implement stages in a separate module
+
+     FetchDecodePipeReg FDReg;
+        DecodeExPipeReg DXReg;
+        ExMemPipeReg XMReg;
+        MemWBPipeReg MWBReg;
+        
+    write_back()
+
+
 }

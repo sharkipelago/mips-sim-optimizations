@@ -5,6 +5,8 @@
     .ent    __start
     .type   __start, @function
 __start:
+   addi $2, $2, 1
+   addi $3, $2, 7
    add $1, $2, $3
    addi $2, $1, 5
    j label

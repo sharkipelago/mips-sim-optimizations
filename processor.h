@@ -2,6 +2,8 @@
 #include "regfile.h"
 #include "ALU.h"
 #include "control.h"
+#include "pipeline.h"
+
 class Processor {
     private:
         int opt_level;
@@ -9,8 +11,12 @@ class Processor {
         control_t control;
         Memory *memory;
         Registers regfile;
-        // add other structures as needed
 
+        // add other structures as needed
+        FetchDecodePipeReg FDReg;
+        DecodeExPipeReg DXReg;
+        ExMemPipeReg XMReg;
+        MemWBPipeReg MWBReg;
         // pipelined processor
 
         // add private functions
@@ -31,4 +37,11 @@ class Processor {
 
         // Advances the processor to an appropriate state every cycle
         void advance(); 
+
+        void fetch_stage();
+        void decode_stage();
+        void execute_stage();
+        void memory_stage();
+        void write_back_stage();
+
 };
