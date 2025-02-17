@@ -1,7 +1,9 @@
 #include <cstdint>
 #include <iostream>
 #include "processor.h"
+#include <string>
 using namespace std;
+#define ENABLE_DEBUG
 
 #ifdef ENABLE_DEBUG
 #define DEBUG(x) x
@@ -29,6 +31,8 @@ void Processor::initialize(int level) {
                .zero_extend = 0};
    
     opt_level = level;
+
+    table = {{}, {}, {}, {}, {}};
     // Optimization level-specific initialization
 }
 
@@ -50,6 +54,7 @@ void Processor::single_cycle_processor_advance() {
     DEBUG(cout << "\nPC: 0x" << std::hex << regfile.pc << std::dec << "\n");
     // increment pc
     regfile.pc += 4;
+    
     
     // decode into contol signals
     control.decode(instruction);
@@ -116,10 +121,13 @@ void Processor::single_cycle_processor_advance() {
 
 void Processor::fetch_stage(){
     uint32_t instruction;
+    
     // fetch
     memory->access(regfile.pc, instruction, 0, 1, 0);
     // increment pc
     regfile.pc += 4;
+    table[0].push_back(regfile.pc);
+    
     // pass variables
     FDReg.pc = regfile.pc;
     FDReg.instruction = instruction;
@@ -131,6 +139,7 @@ void Processor::decode_stage(){
     instruction = FDReg.instruction;
     // decode into contol signals
     control.decode(instruction);
+    table[1].push_back(FDReg.pc);
 
     // extract rs, rt, rd, imm, funct 
     int opcode = (instruction >> 26) & 0x3f;
@@ -186,6 +195,7 @@ void Processor::decode_stage(){
 
 void Processor::execute_stage(){
     alu.generate_control_inputs(DXReg.ALU_op_control, DXReg.funct, DXReg.opcode);
+    table[2].push_back(DXReg.pc);
 
     // Find operands for the ALU Execution
     // Operand 1 is always R[rs] -> read_data_1, except sll and srl
@@ -201,7 +211,10 @@ void Processor::execute_stage(){
     int write_reg = DXReg.link_control ? 31 : DXReg.reg_dest_control ? DXReg.rd : DXReg.rt;  
     XMReg.write_reg = write_reg;
 
-    XMReg.pc_add_result = DXReg.jump_reg_control ? DXReg.read_data_1 : DXReg.jump_control ? (DXReg.pc & 0xf0000000) & (DXReg.addr << 2): DXReg.pc;
+    XMReg.pc_add_result = DXReg.pc + (DXReg.imm << 2);
+    XMReg.pc = DXReg.jump_reg_control ? DXReg.read_data_1 : DXReg.jump_control ? (DXReg.pc & 0xf0000000) & (DXReg.addr << 2): DXReg.pc;
+    // cout << DXReg.jump_control << " " << DXReg.jump_reg_control << "\n";
+    XMReg.orig_pc = DXReg.pc;
 
     // Pass Variables
     // Control
@@ -222,6 +235,7 @@ void Processor::execute_stage(){
 void Processor::memory_stage(){
     uint32_t read_data_mem = 0;
     uint32_t write_data_mem = 0;
+    table[3].push_back(XMReg.orig_pc);
 
       // First read no matter whether it is a load or a store
     memory->access(XMReg.alu_result, read_data_mem, 0, XMReg.mem_read_control | XMReg.mem_write_control, 0);
@@ -233,9 +247,18 @@ void Processor::memory_stage(){
     // Loads: lbu or lhu modify read data by masking
     MWBReg.read_data_mem &= XMReg.halfword_control ? 0xffff : XMReg.byte_control ? 0xff : 0xffffffff;
 
-    //Stopped Here
+    if ((XMReg.branch_control && !XMReg.bne_control && XMReg.alu_zero) || (XMReg.bne_control && !XMReg.alu_zero)){
+        regfile.pc = XMReg.pc_add_result;
+    }
+    else{
+        if (XMReg.pc != XMReg.orig_pc){
+            regfile.pc = XMReg.pc;
+        }
+    }
+    cout << XMReg.orig_pc << " " << XMReg.pc << " " << XMReg.pc_add_result << "\n";
 
     // Passing Values
+    MWBReg.pc = XMReg.orig_pc;
     MWBReg.write_reg = XMReg.write_reg;
     MWBReg.alu_result = XMReg.alu_result;
 
@@ -246,8 +269,10 @@ void Processor::memory_stage(){
 }
 
 void Processor::write_back_stage() {
+    table[4].push_back(MWBReg.pc);
     uint32_t read_data_dummy;
-    uint32_t write_data = MWBReg.link_control ? regfile.pc+8 : MWBReg.mem_to_reg_control ? MWBReg.read_data_mem : MWBReg.alu_result;  
+    uint32_t write_data = MWBReg.link_control ? regfile.pc+8 : MWBReg.mem_to_reg_control ? MWBReg.read_data_mem : MWBReg.alu_result; 
+    cout << "Are we writing: " << MWBReg.reg_write_control << ", writing " << write_data << " to " << MWBReg.write_reg << "\n";
     regfile.access(0, 0, read_data_dummy, read_data_dummy, MWBReg.write_reg, MWBReg.reg_write_control, write_data);
 }
 
@@ -263,6 +288,24 @@ void Processor::pipelined_processor_advance() {
     execute_stage();
     decode_stage();
     fetch_stage();
+
+    vector<int> lens = {};
+    for (unsigned int i = 0; i < table.size(); i++)
+    {
+        
+        for (unsigned int j = 0; j < table[i].size(); j++)
+        {
+            int len = to_string(abs(table[i][j])).length();
+            if (i == 0){
+                lens.push_back(len);
+            }
+            string space(lens[j]-len + 1, ' ');
+            cout << table[i][j] << space;
+        }
+        cout << "\n";
+    }
+    lens.clear();
+
 
 
 }

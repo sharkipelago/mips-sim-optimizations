@@ -62,6 +62,8 @@ struct ExMemPipeReg {
     // bool zero_extend_control;
     
     uint32_t pc_add_result = 0;
+    uint32_t pc = 0;
+    uint32_t orig_pc = 0;
 
     uint32_t alu_zero = 0;
     uint32_t alu_result = 0;
@@ -89,6 +91,7 @@ struct MemWBPipeReg {
 
     uint32_t read_data_mem = 0;
     uint32_t alu_result = 0; 
+    uint32_t pc = 0;
     int write_reg = 0;
 };  
 

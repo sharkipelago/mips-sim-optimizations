@@ -11,6 +11,8 @@ class Processor {
         control_t control;
         Memory *memory;
         Registers regfile;
+        vector<vector<int>> table;
+
 
         // add other structures as needed
         FetchDecodePipeReg FDReg;
