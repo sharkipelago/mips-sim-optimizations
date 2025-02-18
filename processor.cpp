@@ -51,7 +51,7 @@ void Processor::single_cycle_processor_advance() {
     // fetch
     uint32_t instruction;
     memory->access(regfile.pc, instruction, 0, 1, 0);
-    DEBUG(cout << "\nPC: 0x" << std::hex << regfile.pc << std::dec << "\n");
+    DEBUG(cout << "\nPC: 0x" << std::hex << regfile.pc << std::dec << " inst: " << instruction << "\n");
     // increment pc
     regfile.pc += 4;
     
@@ -78,6 +78,7 @@ void Processor::single_cycle_processor_advance() {
     
     // Execution 
     alu.generate_control_inputs(control.ALU_op, funct, opcode);
+    cout << "ALU op: " << control.ALU_op << " Funct: " << funct << " opcode: " << opcode << "\n";
    
     // Sign Extend Or Zero Extend the immediate
     // Using Arithmetic right shift in order to replicate 1 
@@ -88,9 +89,11 @@ void Processor::single_cycle_processor_advance() {
     // Operand 2 is immediate if ALU_src = 1, for I-type
     uint32_t operand_1 = control.shift ? shamt : read_data_1;
     uint32_t operand_2 = control.ALU_src ? imm : read_data_2;
+    
     uint32_t alu_zero = 0;
 
     uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
+    cout << "op1 " << operand_1 << " op2 " << operand_2 << " alu_zero " << alu_zero << " alu result " << alu_result << "\n";
     
     
     uint32_t read_data_mem = 0;
@@ -99,11 +102,15 @@ void Processor::single_cycle_processor_advance() {
     // Memory
     // First read no matter whether it is a load or a store
     memory->access(alu_result, read_data_mem, 0, control.mem_read | control.mem_write, 0);
+    cout << "read data mem: " << read_data_mem << " mem read control: " << control.mem_read << " Resulting alu result " << alu_result << "\n";
+
     // Stores: sb or sh mask and preserve original leftmost bits
     write_data_mem = control.halfword ? (read_data_mem & 0xffff0000) | (read_data_2 & 0xffff) : 
                     control.byte ? (read_data_mem & 0xffffff00) | (read_data_2 & 0xff): read_data_2;
     // Write to memory only if mem_write is 1, i.e store
     memory->access(alu_result, read_data_mem, write_data_mem, control.mem_read, control.mem_write);
+    cout << "write data mem: " << write_data_mem << " mem write control: " << control.mem_write << " Resulting alu result " << alu_result << "\n";
+
     // Loads: lbu or lhu modify read data by masking
     read_data_mem &= control.halfword ? 0xffff : control.byte ? 0xff : 0xffffffff;
 
@@ -113,6 +120,8 @@ void Processor::single_cycle_processor_advance() {
 
     // Write Back
     regfile.access(0, 0, read_data_2, read_data_2, write_reg, control.reg_write, write_data);
+    cout << control.mem_to_reg << " " << read_data_mem << " " << alu_result << "\n";
+    cout << "Are we writing: " << control.reg_write << ", writing " << write_data << " to " << write_reg << "\n";
     
     // Update PC
     regfile.pc += (control.branch && !control.bne && alu_zero) || (control.bne && !alu_zero) ? imm << 2 : 0; 
@@ -127,6 +136,7 @@ void Processor::fetch_stage(){
     // increment pc
     regfile.pc += 4;
     table[0].push_back(regfile.pc);
+    cout << "inst:" << instruction  << " \n";
     
     // pass variables
     FDReg.pc = regfile.pc;
@@ -138,7 +148,10 @@ void Processor::decode_stage(){
     uint32_t instruction;
     instruction = FDReg.instruction;
     // decode into contol signals
-    control.decode(instruction);
+    if (FDReg.pc != 0) {
+        control.decode(instruction);
+    }
+    DEBUG(control.print());
     table[1].push_back(FDReg.pc);
 
     // extract rs, rt, rd, imm, funct 
@@ -195,6 +208,8 @@ void Processor::decode_stage(){
 
 void Processor::execute_stage(){
     alu.generate_control_inputs(DXReg.ALU_op_control, DXReg.funct, DXReg.opcode);
+    cout << "ALU op: " << DXReg.ALU_op_control << " Funct: " << DXReg.funct << " opcode: " << DXReg.opcode << "\n";
+
     table[2].push_back(DXReg.pc);
 
     // Find operands for the ALU Execution
@@ -205,6 +220,8 @@ void Processor::execute_stage(){
     uint32_t alu_zero = 0;
 
     uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
+    cout << "pc: " << DXReg.pc << " op1 " << operand_1 << " op2 "  << operand_2 << " alu_zero " << alu_zero << " alu result " << alu_result << "\n";
+
     XMReg.alu_zero = alu_zero;
     XMReg.alu_result = alu_result;
     
@@ -239,11 +256,14 @@ void Processor::memory_stage(){
 
       // First read no matter whether it is a load or a store
     memory->access(XMReg.alu_result, read_data_mem, 0, XMReg.mem_read_control | XMReg.mem_write_control, 0);
+    cout << "read data mem: " << read_data_mem << " mem read control: " << XMReg.mem_read_control << " Resulting alu result " << XMReg.alu_result << "\n";
     // Stores: sb or sh mask and preserve original leftmost bits
     write_data_mem = XMReg.halfword_control ? (read_data_mem & 0xffff0000) | (XMReg.read_data_2 & 0xffff) : 
                     XMReg.byte_control ? (read_data_mem & 0xffffff00) | (XMReg.read_data_2 & 0xff): XMReg.read_data_2;
     // Write to memory only if mem_write is 1, i.e store
     memory->access(XMReg.alu_result, read_data_mem, write_data_mem, XMReg.mem_read_control, XMReg.mem_write_control);
+    cout << "write data mem: " << write_data_mem << " mem write control: " << XMReg.mem_write_control << " Resulting alu result " << XMReg.alu_result << "\n";
+
     // Loads: lbu or lhu modify read data by masking
     MWBReg.read_data_mem &= XMReg.halfword_control ? 0xffff : XMReg.byte_control ? 0xff : 0xffffffff;
 
@@ -272,6 +292,7 @@ void Processor::write_back_stage() {
     table[4].push_back(MWBReg.pc);
     uint32_t read_data_dummy;
     uint32_t write_data = MWBReg.link_control ? regfile.pc+8 : MWBReg.mem_to_reg_control ? MWBReg.read_data_mem : MWBReg.alu_result; 
+    cout << MWBReg.mem_to_reg_control << " " << MWBReg.read_data_mem << " " << MWBReg.alu_result << "\n";
     cout << "Are we writing: " << MWBReg.reg_write_control << ", writing " << write_data << " to " << MWBReg.write_reg << "\n";
     regfile.access(0, 0, read_data_dummy, read_data_dummy, MWBReg.write_reg, MWBReg.reg_write_control, write_data);
 }

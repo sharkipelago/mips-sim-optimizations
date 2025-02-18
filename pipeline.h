@@ -20,7 +20,7 @@ struct DecodeExPipeReg {
     bool bne_control = 0;
     bool mem_read_control = 0;
     bool mem_to_reg_control = 0;
-    bool ALU_op_control = 0;
+    unsigned ALU_op_control : 2; 
     bool mem_write_control = 0;
     bool halfword_control = 0;
     bool byte_control = 0;
