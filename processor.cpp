@@ -204,6 +204,10 @@ void Processor::decode_stage(){
     DXReg.shamt = shamt;
     DXReg.opcode = opcode;
     DXReg.funct = funct;
+
+    cout << "[R-Type]" << " opcode: " << opcode <<  ", rs: " << rs << ", rt: " << rt << ", rd: "<< rd << ", shamt: " << shamt << ", funct: " << funct << "\n";
+    cout << "[I-Type]" << " opcode: " << opcode <<  ", rs: " << rs << ", rt: " << rt << ", imm: " << imm << "\n";
+
 }
 
 void Processor::execute_stage(){
@@ -302,18 +306,23 @@ void Processor::pipelined_processor_advance() {
     // does nothing currently -- if you call it from the cmd line, you'll run into an infinite loop
     // might be helpful to implement stages in a separate module
 
-
-        
+    cout << "\n\n";
+    cout << "==WRITEBACK==" << "\n";        
     write_back_stage();
+    cout << "==MEMORY==" << "\n";
     memory_stage();
+    cout << "==EXECUTE=="<< "\n";
     execute_stage();
+    cout << "==DECODE==" << "\n";
     decode_stage();
+    cout << "==FETCH=="<< "\n";
     fetch_stage();
 
+    string stage_strings[5] = {"F", "D", "X", "M", "W"};
     vector<int> lens = {};
     for (unsigned int i = 0; i < table.size(); i++)
     {
-        
+        cout << stage_strings[i] << ": ";
         for (unsigned int j = 0; j < table[i].size(); j++)
         {
             int len = to_string(abs(table[i][j])).length();
@@ -326,7 +335,6 @@ void Processor::pipelined_processor_advance() {
         cout << "\n";
     }
     lens.clear();
-
 
 
 }

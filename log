@@ -1,0 +1,461 @@
+
+PC: 0x0 inst: 539033601
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+ALU op: 3 Funct: 1 opcode: 8
+op1 0 op2 1 alu_zero 0 alu result 1
+read data mem: 0 mem read control: 0 Resulting alu result 1
+write data mem: 0 mem write control: 0 Resulting alu result 1
+Mem to reg: 0 Read data mem: 0 Alu result: 1
+Are we writing: 1, writing 1 to 1
+
+CYCLE 0
+R[0]: 0
+R[1]: 1
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+
+PC: 0x4 inst: 547684357
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+ALU op: 3 Funct: 5 opcode: 8
+op1 0 op2 5 alu_zero 0 alu result 5
+read data mem: 0 mem read control: 0 Resulting alu result 5
+write data mem: 0 mem write control: 0 Resulting alu result 5
+Mem to reg: 0 Read data mem: 0 Alu result: 5
+Are we writing: 1, writing 5 to 5
+
+CYCLE 1
+R[0]: 0
+R[1]: 1
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 5
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+
+PC: 0x8 inst: 279248904
+REG_DEST: 0
+JUMP: 0
+BRANCH: 1
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 1
+MEM_WRITE: 0
+ALU_SRC: 0
+REG_WRITE: 0
+ALU op: 1 Funct: 8 opcode: 4
+op1 5 op2 5 alu_zero 1 alu result 0
+read data mem: 0 mem read control: 0 Resulting alu result 0
+write data mem: 5 mem write control: 0 Resulting alu result 0
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 5
+
+CYCLE 2
+R[0]: 0
+R[1]: 1
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 5
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+
+PC: 0x2c inst: 541196290
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+ALU op: 3 Funct: 2 opcode: 8
+op1 0 op2 2 alu_zero 0 alu result 2
+read data mem: 0 mem read control: 0 Resulting alu result 2
+write data mem: 0 mem write control: 0 Resulting alu result 2
+Mem to reg: 0 Read data mem: 0 Alu result: 2
+Are we writing: 1, writing 2 to 2
+
+CYCLE 3
+R[0]: 0
+R[1]: 1
+R[2]: 2
+R[3]: 0
+R[4]: 0
+R[5]: 5
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+
+PC: 0x30 inst: 541196290
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+ALU op: 3 Funct: 2 opcode: 8
+op1 2 op2 2 alu_zero 0 alu result 4
+read data mem: 0 mem read control: 0 Resulting alu result 4
+write data mem: 2 mem write control: 0 Resulting alu result 4
+Mem to reg: 0 Read data mem: 0 Alu result: 4
+Are we writing: 1, writing 4 to 2
+
+CYCLE 4
+R[0]: 0
+R[1]: 1
+R[2]: 4
+R[3]: 0
+R[4]: 0
+R[5]: 5
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+
+PC: 0x34 inst: 541196290
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+ALU op: 3 Funct: 2 opcode: 8
+op1 4 op2 2 alu_zero 0 alu result 6
+read data mem: 0 mem read control: 0 Resulting alu result 6
+write data mem: 4 mem write control: 0 Resulting alu result 6
+Mem to reg: 0 Read data mem: 0 Alu result: 6
+Are we writing: 1, writing 6 to 2
+
+CYCLE 5
+R[0]: 0
+R[1]: 1
+R[2]: 6
+R[3]: 0
+R[4]: 0
+R[5]: 5
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+
+PC: 0x38 inst: 340066308
+REG_DEST: 0
+JUMP: 0
+BRANCH: 1
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 1
+MEM_WRITE: 0
+ALU_SRC: 0
+REG_WRITE: 0
+ALU op: 1 Funct: 4 opcode: 5
+op1 6 op2 5 alu_zero 0 alu result 1
+read data mem: 0 mem read control: 0 Resulting alu result 1
+write data mem: 5 mem write control: 0 Resulting alu result 1
+Mem to reg: 0 Read data mem: 0 Alu result: 1
+Are we writing: 0, writing 1 to 5
+
+CYCLE 6
+R[0]: 0
+R[1]: 1
+R[2]: 6
+R[3]: 0
+R[4]: 0
+R[5]: 5
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+
+PC: 0x4c inst: 0
+REG_DEST: 1
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 2
+MEM_WRITE: 0
+ALU_SRC: 0
+REG_WRITE: 1
+ALU op: 2 Funct: 0 opcode: 0
+op1 0 op2 0 alu_zero 1 alu result 0
+read data mem: 0 mem read control: 0 Resulting alu result 0
+write data mem: 0 mem write control: 0 Resulting alu result 0
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 1, writing 0 to 0
+
+CYCLE 7
+R[0]: 0
+R[1]: 1
+R[2]: 6
+R[3]: 0
+R[4]: 0
+R[5]: 5
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+
+PC: 0x50 inst: 0
+REG_DEST: 1
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 2
+MEM_WRITE: 0
+ALU_SRC: 0
+REG_WRITE: 1
+ALU op: 2 Funct: 0 opcode: 0
+op1 0 op2 0 alu_zero 1 alu result 0
+read data mem: 0 mem read control: 0 Resulting alu result 0
+write data mem: 0 mem write control: 0 Resulting alu result 0
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 1, writing 0 to 0
+
+CYCLE 8
+R[0]: 0
+R[1]: 1
+R[2]: 6
+R[3]: 0
+R[4]: 0
+R[5]: 5
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+
+Completed execution in 562.5 nanoseconds.

@@ -8,10 +8,10 @@ __start:
    addi $1, $1, 1
    addi $5, $5, 5
    beq $5, $5, skip
-   addi $1, $1, 1
-   addi $1, $1, 1
-   addi $1, $1, 1
-   addi $1, $1, 1
+   addi $6, $6, 1
+   addi $7, $7, 1
+   addi $8, $8, 1
+   addi $9, $9, 1
    addi $1, $1, 1
    addi $1, $1, 1
    addi $1, $1, 1

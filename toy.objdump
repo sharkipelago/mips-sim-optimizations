@@ -1,0 +1,57 @@
+
+toy:     file format elf32-tradlittlemips
+
+
+Disassembly of section .text:
+
+00000000 <__start>:
+   0:	00430820 	add	at,v0,v1
+   4:	20220005 	addi	v0,at,5
+   8:	10000002 	b	14 <label>
+   c:	00000000 	nop
+  10:	00431022 	sub	v0,v0,v1
+
+00000014 <label>:
+  14:	00a62025 	or	a0,a1,a2
+	...
+
+Disassembly of section .MIPS.abiflags:
+
+004000d8 <_fdata+0x3ff0d8>:
+  4000d8:	01200000 	0x1200000
+  4000dc:	05000101 	bltz	t0,4004e4 <_gp+0x3f74f4>
+  4000e0:	00000000 	nop
+	...
+
+Disassembly of section .reginfo:
+
+004000f0 <.reginfo>:
+  4000f0:	0000007e 	0x7e
+	...
+  400104:	00008ff0 	tge	zero,zero,0x23f
+
+Disassembly of section .note.gnu.build-id:
+
+00400108 <.note.gnu.build-id>:
+  400108:	00000004 	sllv	zero,zero,zero
+  40010c:	00000014 	0x14
+  400110:	00000003 	sra	zero,zero,0x0
+  400114:	00554e47 	0x554e47
+  400118:	6e13ab87 	0x6e13ab87
+  40011c:	e9eac15a 	swc2	$10,-16038(t7)
+  400120:	475c5f4c 	c1	0x15c5f4c
+  400124:	6aa9975b 	0x6aa9975b
+  400128:	6a84be10 	0x6a84be10
+
+Disassembly of section .pdr:
+
+00000000 <.pdr>:
+	...
+
+Disassembly of section .gnu.attributes:
+
+00000000 <.gnu.attributes>:
+   0:	00000f41 	0xf41
+   4:	756e6700 	jalx	5b99c00 <_gp+0x5b90c10>
+   8:	00070100 	sll	zero,a3,0x4
+   c:	05040000 	0x5040000

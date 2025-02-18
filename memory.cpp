@@ -125,7 +125,7 @@ void Cache::replace(uint32_t address, CacheLine newLine, CacheLine &evictedLine)
             line[idx*assoc+w] = newLine;
             return;
         }
-    }
+    }   
 }
 
 // Invalidate a line

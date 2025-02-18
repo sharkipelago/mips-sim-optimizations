@@ -1,0 +1,9 @@
+{
+  "files.associations": {
+    "*.yarnproject": "jsonc",
+    "iostream": "cpp",
+    "vector": "cpp",
+    "string": "cpp",
+    "cstdlib": "cpp"
+  }
+}

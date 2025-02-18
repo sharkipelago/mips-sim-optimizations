@@ -1,0 +1,122 @@
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           MIPS R3000
+  Version:                           0x1
+  Entry point address:               0x0
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          131940 (bytes into file)
+  Flags:                             0x50001006, pic, cpic, o32, mips32
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         5
+  Size of section headers:           40 (bytes)
+  Number of section headers:         11
+  Section header string table index: 10
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .text             PROGBITS        00000000 010000 000020 00  AX  0   0 16
+  [ 2] .MIPS.abiflags    MIPS_ABIFLAGS   004000d8 0200d8 000018 18   A  0   0  8
+  [ 3] .reginfo          MIPS_REGINFO    004000f0 0200f0 000018 18   A  0   0  4
+  [ 4] .note.gnu.bu[...] NOTE            00400108 020108 000024 00   A  0   0  4
+  [ 5] .got              PROGBITS        00001000 011000 00000c 04 WAp  0   0 16
+  [ 6] .pdr              PROGBITS        00000000 02012c 000020 00      0   0  4
+  [ 7] .gnu.attributes   GNU_ATTRIBUTES  00000000 02014c 000010 00      0   0  1
+  [ 8] .symtab           SYMTAB          00000000 02015c 000140 10      9  12  4
+  [ 9] .strtab           STRTAB          00000000 02029c 000060 00      0   0  1
+  [10] .shstrtab         STRTAB          00000000 0202fc 000066 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+  L (link order), O (extra OS processing required), G (group), T (TLS),
+  C (compressed), x (unknown), o (OS specific), E (exclude),
+  D (mbind), p (processor specific)
+
+There are no section groups in this file.
+
+Program Headers:
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
+  ABIFLAGS       0x0200d8 0x004000d8 0x004000d8 0x00018 0x00018 R   0x8
+  REGINFO        0x0200f0 0x004000f0 0x004000f0 0x00018 0x00018 R   0x4
+  LOAD           0x010000 0x00000000 0x00000000 0x0100c 0x0100c RWE 0x10000
+  LOAD           0x0200d8 0x004000d8 0x004000d8 0x00054 0x00054 R   0x10000
+  NOTE           0x020108 0x00400108 0x00400108 0x00024 0x00024 R   0x4
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .MIPS.abiflags 
+   01     .reginfo 
+   02     .text .got 
+   03     .MIPS.abiflags .reginfo .note.gnu.build-id 
+   04     .note.gnu.build-id 
+
+There is no dynamic section in this file.
+
+There are no relocations in this file.
+
+The decoding of unwind sections for machine type MIPS R3000 is not currently supported.
+
+Symbol table '.symtab' contains 20 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 SECTION LOCAL  DEFAULT    1 .text
+     2: 004000d8     0 SECTION LOCAL  DEFAULT    2 .MIPS.abiflags
+     3: 004000f0     0 SECTION LOCAL  DEFAULT    3 .reginfo
+     4: 00400108     0 SECTION LOCAL  DEFAULT    4 .note.gnu.build-id
+     5: 00001000     0 SECTION LOCAL  DEFAULT    5 .got
+     6: 00000000     0 SECTION LOCAL  DEFAULT    6 .pdr
+     7: 00000000     0 SECTION LOCAL  DEFAULT    7 .gnu.attributes
+     8: 00000000     0 FILE    LOCAL  DEFAULT  ABS ccBAmHly.o
+     9: 0000001c     0 NOTYPE  LOCAL  DEFAULT    1 label
+    10: 00000000     0 FILE    LOCAL  DEFAULT  ABS 
+    11: 00008ff0     0 NOTYPE  LOCAL  DEFAULT    5 _gp
+    12: 00001000     0 NOTYPE  GLOBAL DEFAULT    2 _fdata
+    13: 00000000    32 FUNC    GLOBAL DEFAULT    1 __start
+    14: 00000000     0 NOTYPE  GLOBAL DEFAULT    1 _ftext
+    15: 0000100c     0 NOTYPE  GLOBAL DEFAULT    5 __bss_start
+    16: 0000100c     0 NOTYPE  GLOBAL DEFAULT    5 _edata
+    17: 00001000     0 OBJECT  GLOBAL HIDDEN     5 _GLOBAL_OFFSET_TABLE_
+    18: 0000100c     0 NOTYPE  GLOBAL DEFAULT    5 _end
+    19: 0000100c     0 NOTYPE  GLOBAL DEFAULT    5 _fbss
+
+No version information found in this file.
+
+Displaying notes found in: .note.gnu.build-id
+  Owner                Data size 	Description
+  GNU                  0x00000014	NT_GNU_BUILD_ID (unique build ID bitstring)
+    Build ID: 4b716fdd3328fae0152b0a996520c01b39446ddb
+Attribute Section: gnu
+File Attributes
+  Tag_GNU_MIPS_ABI_FP: Hard float (32-bit CPU, Any FPU)
+
+MIPS ABI Flags Version: 0
+
+ISA: MIPS32
+GPR size: 32
+CPR1 size: 32
+CPR2 size: 0
+FP ABI: Hard float (32-bit CPU, Any FPU)
+ISA Extension: None
+ASEs:
+	None
+FLAGS 1: 00000000
+FLAGS 2: 00000000
+
+Static GOT:
+ Canonical gp value: 00008ff0
+
+ Reserved entries:
+   Address     Access    Value
+  00001000 -32752(gp) 00000000
+  00001004 -32748(gp) 80000000
+
+ Local entries:
+   Address     Access    Value
+  00001008 -32744(gp) 00000000
+

@@ -1,0 +1,821 @@
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==MEMORY==
+read data mem: 0 mem read control: 0 Resulting alu result 0
+write data mem: 0 mem write control: 0 Resulting alu result 0
+Orig pc:0 jump pc: 0 add pc: 0
+==EXECUTE==
+ALU op: 0 Funct: 0 opcode: 0
+pc: 0 op1 0 op2 0 alu_zero 1 alu result 0
+==DECODE==
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 0
+MEM_WRITE: 0
+ALU_SRC: 0
+REG_WRITE: 0
+[R-Type] opcode: 0, rs: 0, rt: 0, rd: 0, shamt: 0, funct: 0
+[I-Type] opcode: 0, rs: 0, rt: 0, imm: 0
+==FETCH==
+inst:539033601 
+F: 4 
+D: 0 
+X: 0 
+M: 0 
+W: 0 
+
+CYCLE 0
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==MEMORY==
+read data mem: 0 mem read control: 0 Resulting alu result 0
+write data mem: 0 mem write control: 0 Resulting alu result 0
+Orig pc:0 jump pc: 0 add pc: 0
+==EXECUTE==
+ALU op: 0 Funct: 0 opcode: 0
+pc: 0 op1 0 op2 0 alu_zero 1 alu result 0
+==DECODE==
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+[R-Type] opcode: 8, rs: 1, rt: 1, rd: 0, shamt: 0, funct: 1
+[I-Type] opcode: 8, rs: 1, rt: 1, imm: 1
+==FETCH==
+inst:547684357 
+F: 4 8 
+D: 0 4 
+X: 0 0 
+M: 0 0 
+W: 0 0 
+
+CYCLE 1
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==MEMORY==
+read data mem: 0 mem read control: 0 Resulting alu result 0
+write data mem: 0 mem write control: 0 Resulting alu result 0
+Orig pc:0 jump pc: 0 add pc: 0
+==EXECUTE==
+ALU op: 3 Funct: 1 opcode: 8
+pc: 4 op1 0 op2 1 alu_zero 0 alu result 1
+==DECODE==
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+[R-Type] opcode: 8, rs: 5, rt: 5, rd: 0, shamt: 0, funct: 5
+[I-Type] opcode: 8, rs: 5, rt: 5, imm: 5
+==FETCH==
+inst:279248904 
+F: 4 8 12 
+D: 0 4 8  
+X: 0 0 4  
+M: 0 0 0  
+W: 0 0 0  
+
+CYCLE 2
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==MEMORY==
+read data mem: 0 mem read control: 0 Resulting alu result 1
+write data mem: 0 mem write control: 0 Resulting alu result 1
+Orig pc:4 jump pc: 4 add pc: 8
+==EXECUTE==
+ALU op: 3 Funct: 5 opcode: 8
+pc: 8 op1 0 op2 5 alu_zero 0 alu result 5
+==DECODE==
+REG_DEST: 0
+JUMP: 0
+BRANCH: 1
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 1
+MEM_WRITE: 0
+ALU_SRC: 0
+REG_WRITE: 0
+[R-Type] opcode: 4, rs: 5, rt: 5, rd: 0, shamt: 0, funct: 8
+[I-Type] opcode: 4, rs: 5, rt: 5, imm: 8
+==FETCH==
+inst:0 
+F: 4 8 12 16 
+D: 0 4 8  12 
+X: 0 0 4  8  
+M: 0 0 0  4  
+W: 0 0 0  0  
+
+CYCLE 3
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 1
+Are we writing: 1, writing 1 to 1
+==MEMORY==
+read data mem: 0 mem read control: 0 Resulting alu result 5
+write data mem: 0 mem write control: 0 Resulting alu result 5
+Orig pc:8 jump pc: 8 add pc: 28
+==EXECUTE==
+ALU op: 1 Funct: 8 opcode: 4
+pc: 12 op1 0 op2 0 alu_zero 1 alu result 0
+==DECODE==
+REG_DEST: 1
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 2
+MEM_WRITE: 0
+ALU_SRC: 0
+REG_WRITE: 1
+[R-Type] opcode: 0, rs: 0, rt: 0, rd: 0, shamt: 0, funct: 0
+[I-Type] opcode: 0, rs: 0, rt: 0, imm: 0
+==FETCH==
+inst:549847041 
+F: 4 8 12 16 20 
+D: 0 4 8  12 16 
+X: 0 0 4  8  12 
+M: 0 0 0  4  8  
+W: 0 0 0  0  4  
+
+CYCLE 4
+R[0]: 0
+R[1]: 1
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 5
+Are we writing: 1, writing 5 to 5
+==MEMORY==
+read data mem: 0 mem read control: 0 Resulting alu result 0
+write data mem: 0 mem write control: 0 Resulting alu result 0
+Orig pc:12 jump pc: 12 add pc: 44
+==EXECUTE==
+ALU op: 2 Funct: 0 opcode: 0
+pc: 16 op1 0 op2 0 alu_zero 1 alu result 0
+==DECODE==
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+[R-Type] opcode: 8, rs: 6, rt: 6, rd: 0, shamt: 0, funct: 1
+[I-Type] opcode: 8, rs: 6, rt: 6, imm: 1
+==FETCH==
+inst:541196290 
+F: 4 8 12 16 20 48 
+D: 0 4 8  12 16 20 
+X: 0 0 4  8  12 16 
+M: 0 0 0  4  8  12 
+W: 0 0 0  0  4  8  
+
+CYCLE 5
+R[0]: 0
+R[1]: 1
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 5
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 5
+==MEMORY==
+read data mem: 0 mem read control: 0 Resulting alu result 0
+write data mem: 0 mem write control: 0 Resulting alu result 0
+Orig pc:16 jump pc: 16 add pc: 16
+==EXECUTE==
+ALU op: 3 Funct: 1 opcode: 8
+pc: 20 op1 0 op2 1 alu_zero 0 alu result 1
+==DECODE==
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+[R-Type] opcode: 8, rs: 2, rt: 2, rd: 0, shamt: 0, funct: 2
+[I-Type] opcode: 8, rs: 2, rt: 2, imm: 2
+==FETCH==
+inst:541196290 
+F: 4 8 12 16 20 48 52 
+D: 0 4 8  12 16 20 48 
+X: 0 0 4  8  12 16 20 
+M: 0 0 0  4  8  12 16 
+W: 0 0 0  0  4  8  12 
+
+CYCLE 6
+R[0]: 0
+R[1]: 1
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 5
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 1, writing 0 to 0
+==MEMORY==
+read data mem: 0 mem read control: 0 Resulting alu result 1
+write data mem: 0 mem write control: 0 Resulting alu result 1
+Orig pc:20 jump pc: 20 add pc: 24
+==EXECUTE==
+ALU op: 3 Funct: 2 opcode: 8
+pc: 48 op1 0 op2 2 alu_zero 0 alu result 2
+==DECODE==
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+[R-Type] opcode: 8, rs: 2, rt: 2, rd: 0, shamt: 0, funct: 2
+[I-Type] opcode: 8, rs: 2, rt: 2, imm: 2
+==FETCH==
+inst:541196290 
+F: 4 8 12 16 20 48 52 56 
+D: 0 4 8  12 16 20 48 52 
+X: 0 0 4  8  12 16 20 48 
+M: 0 0 0  4  8  12 16 20 
+W: 0 0 0  0  4  8  12 16 
+
+CYCLE 7
+R[0]: 0
+R[1]: 1
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 5
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 1
+Are we writing: 1, writing 1 to 6
+==MEMORY==
+read data mem: 0 mem read control: 0 Resulting alu result 2
+write data mem: 0 mem write control: 0 Resulting alu result 2
+Orig pc:48 jump pc: 48 add pc: 56
+==EXECUTE==
+ALU op: 3 Funct: 2 opcode: 8
+pc: 52 op1 0 op2 2 alu_zero 0 alu result 2
+==DECODE==
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+[R-Type] opcode: 8, rs: 2, rt: 2, rd: 0, shamt: 0, funct: 2
+[I-Type] opcode: 8, rs: 2, rt: 2, imm: 2
+==FETCH==
+inst:340066308 
+F: 4 8 12 16 20 48 52 56 60 
+D: 0 4 8  12 16 20 48 52 56 
+X: 0 0 4  8  12 16 20 48 52 
+M: 0 0 0  4  8  12 16 20 48 
+W: 0 0 0  0  4  8  12 16 20 
+
+CYCLE 8
+R[0]: 0
+R[1]: 1
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 5
+R[6]: 1
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 2
+Are we writing: 1, writing 2 to 2
+==MEMORY==
+read data mem: 0 mem read control: 0 Resulting alu result 2
+write data mem: 0 mem write control: 0 Resulting alu result 2
+Orig pc:52 jump pc: 52 add pc: 60
+==EXECUTE==
+ALU op: 3 Funct: 2 opcode: 8
+pc: 56 op1 0 op2 2 alu_zero 0 alu result 2
+==DECODE==
+REG_DEST: 0
+JUMP: 0
+BRANCH: 1
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 1
+MEM_WRITE: 0
+ALU_SRC: 0
+REG_WRITE: 0
+[R-Type] opcode: 5, rs: 2, rt: 5, rd: 0, shamt: 0, funct: 4
+[I-Type] opcode: 5, rs: 2, rt: 5, imm: 4
+==FETCH==
+inst:0 
+F: 4 8 12 16 20 48 52 56 60 64 
+D: 0 4 8  12 16 20 48 52 56 60 
+X: 0 0 4  8  12 16 20 48 52 56 
+M: 0 0 0  4  8  12 16 20 48 52 
+W: 0 0 0  0  4  8  12 16 20 48 
+
+CYCLE 9
+R[0]: 0
+R[1]: 1
+R[2]: 2
+R[3]: 0
+R[4]: 0
+R[5]: 5
+R[6]: 1
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 2
+Are we writing: 1, writing 2 to 2
+==MEMORY==
+read data mem: 0 mem read control: 0 Resulting alu result 2
+write data mem: 0 mem write control: 0 Resulting alu result 2
+Orig pc:56 jump pc: 56 add pc: 64
+==EXECUTE==
+ALU op: 1 Funct: 4 opcode: 5
+pc: 60 op1 2 op2 5 alu_zero 0 alu result 4294967293
+==DECODE==
+REG_DEST: 1
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 2
+MEM_WRITE: 0
+ALU_SRC: 0
+REG_WRITE: 1
+[R-Type] opcode: 0, rs: 0, rt: 0, rd: 0, shamt: 0, funct: 0
+[I-Type] opcode: 0, rs: 0, rt: 0, imm: 0
+==FETCH==
+inst:541196290 
+F: 4 8 12 16 20 48 52 56 60 64 68 
+D: 0 4 8  12 16 20 48 52 56 60 64 
+X: 0 0 4  8  12 16 20 48 52 56 60 
+M: 0 0 0  4  8  12 16 20 48 52 56 
+W: 0 0 0  0  4  8  12 16 20 48 52 
+
+CYCLE 10
+R[0]: 0
+R[1]: 1
+R[2]: 2
+R[3]: 0
+R[4]: 0
+R[5]: 5
+R[6]: 1
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 2
+Are we writing: 1, writing 2 to 2
+==MEMORY==
+read data mem: 0 mem read control: 0 Resulting alu result 4294967293
+write data mem: 5 mem write control: 0 Resulting alu result 4294967293
+Orig pc:60 jump pc: 60 add pc: 76
+==EXECUTE==
+ALU op: 2 Funct: 0 opcode: 0
+pc: 64 op1 0 op2 0 alu_zero 1 alu result 0
+==DECODE==
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+[R-Type] opcode: 8, rs: 2, rt: 2, rd: 0, shamt: 0, funct: 2
+[I-Type] opcode: 8, rs: 2, rt: 2, imm: 2
+==FETCH==
+inst:0 
+F: 4 8 12 16 20 48 52 56 60 64 68 80 
+D: 0 4 8  12 16 20 48 52 56 60 64 68 
+X: 0 0 4  8  12 16 20 48 52 56 60 64 
+M: 0 0 0  4  8  12 16 20 48 52 56 60 
+W: 0 0 0  0  4  8  12 16 20 48 52 56 
+
+CYCLE 11
+R[0]: 0
+R[1]: 1
+R[2]: 2
+R[3]: 0
+R[4]: 0
+R[5]: 5
+R[6]: 1
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 4294967293
+Are we writing: 0, writing 4294967293 to 5
+==MEMORY==
+read data mem: 0 mem read control: 0 Resulting alu result 0
+write data mem: 0 mem write control: 0 Resulting alu result 0
+Orig pc:64 jump pc: 64 add pc: 64
+==EXECUTE==
+ALU op: 3 Funct: 2 opcode: 8
+pc: 68 op1 2 op2 2 alu_zero 0 alu result 4
+==DECODE==
+REG_DEST: 1
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 2
+MEM_WRITE: 0
+ALU_SRC: 0
+REG_WRITE: 1
+[R-Type] opcode: 0, rs: 0, rt: 0, rd: 0, shamt: 0, funct: 0
+[I-Type] opcode: 0, rs: 0, rt: 0, imm: 0
+==FETCH==
+inst:0 
+F: 4 8 12 16 20 48 52 56 60 64 68 80 84 
+D: 0 4 8  12 16 20 48 52 56 60 64 68 80 
+X: 0 0 4  8  12 16 20 48 52 56 60 64 68 
+M: 0 0 0  4  8  12 16 20 48 52 56 60 64 
+W: 0 0 0  0  4  8  12 16 20 48 52 56 60 
+
+CYCLE 12
+R[0]: 0
+R[1]: 1
+R[2]: 2
+R[3]: 0
+R[4]: 0
+R[5]: 5
+R[6]: 1
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+
+Completed execution in 6.5 nanoseconds.
