@@ -120,7 +120,7 @@ void Processor::single_cycle_processor_advance() {
 
     // Write Back
     regfile.access(0, 0, read_data_2, read_data_2, write_reg, control.reg_write, write_data);
-    cout << control.mem_to_reg << " " << read_data_mem << " " << alu_result << "\n";
+    cout << "Mem to reg: " << control.mem_to_reg << " Read data mem: " << read_data_mem << " Alu result: " << alu_result << "\n";
     cout << "Are we writing: " << control.reg_write << ", writing " << write_data << " to " << write_reg << "\n";
     
     // Update PC
@@ -275,7 +275,7 @@ void Processor::memory_stage(){
             regfile.pc = XMReg.pc;
         }
     }
-    cout << XMReg.orig_pc << " " << XMReg.pc << " " << XMReg.pc_add_result << "\n";
+    cout << "Orig pc:" << XMReg.orig_pc << " jump pc: " << XMReg.pc << " add pc: " << XMReg.pc_add_result << "\n";
 
     // Passing Values
     MWBReg.pc = XMReg.orig_pc;
@@ -292,7 +292,7 @@ void Processor::write_back_stage() {
     table[4].push_back(MWBReg.pc);
     uint32_t read_data_dummy;
     uint32_t write_data = MWBReg.link_control ? regfile.pc+8 : MWBReg.mem_to_reg_control ? MWBReg.read_data_mem : MWBReg.alu_result; 
-    cout << MWBReg.mem_to_reg_control << " " << MWBReg.read_data_mem << " " << MWBReg.alu_result << "\n";
+    cout << "Mem to reg: " << MWBReg.mem_to_reg_control << " Read data mem: " << MWBReg.read_data_mem << " Alu result: " << MWBReg.alu_result << "\n";
     cout << "Are we writing: " << MWBReg.reg_write_control << ", writing " << write_data << " to " << MWBReg.write_reg << "\n";
     regfile.access(0, 0, read_data_dummy, read_data_dummy, MWBReg.write_reg, MWBReg.reg_write_control, write_data);
 }
