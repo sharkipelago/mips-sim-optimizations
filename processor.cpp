@@ -2,6 +2,7 @@
 #include <iostream>
 #include "processor.h"
 #include <string>
+#include <cassert>
 using namespace std;
 #define ENABLE_DEBUG
 
@@ -199,6 +200,7 @@ void Processor::decode_stage(){
     DXReg.read_data_2 = read_data_2;
     DXReg.pc = FDReg.pc;
     DXReg.rd = rd;
+    DXReg.rs = rs;
     DXReg.rt = rt;
     DXReg.addr = addr;
     DXReg.shamt = shamt;
@@ -211,6 +213,7 @@ void Processor::decode_stage(){
 }
 
 void Processor::execute_stage(){
+
     alu.generate_control_inputs(DXReg.ALU_op_control, DXReg.funct, DXReg.opcode);
     cout << "ALU op: " << DXReg.ALU_op_control << " Funct: " << DXReg.funct << " opcode: " << DXReg.opcode << "\n";
 
@@ -222,6 +225,18 @@ void Processor::execute_stage(){
     uint32_t operand_1 = DXReg.shift_control ? DXReg.shamt : DXReg.read_data_1;
     uint32_t operand_2 = DXReg.ALU_src_control ? DXReg.imm : DXReg.read_data_2;
     uint32_t alu_zero = 0;
+
+    //FORWARDING LOGIC
+    uint8_t forward_a;
+    uint8_t forward_b;
+    forwUnit.check(DXReg.rs, DXReg.rt, XMReg.write_reg, MWBReg.write_reg, forward_a, forward_b);
+    assert (forward_a == 0 || forward_a == 1 || forward_a == 2);
+    assert (forward_b == 0 || forward_b == 1 || forward_b == 2);
+
+    if (forward_a != 0)
+        operand_1 = forward_a == 2 ? XMReg.alu_result : MWBReg.read_data_mem; 
+    if (forward_b != 0)
+        operand_2 = forward_b == 2 ? XMReg.alu_result : MWBReg.read_data_mem; 
 
     uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
     cout << "pc: " << DXReg.pc << " op1 " << operand_1 << " op2 "  << operand_2 << " alu_zero " << alu_zero << " alu result " << alu_result << "\n";

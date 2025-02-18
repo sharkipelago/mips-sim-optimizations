@@ -3,6 +3,7 @@
 #include "ALU.h"
 #include "control.h"
 #include "pipeline.h"
+#include "forwarding_unit.h"
 
 class Processor {
     private:
@@ -19,6 +20,7 @@ class Processor {
         DecodeExPipeReg DXReg;
         ExMemPipeReg XMReg;
         MemWBPipeReg MWBReg;
+        ForwardingUnit forwUnit;
         // pipelined processor
 
         // add private functions

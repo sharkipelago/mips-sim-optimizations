@@ -1,3 +1,5 @@
+
+
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
 Are we writing: 0, writing 0 to 0
@@ -61,6 +63,8 @@ R[28]: 0
 R[29]: 0
 R[30]: 0
 R[31]: 0
+
+
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
 Are we writing: 0, writing 0 to 0
@@ -124,6 +128,8 @@ R[28]: 0
 R[29]: 0
 R[30]: 0
 R[31]: 0
+
+
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
 Are we writing: 0, writing 0 to 0
@@ -187,6 +193,8 @@ R[28]: 0
 R[29]: 0
 R[30]: 0
 R[31]: 0
+
+
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
 Are we writing: 0, writing 0 to 0
@@ -250,6 +258,8 @@ R[28]: 0
 R[29]: 0
 R[30]: 0
 R[31]: 0
+
+
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 1
 Are we writing: 1, writing 1 to 1
@@ -259,7 +269,7 @@ write data mem: 0 mem write control: 0 Resulting alu result 5
 Orig pc:8 jump pc: 8 add pc: 28
 ==EXECUTE==
 ALU op: 1 Funct: 8 opcode: 4
-pc: 12 op1 0 op2 0 alu_zero 1 alu result 0
+pc: 12 op1 5 op2 5 alu_zero 1 alu result 0
 ==DECODE==
 REG_DEST: 1
 JUMP: 0
@@ -313,6 +323,8 @@ R[28]: 0
 R[29]: 0
 R[30]: 0
 R[31]: 0
+
+
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 5
 Are we writing: 1, writing 5 to 5
@@ -376,6 +388,8 @@ R[28]: 0
 R[29]: 0
 R[30]: 0
 R[31]: 0
+
+
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
 Are we writing: 0, writing 0 to 5
@@ -439,6 +453,8 @@ R[28]: 0
 R[29]: 0
 R[30]: 0
 R[31]: 0
+
+
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
 Are we writing: 1, writing 0 to 0
@@ -502,6 +518,8 @@ R[28]: 0
 R[29]: 0
 R[30]: 0
 R[31]: 0
+
+
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 1
 Are we writing: 1, writing 1 to 6
@@ -511,7 +529,7 @@ write data mem: 0 mem write control: 0 Resulting alu result 2
 Orig pc:48 jump pc: 48 add pc: 56
 ==EXECUTE==
 ALU op: 3 Funct: 2 opcode: 8
-pc: 52 op1 0 op2 2 alu_zero 0 alu result 2
+pc: 52 op1 2 op2 2 alu_zero 0 alu result 4
 ==DECODE==
 REG_DEST: 0
 JUMP: 0
@@ -565,16 +583,18 @@ R[28]: 0
 R[29]: 0
 R[30]: 0
 R[31]: 0
+
+
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 2
 Are we writing: 1, writing 2 to 2
 ==MEMORY==
-read data mem: 0 mem read control: 0 Resulting alu result 2
-write data mem: 0 mem write control: 0 Resulting alu result 2
+read data mem: 0 mem read control: 0 Resulting alu result 4
+write data mem: 0 mem write control: 0 Resulting alu result 4
 Orig pc:52 jump pc: 52 add pc: 60
 ==EXECUTE==
 ALU op: 3 Funct: 2 opcode: 8
-pc: 56 op1 0 op2 2 alu_zero 0 alu result 2
+pc: 56 op1 4 op2 4 alu_zero 0 alu result 8
 ==DECODE==
 REG_DEST: 0
 JUMP: 0
@@ -628,16 +648,18 @@ R[28]: 0
 R[29]: 0
 R[30]: 0
 R[31]: 0
+
+
 ==WRITEBACK==
-Mem to reg: 0 Read data mem: 0 Alu result: 2
-Are we writing: 1, writing 2 to 2
+Mem to reg: 0 Read data mem: 0 Alu result: 4
+Are we writing: 1, writing 4 to 2
 ==MEMORY==
-read data mem: 0 mem read control: 0 Resulting alu result 2
-write data mem: 0 mem write control: 0 Resulting alu result 2
+read data mem: 0 mem read control: 0 Resulting alu result 8
+write data mem: 0 mem write control: 0 Resulting alu result 8
 Orig pc:56 jump pc: 56 add pc: 64
 ==EXECUTE==
 ALU op: 1 Funct: 4 opcode: 5
-pc: 60 op1 2 op2 5 alu_zero 0 alu result 4294967293
+pc: 60 op1 8 op2 5 alu_zero 0 alu result 3
 ==DECODE==
 REG_DEST: 1
 JUMP: 0
@@ -661,7 +683,7 @@ W: 0 0 0  0  4  8  12 16 20 48 52
 CYCLE 10
 R[0]: 0
 R[1]: 1
-R[2]: 2
+R[2]: 4
 R[3]: 0
 R[4]: 0
 R[5]: 5
@@ -691,12 +713,14 @@ R[28]: 0
 R[29]: 0
 R[30]: 0
 R[31]: 0
+
+
 ==WRITEBACK==
-Mem to reg: 0 Read data mem: 0 Alu result: 2
-Are we writing: 1, writing 2 to 2
+Mem to reg: 0 Read data mem: 0 Alu result: 8
+Are we writing: 1, writing 8 to 2
 ==MEMORY==
-read data mem: 0 mem read control: 0 Resulting alu result 4294967293
-write data mem: 5 mem write control: 0 Resulting alu result 4294967293
+read data mem: 0 mem read control: 0 Resulting alu result 3
+write data mem: 5 mem write control: 0 Resulting alu result 3
 Orig pc:60 jump pc: 60 add pc: 76
 ==EXECUTE==
 ALU op: 2 Funct: 0 opcode: 0
@@ -724,7 +748,7 @@ W: 0 0 0  0  4  8  12 16 20 48 52 56
 CYCLE 11
 R[0]: 0
 R[1]: 1
-R[2]: 2
+R[2]: 8
 R[3]: 0
 R[4]: 0
 R[5]: 5
@@ -754,16 +778,18 @@ R[28]: 0
 R[29]: 0
 R[30]: 0
 R[31]: 0
+
+
 ==WRITEBACK==
-Mem to reg: 0 Read data mem: 0 Alu result: 4294967293
-Are we writing: 0, writing 4294967293 to 5
+Mem to reg: 0 Read data mem: 0 Alu result: 3
+Are we writing: 0, writing 3 to 5
 ==MEMORY==
 read data mem: 0 mem read control: 0 Resulting alu result 0
 write data mem: 0 mem write control: 0 Resulting alu result 0
 Orig pc:64 jump pc: 64 add pc: 64
 ==EXECUTE==
 ALU op: 3 Funct: 2 opcode: 8
-pc: 68 op1 2 op2 2 alu_zero 0 alu result 4
+pc: 68 op1 8 op2 2 alu_zero 0 alu result 10
 ==DECODE==
 REG_DEST: 1
 JUMP: 0
@@ -787,7 +813,7 @@ W: 0 0 0  0  4  8  12 16 20 48 52 56 60
 CYCLE 12
 R[0]: 0
 R[1]: 1
-R[2]: 2
+R[2]: 8
 R[3]: 0
 R[4]: 0
 R[5]: 5
