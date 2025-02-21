@@ -4,6 +4,7 @@
 #include "control.h"
 #include "pipeline.h"
 #include "forwarding_unit.h"
+#include "HDU.h"
 
 class Processor {
     private:
@@ -21,6 +22,7 @@ class Processor {
         ExMemPipeReg XMReg;
         MemWBPipeReg MWBReg;
         ForwardingUnit forwUnit;
+        HDU hdu;
         // pipelined processor
 
         // add private functions

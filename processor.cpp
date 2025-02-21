@@ -130,13 +130,25 @@ void Processor::single_cycle_processor_advance() {
 }
 
 void Processor::fetch_stage(){
+    table[0].push_back(regfile.pc + 4);
+
+    if(hdu.fetch_stall){
+        return;
+    }
+
     uint32_t instruction;
     
     // fetch
-    memory->access(regfile.pc, instruction, 0, 1, 0);
+    bool successful_access = memory->access(regfile.pc, instruction, 0, 1, 0);
+    cout << "Succesful Access?: " << successful_access << "\n";
+    if (!successful_access) {
+        cout << "Unsucessful Fetch access => stalling\n" ;
+        hdu.fetch_stall = true;
+        return;
+    }
+
     // increment pc
     regfile.pc += 4;
-    table[0].push_back(regfile.pc);
     cout << "inst:" << instruction  << " \n";
     
     // pass variables
@@ -146,6 +158,12 @@ void Processor::fetch_stage(){
 
 }
 void Processor::decode_stage(){
+    table[1].push_back(FDReg.pc);
+
+    if(hdu.decode_stall){
+        return;
+    }
+
     uint32_t instruction;
     instruction = FDReg.instruction;
     // decode into contol signals
@@ -153,7 +171,6 @@ void Processor::decode_stage(){
         control.decode(instruction);
     }
     DEBUG(control.print());
-    table[1].push_back(FDReg.pc);
 
     // extract rs, rt, rd, imm, funct 
     int opcode = (instruction >> 26) & 0x3f;
@@ -213,11 +230,16 @@ void Processor::decode_stage(){
 }
 
 void Processor::execute_stage(){
-
-    alu.generate_control_inputs(DXReg.ALU_op_control, DXReg.funct, DXReg.opcode);
-    cout << "ALU op: " << DXReg.ALU_op_control << " Funct: " << DXReg.funct << " opcode: " << DXReg.opcode << "\n";
-
     table[2].push_back(DXReg.pc);
+
+    if(hdu.execute_stall) {
+        return;
+    }
+
+    cout << "ALU op: " << DXReg.ALU_op_control << " Funct: " << DXReg.funct << " opcode: " << DXReg.opcode << "\n";
+    
+    alu.generate_control_inputs(DXReg.ALU_op_control, DXReg.funct, DXReg.opcode);
+
 
     // Find operands for the ALU Execution
     // Operand 1 is always R[rs] -> read_data_1, except sll and srl
@@ -269,12 +291,23 @@ void Processor::execute_stage(){
 }    
 
 void Processor::memory_stage(){
+    table[3].push_back(XMReg.orig_pc);
+    if (hdu.memory_stall){
+        return;
+    }
+
     uint32_t read_data_mem = 0;
     uint32_t write_data_mem = 0;
-    table[3].push_back(XMReg.orig_pc);
 
       // First read no matter whether it is a load or a store
-    memory->access(XMReg.alu_result, read_data_mem, 0, XMReg.mem_read_control | XMReg.mem_write_control, 0);
+    bool successful_access = memory->access(XMReg.alu_result, read_data_mem, 0, XMReg.mem_read_control | XMReg.mem_write_control, 0);
+    cout << "Succesful Access?: " << successful_access << "\n";
+    if (!successful_access) {
+        cout << "Unsucessful Mem access => stalling\n" ;
+        hdu.stall_memory();
+        return;
+    }
+    
     cout << "read data mem: " << read_data_mem << " mem read control: " << XMReg.mem_read_control << " Resulting alu result " << XMReg.alu_result << "\n";
     // Stores: sb or sh mask and preserve original leftmost bits
     write_data_mem = XMReg.halfword_control ? (read_data_mem & 0xffff0000) | (XMReg.read_data_2 & 0xffff) : 
@@ -309,6 +342,10 @@ void Processor::memory_stage(){
 
 void Processor::write_back_stage() {
     table[4].push_back(MWBReg.pc);
+    if (hdu.writeback_stall){
+        return;
+    }
+
     uint32_t read_data_dummy;
     uint32_t write_data = MWBReg.link_control ? regfile.pc+8 : MWBReg.mem_to_reg_control ? MWBReg.read_data_mem : MWBReg.alu_result; 
     cout << "Mem to reg: " << MWBReg.mem_to_reg_control << " Read data mem: " << MWBReg.read_data_mem << " Alu result: " << MWBReg.alu_result << "\n";
@@ -332,6 +369,8 @@ void Processor::pipelined_processor_advance() {
     decode_stage();
     cout << "==FETCH=="<< "\n";
     fetch_stage();
+
+    hdu.reset_stalls();
 
     string stage_strings[5] = {"F", "D", "X", "M", "W"};
     vector<int> lens = {};
