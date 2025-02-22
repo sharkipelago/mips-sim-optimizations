@@ -135,7 +135,8 @@ int main(int argc, char *argv[]) {
 
     memory.setOptLevel(optLevel);
     uint64_t num_cycles = 0;
-    while (processor.getPC() <= end_pc) {
+    // +16 is so that it runs 4 extra times at the very end so that the processor gets each instruction to end of pipeline
+    while (processor.getPC() <= end_pc + 16) {
         processor.advance();
         cout << "\nCYCLE " << num_cycles << "\n";
         processor.printRegFile();
