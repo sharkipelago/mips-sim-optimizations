@@ -11,13 +11,13 @@ class ForwardingUnit {
       ForwardingUnit() {
       }
       // ForwardingUnit stuff
-      void check(int IDEX_rs, int IDEX_rt, int EXMEM_rd, int MEMWB_rd, uint8_t &forwardA, uint8_t &forwardB) 
+      void check(int IDEX_rs, int IDEX_rt, int EXMEM_dest, int MEMWB_dest, uint32_t &forwardA, uint32_t &forwardB) 
       {
             //Check Execute first, because in case where both EXEMEM_rd and MEMWB_rd ==  IDEX_rs then execute should take precedence
             //as it would be the final thing to be written to regfile
 
-            forwardA = IDEX_rs == EXMEM_rd ? 2 : IDEX_rs == MEMWB_rd ? 1 : 0;
-            forwardB = IDEX_rt == EXMEM_rd ? 2 : IDEX_rt == MEMWB_rd ? 1 : 0;
+            forwardA = IDEX_rs == EXMEM_dest ? 2 : IDEX_rs == MEMWB_dest ? 1 : 0;
+            forwardB = IDEX_rt == EXMEM_dest ? 2 : IDEX_rt == MEMWB_dest ? 1 : 0;
 
             // if (IDEX_rs == EXMEM_rd)
             //     forwardA = 2; // 0b10

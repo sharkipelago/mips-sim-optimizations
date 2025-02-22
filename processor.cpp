@@ -249,17 +249,24 @@ void Processor::execute_stage(){
     uint32_t alu_zero = 0;
 
     //FORWARDING LOGIC
-    uint8_t forward_a;
-    uint8_t forward_b;
+    uint32_t forward_a;
+    uint32_t forward_b;
     forwUnit.check(DXReg.rs, DXReg.rt, XMReg.write_reg, MWBReg.write_reg, forward_a, forward_b);
+
     assert (forward_a == 0 || forward_a == 1 || forward_a == 2);
     assert (forward_b == 0 || forward_b == 1 || forward_b == 2);
 
-    if (forward_a != 0)
+    if (forward_a != 0) {
         operand_1 = forward_a == 2 ? XMReg.alu_result : MWBReg.read_data_mem; 
-    if (forward_b != 0)
+        cout << "Forwarding: " << operand_1 << " for operand 1 (forward a: " << forward_a << ")\n";
+    }
+    // Operand 2 is immediate if ALU_src = 1, for I-type, in this case do not forward to rt
+    if (forward_b != 0 && DXReg.ALU_src_control != 1) {
         operand_2 = forward_b == 2 ? XMReg.alu_result : MWBReg.read_data_mem; 
+        cout << "Forwarding: " << operand_2 << " for operand 2 (forward b: " << forward_b << ")\n";
+    }
 
+    // ALU Execution
     uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
     cout << "pc: " << DXReg.pc << " op1 " << operand_1 << " op2 "  << operand_2 << " alu_zero " << alu_zero << " alu result " << alu_result << "\n";
 
@@ -319,9 +326,14 @@ void Processor::memory_stage(){
     // Loads: lbu or lhu modify read data by masking
     MWBReg.read_data_mem &= XMReg.halfword_control ? 0xffff : XMReg.byte_control ? 0xff : 0xffffffff;
 
+    //Branch
     if ((XMReg.branch_control && !XMReg.bne_control && XMReg.alu_zero) || (XMReg.bne_control && !XMReg.alu_zero)){
         regfile.pc = XMReg.pc_add_result;
+        cout << "Branch taken => Flushing \n";
+        hdu.start_flush();
+        return;
     }
+    //Jump
     else{
         if (XMReg.pc != XMReg.orig_pc){
             regfile.pc = XMReg.pc;
@@ -370,7 +382,7 @@ void Processor::pipelined_processor_advance() {
     cout << "==FETCH=="<< "\n";
     fetch_stage();
 
-    hdu.reset_stalls();
+    hdu.update();
 
     string stage_strings[5] = {"F", "D", "X", "M", "W"};
     vector<int> lens = {};
