@@ -15,6 +15,7 @@ class Processor {
         
         uint32_t finishedPC;
         bool FDRegWrite = 1, memStall = false;
+        
 
 
         // add other structures as needed
@@ -29,6 +30,7 @@ class Processor {
         void pipelined_processor_advance();
  
     public:
+
         Processor(Memory *mem) { regfile.pc = 0; memory = mem;}
 
         // Get PC
