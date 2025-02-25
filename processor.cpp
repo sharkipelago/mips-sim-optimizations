@@ -92,7 +92,7 @@ void Processor::single_cycle_processor_advance() {
     
     // Execution 
     alu.generate_control_inputs(control.ALU_op, funct, opcode);
-    cout << "ALU op: " << control.ALU_op << " Funct: " << funct << " opcode: " << opcode << "\n";
+    DEBUG(cout << "ALU op: " << control.ALU_op << " Funct: " << funct << " opcode: " << opcode << "\n";)
    
     // Sign Extend Or Zero Extend the immediate
     // Using Arithmetic right shift in order to replicate 1 
@@ -107,7 +107,7 @@ void Processor::single_cycle_processor_advance() {
     uint32_t alu_zero = 0;
 
     uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
-    cout << "op1 " << operand_1 << " op2 " << operand_2 << " alu_zero " << alu_zero << " alu result " << alu_result << "\n";
+    DEBUG(cout << "op1 " << operand_1 << " op2 " << operand_2 << " alu_zero " << alu_zero << " alu result " << alu_result << "\n";)
     
     
     uint32_t read_data_mem = 0;
@@ -116,16 +116,16 @@ void Processor::single_cycle_processor_advance() {
     // Memory
     // First read no matter whether it is a load or a store
     memory->access(alu_result, read_data_mem, 0, control.mem_read | control.mem_write, 0);
-    cout << "read data mem: " << read_data_mem << " mem read control: " << control.mem_read << " Resulting alu result " << alu_result << "\n";
+    DEBUG(cout << "read data mem: " << read_data_mem << " mem read control: " << control.mem_read << " Resulting alu result " << alu_result << "\n";)
 
     // Stores: sb or sh mask and preserve original leftmost bits
     write_data_mem = control.halfword ? (read_data_mem & 0xffff0000) | (read_data_2 & 0xffff) : 
                     control.byte ? (read_data_mem & 0xffffff00) | (read_data_2 & 0xff): read_data_2;
 
-    cout << "read data 2: " << read_data_2 << "\n";
+    DEBUG(cout << "read data 2: " << read_data_2 << "\n";)
     // Write to memory only if mem_write is 1, i.e store
     memory->access(alu_result, read_data_mem, write_data_mem, control.mem_read, control.mem_write);
-    cout << "write data mem: " << write_data_mem << " mem write control: " << control.mem_write << " Resulting alu result " << alu_result << "\n";
+    DEBUG(cout << "write data mem: " << write_data_mem << " mem write control: " << control.mem_write << " Resulting alu result " << alu_result << "\n";)
 
     // Loads: lbu or lhu modify read data by masking
     read_data_mem &= control.halfword ? 0xffff : control.byte ? 0xff : 0xffffffff;
@@ -136,8 +136,8 @@ void Processor::single_cycle_processor_advance() {
 
     // Write Back
     regfile.access(0, 0, read_data_2, read_data_2, write_reg, control.reg_write, write_data);
-    cout << "Mem to reg: " << control.mem_to_reg << " Read data mem: " << read_data_mem << " Alu result: " << alu_result << "\n";
-    cout << "Are we writing: " << control.reg_write << ", writing " << write_data << " to " << write_reg << "\n";
+    DEBUG(cout << "Mem to reg: " << control.mem_to_reg << " Read data mem: " << read_data_mem << " Alu result: " << alu_result << "\n";)
+    DEBUG(cout << "Are we writing: " << control.reg_write << ", writing " << write_data << " to " << write_reg << "\n";)
     
     // Update PC
     regfile.pc += (control.branch && !control.bne && alu_zero) || (control.bne && !alu_zero) ? imm << 2 : 0; 
@@ -163,9 +163,13 @@ void Processor::emptyDXReg(){
     DXReg.reg_write_control = 0;
     DXReg.zero_extend_control = 0;
 }
-void Processor::flush(){
+
+void Processor::emptyFDReg(){
     FDReg.instruction = 0;
     FDReg.pc = 0;
+}
+void Processor::flush(){
+    emptyFDReg();
     emptyDXReg();
     
 }
@@ -182,9 +186,10 @@ void Processor::fetch_stage(){
     
     // fetch
     bool successful_access = memory->access(regfile.pc, instruction, 0, 1, 0);
-    cout << "Succesful Access?: " << successful_access << "\n";
+    DEBUG(cout << "Succesful Access?: " << successful_access << "\n";)
     if (!successful_access) {
-        cout << "Unsucessful Fetch access => stalling\n" ;
+        FDReg.instruction = 0;
+        DEBUG(cout << "Unsucessful Fetch access => stalling\n" ;)
         return;
     }
 
@@ -195,7 +200,7 @@ void Processor::fetch_stage(){
     // increment pc
     regfile.pc += 4;
     
-    cout << "inst:" << instruction  << " \n";
+    DEBUG(cout << "inst:" << instruction  << " \n";)
     
     
     // pass variables
@@ -207,12 +212,19 @@ void Processor::fetch_stage(){
 void Processor::decode_stage(){
     uint32_t instruction;
     instruction = FDReg.instruction;
+    table[1].push_back(FDReg.pc);
+    uint32_t temp_pc = FDReg.pc;
     // decode into contol signals
-    if (FDReg.pc != 0) {
+    if (FDReg.pc != 0 && instruction != 0) { // TODO: Check this - is iffy
         control.decode(instruction);
     }
+    else {
+        emptyDXReg();
+        DXReg.pc = temp_pc;
+        return;
+    }
     DEBUG(control.print());
-    table[1].push_back(FDReg.pc);
+    
 
     
 
@@ -227,10 +239,14 @@ void Processor::decode_stage(){
     int addr = instruction & 0x3ffffff;
 
     //Stalling - for I type, only check rs
-    if ((rs == XMReg.write_reg || (rt == XMReg.write_reg && opcode == 0)) && XMReg.mem_read_control){
-        cout << "Stalling - rs: " << rs << " , rt: " << rt << ", XM write reg: " << XMReg.write_reg << "\n";
+    // if ((rs == XMwrite_reg || (rt == XMwrite_reg && opcode == 0)) && XMMemReadC){
+    if ((rs == DXReg.rt || rt == DXReg.rt) && DXReg.mem_read_control){
+        DEBUG(cout << "Stalling - rs: " << rs << " , rt: " << rt << ", XM write reg: " << DXReg.rt << " XM Mem Read Control: " << DXReg.mem_read_control << "\n";)
+        stall();
+        DXReg.pc = temp_pc;
         return;
     }
+    DEBUG(cout << "Did not stall - rs: " << rs << " , rt: " << rt << ", XM write reg: " << DXReg.rt << " XM Mem Read Control: " << DXReg.mem_read_control<< "\n";)
     FDRegWrite = 1;
 
     // Variables to read data into
@@ -240,7 +256,7 @@ void Processor::decode_stage(){
     // Read from reg file
     regfile.access(rs, rt, read_data_1, read_data_2, 0, 0, 0);
 
-    cout << "read_data_1: " << read_data_1 << " read_data_2: " << read_data_2 << "\n";
+    DEBUG(cout << "read_data_1: " << read_data_1 << " read_data_2: " << read_data_2 << "\n";)
 
     // Sign Extend Or Zero Extend the immediate
     // Using Arithmetic right shift in order to replicate 1 
@@ -278,13 +294,13 @@ void Processor::decode_stage(){
     DXReg.opcode = opcode;
     DXReg.funct = funct;
 
-    cout << "[R-Type]" << " opcode: " << opcode <<  ", rs: " << rs << ", rt: " << rt << ", rd: "<< rd << ", shamt: " << shamt << ", funct: " << funct << "\n";
-    cout << "[I-Type]" << " opcode: " << opcode <<  ", rs: " << rs << ", rt: " << rt << ", imm: " << imm << "\n";
+    DEBUG(cout << "[R-Type]" << " opcode: " << opcode <<  ", rs: " << rs << ", rt: " << rt << ", rd: "<< rd << ", shamt: " << shamt << ", funct: " << funct << "\n";)
+    DEBUG(cout << "[I-Type]" << " opcode: " << opcode <<  ", rs: " << rs << ", rt: " << rt << ", imm: " << imm << "\n";)
 }
 
 void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t prevMWData, bool prevMWWRite){
     alu.generate_control_inputs(DXReg.ALU_op_control, DXReg.funct, DXReg.opcode);
-    cout << "ALU op: " << DXReg.ALU_op_control << " Funct: " << DXReg.funct << " opcode: " << DXReg.opcode << "\n";
+    DEBUG(cout << "ALU op: " << DXReg.ALU_op_control << " Funct: " << DXReg.funct << " opcode: " << DXReg.opcode << "\n";)
 
     table[2].push_back(DXReg.pc);
 
@@ -299,12 +315,12 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
 
     // if (forward_a != 0) {
     //     operand_1 = forward_a == 2 ? XMReg.alu_result : prevMWData; 
-    //     cout << "Forwarding: " << operand_1 << " for operand 1 (forward a: " << forward_a << ")\n";
+    //     DEBUG(cout << "Forwarding: " << operand_1 << " for operand 1 (forward a: " << forward_a << ")\n";
     // }
     // // Operand 2 is immediate if ALU_src = 1, for I-type, in this case do not forward to rt
     // if (forward_b != 0 && DXReg.ALU_src_control != 1) {
     //     operand_2 = forward_b == 2 ? XMReg.alu_result : prevMWData; 
-    //     cout << "Forwarding: " << operand_2 << " for operand 2 (forward b: " << forward_b << ")\n";
+    //     DEBUG(cout << "Forwarding: " << operand_2 << " for operand 2 (forward b: " << forward_b << ")\n";
     // }
 
     if (DXReg.rs == XMReg.write_reg && XMReg.reg_write_control){
@@ -313,7 +329,7 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
         if (DXReg.ALU_src_control == 1 && XMReg.mem_read_control){
             DXReg.read_data_2 = operand_1;
         }
-        cout << "Forwarding: " << operand_1 << " for operand 1 (forward a: " << forward_a << ")\n";
+        DEBUG(cout << "Forwarding: " << operand_1 << " for operand 1 (forward a: " << forward_a << ")\n";)
     }
     else if (forward_a == 1 && prevMWWRite){
         operand_1 = prevMWData; 
@@ -321,10 +337,10 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
         if (DXReg.ALU_src_control == 1){
             DXReg.read_data_2 = operand_1;
         }
-        cout << "Forwarding: " << operand_1 << " for operand 1 (forward a: " << forward_a << ")\n";
+        DEBUG(cout << "Forwarding: " << operand_1 << " for operand 1 (forward a: " << forward_a << ")\n";)
     }
     else {
-        cout << "Did not forward: " << prevMWData << " with control: " << prevMWWRite << " for operand 1 (forward a: " << forward_a << ")\n";
+        DEBUG(cout << "Did not forward: " << prevMWData << " with control: " << prevMWWRite << " for operand 1 (forward a: " << forward_a << ")\n";)
 
     }
     
@@ -336,7 +352,7 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
         else {
             operand_2 = XMReg.alu_result;
         }
-        cout << "Forwarding: " << operand_2 << " for operand 2 (forward b: " << forward_b << ")\n";
+        DEBUG(cout << "Forwarding: " << operand_2 << " for operand 2 (forward b: " << forward_b << ")\n";)
     }
     else if (forward_b == 1 && prevMWWRite){
         if (DXReg.ALU_src_control == 1){
@@ -346,16 +362,16 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
             operand_2 = prevMWData; 
         }
         
-        cout << "Forwarding: " << operand_2 << " for operand 2 (forward b: " << forward_b << ")\n";
+        DEBUG(cout << "Forwarding: " << operand_2 << " for operand 2 (forward b: " << forward_b << ")\n";)
     }      
     else {
-        cout << "Did not forward: " << prevMWData << " with control: " << prevMWWRite << " for operand 2 (forward b: " << forward_b << ")\n";
+        DEBUG(cout << "Did not forward: " << prevMWData << " with control: " << prevMWWRite << " for operand 2 (forward b: " << forward_b << ")\n";)
     }  
 
     
 
     uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
-    cout << "pc: " << DXReg.pc << " op1 " << operand_1 << " op2 "  << operand_2 << " alu_zero " << alu_zero << " alu result " << alu_result << "\n";
+    DEBUG(cout << "pc: " << DXReg.pc << " op1 " << operand_1 << " op2 "  << operand_2 << " alu_zero " << alu_zero << " alu result " << alu_result << "\n";)
 
     XMReg.alu_zero = alu_zero;
     XMReg.alu_result = alu_result;
@@ -365,7 +381,7 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
 
     XMReg.pc_add_result = DXReg.pc + (DXReg.imm << 2);
     XMReg.pc = DXReg.jump_reg_control ? DXReg.read_data_1 : DXReg.jump_control ? (DXReg.pc & 0xf0000000) & (DXReg.addr << 2): DXReg.pc;
-    // cout << DXReg.jump_control << " " << DXReg.jump_reg_control << "\n";
+    // DEBUG(cout << DXReg.jump_control << " " << DXReg.jump_reg_control << "\n";
     XMReg.orig_pc = DXReg.pc;
 
     // Pass Variables
@@ -391,21 +407,21 @@ void Processor::memory_stage(){
 
       // First read no matter whether it is a load or a store
     bool successful_access = memory->access(XMReg.alu_result, read_data_mem, 0, XMReg.mem_read_control | XMReg.mem_write_control, 0);
-    cout << "Succesful Access?: " << successful_access << "\n";
+    DEBUG(cout << "Succesful Access?: " << successful_access << "\n";)
     if (!successful_access) {
-        cout << "Unsucessful Mem access => stalling\n" ;
+        DEBUG(cout << "Unsucessful Mem access => stalling\n" ;)
         return;
     }
 
-    cout << "read data mem: " << read_data_mem << " mem read control: " << XMReg.mem_read_control << " Resulting alu result " << XMReg.alu_result << "\n";
+    DEBUG(cout << "read data mem: " << read_data_mem << " mem read control: " << XMReg.mem_read_control << " Resulting alu result " << XMReg.alu_result << "\n";)
     // Stores: sb or sh mask and preserve original leftmost bits
     write_data_mem = XMReg.halfword_control ? (read_data_mem & 0xffff0000) | (XMReg.read_data_2 & 0xffff) : 
                     XMReg.byte_control ? (read_data_mem & 0xffffff00) | (XMReg.read_data_2 & 0xff): XMReg.read_data_2;
 
-    cout << "read data 2: " << XMReg.read_data_2 << "\n";
+    DEBUG(cout << "read data 2: " << XMReg.read_data_2 << "\n";)
     // Write to memory only if mem_write is 1, i.e store
     memory->access(XMReg.alu_result, read_data_mem, write_data_mem, XMReg.mem_read_control, XMReg.mem_write_control);
-    cout << "write data mem: " << write_data_mem << " mem write control: " << XMReg.mem_write_control << " Resulting alu result " << XMReg.alu_result << "\n";
+    DEBUG(cout << "write data mem: " << write_data_mem << " mem write control: " << XMReg.mem_write_control << " Resulting alu result " << XMReg.alu_result << "\n";)
 
     // Loads: lbu or lhu modify read data by masking
     MWBReg.read_data_mem &= XMReg.halfword_control ? 0xffff : XMReg.byte_control ? 0xff : 0xffffffff;
@@ -413,7 +429,7 @@ void Processor::memory_stage(){
     //Branch
     if ((XMReg.branch_control && !XMReg.bne_control && XMReg.alu_zero) || (XMReg.bne_control && !XMReg.alu_zero)){
         regfile.pc = XMReg.pc_add_result;
-        cout << "Branch taken => Flushing \n";
+        DEBUG(cout << "Branch taken => Flushing \n";)
         flush();
     }
     //Jump
@@ -423,7 +439,7 @@ void Processor::memory_stage(){
             flush();
         }
     }
-    cout << "Orig pc:" << XMReg.orig_pc << " jump pc: " << XMReg.pc << " add pc: " << XMReg.pc_add_result << "\n";
+    DEBUG(cout << "Orig pc:" << XMReg.orig_pc << " jump pc: " << XMReg.pc << " add pc: " << XMReg.pc_add_result << "\n";)
 
     // Passing Values
     MWBReg.pc = XMReg.orig_pc;
@@ -441,8 +457,8 @@ void Processor::write_back_stage() {
     table[4].push_back(MWBReg.pc);
     uint32_t read_data_dummy;
     uint32_t write_data = MWBReg.link_control ? regfile.pc+8 : MWBReg.mem_to_reg_control ? MWBReg.read_data_mem : MWBReg.alu_result; 
-    cout << "Mem to reg: " << MWBReg.mem_to_reg_control << " Read data mem: " << MWBReg.read_data_mem << " Alu result: " << MWBReg.alu_result << "\n";
-    cout << "Are we writing: " << MWBReg.reg_write_control << ", writing " << write_data << " to " << MWBReg.write_reg << "\n";
+    DEBUG(cout << "Mem to reg: " << MWBReg.mem_to_reg_control << " Read data mem: " << MWBReg.read_data_mem << " Alu result: " << MWBReg.alu_result << "\n";)
+    DEBUG(cout << "Are we writing: " << MWBReg.reg_write_control << ", writing " << write_data << " to " << MWBReg.write_reg << "\n";)
     regfile.access(0, 0, read_data_dummy, read_data_dummy, MWBReg.write_reg, MWBReg.reg_write_control, write_data);
     if (MWBReg.pc != 0){
         finishedPC = MWBReg.pc - 4;
@@ -464,17 +480,18 @@ void Processor::pipelined_processor_advance() {
     forward_b = DXReg.rt == MWBReg.write_reg ? 1 : 0;
     tempMWData = MWBReg.link_control ? regfile.pc+8 : MWBReg.mem_to_reg_control ? MWBReg.read_data_mem : MWBReg.alu_result; 
     MWWrite = MWBReg.reg_write_control;
+
         
-    cout << "\n\n";
-    cout << "==WRITEBACK==" << "\n";        
+    DEBUG(cout << "\n\n";)
+    DEBUG(cout << "==WRITEBACK==" << "\n";)        
     write_back_stage();
-    cout << "==MEMORY==" << "\n";
+    DEBUG(cout << "==MEMORY==" << "\n";)
     memory_stage();
-    cout << "==EXECUTE=="<< "\n";
+    DEBUG(cout << "==EXECUTE=="<< "\n";)
     execute_stage(forward_a, forward_b, tempMWData, MWWrite);
-    cout << "==DECODE==" << "\n";
+    DEBUG(cout << "==DECODE==" << "\n";)
     decode_stage();
-    cout << "==FETCH=="<< "\n";
+    DEBUG(cout << "==FETCH=="<< "\n";)
     fetch_stage();
 
 
@@ -482,7 +499,7 @@ void Processor::pipelined_processor_advance() {
     vector<int> lens = {};
     for (unsigned int i = 0; i < table.size(); i++)
     {
-        cout << stage_strings[i] << ": ";
+        DEBUG(cout << stage_strings[i] << ": ";)
         for (unsigned int j = 0; j < table[i].size(); j++)
         {
             int len = to_string(abs(table[i][j])).length();
@@ -490,9 +507,9 @@ void Processor::pipelined_processor_advance() {
                 lens.push_back(len);
             }
             string space(lens[j]-len + 1, ' ');
-            cout << table[i][j] << space;
+            DEBUG(cout << table[i][j] << space;)
         }
-        cout << "\n";
+        DEBUG(cout << "\n";)
     }
     lens.clear();
 

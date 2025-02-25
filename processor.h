@@ -43,7 +43,7 @@ class Processor {
         // Advances the processor to an appropriate state every cycle
         void advance(); 
 
-        
+        void emptyFDReg();
         void emptyDXReg();
         void stall();
         void fetch_stage();
