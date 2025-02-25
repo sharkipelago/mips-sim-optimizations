@@ -219,14 +219,12 @@ void Processor::decode_stage(){
         control.decode(instruction);
     }
     else {
+        DEBUG(cout << "NOP or failed access.";)
         emptyDXReg();
         DXReg.pc = temp_pc;
         return;
     }
     DEBUG(control.print());
-    
-
-    
 
     // extract rs, rt, rd, imm, funct 
     int opcode = (instruction >> 26) & 0x3f;
@@ -239,8 +237,7 @@ void Processor::decode_stage(){
     int addr = instruction & 0x3ffffff;
 
     //Stalling - for I type, only check rs
-    // if ((rs == XMwrite_reg || (rt == XMwrite_reg && opcode == 0)) && XMMemReadC){
-    if ((rs == DXReg.rt || rt == DXReg.rt) && DXReg.mem_read_control){
+    if ((rs == DXReg.rt || (rt == DXReg.rt && opcode == 0)) && DXReg.mem_read_control){
         DEBUG(cout << "Stalling - rs: " << rs << " , rt: " << rt << ", XM write reg: " << DXReg.rt << " XM Mem Read Control: " << DXReg.mem_read_control << "\n";)
         stall();
         DXReg.pc = temp_pc;
@@ -322,6 +319,9 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
     //     operand_2 = forward_b == 2 ? XMReg.alu_result : prevMWData; 
     //     DEBUG(cout << "Forwarding: " << operand_2 << " for operand 2 (forward b: " << forward_b << ")\n";
     // }
+
+    //FORWARDING
+    //TODO: Check that all the cases are correct
 
     if (DXReg.rs == XMReg.write_reg && XMReg.reg_write_control){
         operand_1 = XMReg.alu_result;
