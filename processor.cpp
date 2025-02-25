@@ -171,7 +171,6 @@ void Processor::emptyFDReg(){
 void Processor::flush(){
     emptyFDReg();
     emptyDXReg();
-    
 }
 
 void Processor::stall(){
@@ -202,24 +201,23 @@ void Processor::fetch_stage(){
     
     DEBUG(cout << "inst:" << instruction  << " \n";)
     
-    
     // pass variables
     FDReg.pc = regfile.pc;
     FDReg.instruction = instruction;
-
-
 }
+
 void Processor::decode_stage(){
     uint32_t instruction;
     instruction = FDReg.instruction;
     table[1].push_back(FDReg.pc);
     uint32_t temp_pc = FDReg.pc;
+    FDRegWrite = 1;
     // decode into contol signals
     if (FDReg.pc != 0 && instruction != 0) { // TODO: Check this - is iffy
         control.decode(instruction);
     }
     else {
-        DEBUG(cout << "NOP or failed access.";)
+        DEBUG(cout << "NOP or failed access. \n";)
         emptyDXReg();
         DXReg.pc = temp_pc;
         return;
@@ -236,15 +234,23 @@ void Processor::decode_stage(){
     uint32_t imm = (instruction & 0xffff);
     int addr = instruction & 0x3ffffff;
 
-    //Stalling - for I type, only check rs
-    if ((rs == DXReg.rt || (rt == DXReg.rt && opcode == 0)) && DXReg.mem_read_control){
-        DEBUG(cout << "Stalling - rs: " << rs << " , rt: " << rt << ", XM write reg: " << DXReg.rt << " XM Mem Read Control: " << DXReg.mem_read_control << "\n";)
+    int ops[] = {0, 4, 5, 40, 41, 43, 56, 57, 61};
+    bool check = false;
+    for (int op : ops){
+        if (op == opcode){
+            check = true;
+            break;
+        }
+    }
+    //Stalling - for I type, only check rt for certain cases
+    if ((rs == XMReg.write_reg || (rt == XMReg.write_reg && check)) && DXReg.mem_read_control){
+        DEBUG(cout << "Stalling - rs: " << rs << " , rt: " << rt << ", XM write reg: " << XMReg.write_reg << " XM Mem Read Control: " << DXReg.mem_read_control << " opcode: " << opcode << "\n";)
         stall();
         DXReg.pc = temp_pc;
         return;
     }
-    DEBUG(cout << "Did not stall - rs: " << rs << " , rt: " << rt << ", XM write reg: " << DXReg.rt << " XM Mem Read Control: " << DXReg.mem_read_control<< "\n";)
-    FDRegWrite = 1;
+    DEBUG(cout << "Did not stall - rs: " << rs << " , rt: " << rt << ", XM write reg: " << XMReg.write_reg << " XM Mem Read Control: " << " opcode: " << opcode << DXReg.mem_read_control<< "\n";)
+    
 
     // Variables to read data into
     uint32_t read_data_1 = 0;
@@ -326,7 +332,7 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
     if (DXReg.rs == XMReg.write_reg && XMReg.reg_write_control){
         operand_1 = XMReg.alu_result;
         // If I-type, need to forward to rt if mem read
-        if (DXReg.ALU_src_control == 1 && XMReg.mem_read_control){
+        if (DXReg.opcode != 0 && XMReg.mem_read_control){
             DXReg.read_data_2 = operand_1;
         }
         DEBUG(cout << "Forwarding: " << operand_1 << " for operand 1 (forward a: " << forward_a << ")\n";)
@@ -334,7 +340,7 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
     else if (forward_a == 1 && prevMWWRite){
         operand_1 = prevMWData; 
         // If I-type, need to forward to rt
-        if (DXReg.ALU_src_control == 1){
+        if (DXReg.opcode != 0){
             DXReg.read_data_2 = operand_1;
         }
         DEBUG(cout << "Forwarding: " << operand_1 << " for operand 1 (forward a: " << forward_a << ")\n";)
@@ -346,7 +352,7 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
     
     // Operand 2 is immediate if ALU_src = 1, for I-type, in this case do not forward to rt
     if (DXReg.rt == XMReg.write_reg && XMReg.reg_write_control){
-        if (DXReg.ALU_src_control == 1){
+        if (DXReg.ALU_src_control != 0){
             DXReg.read_data_2 = XMReg.alu_result;
         }
         else {
@@ -355,7 +361,7 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
         DEBUG(cout << "Forwarding: " << operand_2 << " for operand 2 (forward b: " << forward_b << ")\n";)
     }
     else if (forward_b == 1 && prevMWWRite){
-        if (DXReg.ALU_src_control == 1){
+        if (DXReg.ALU_src_control != 0){
             DXReg.read_data_2 = prevMWData;
         }
         else {
@@ -409,6 +415,7 @@ void Processor::memory_stage(){
     bool successful_access = memory->access(XMReg.alu_result, read_data_mem, 0, XMReg.mem_read_control | XMReg.mem_write_control, 0);
     DEBUG(cout << "Succesful Access?: " << successful_access << "\n";)
     if (!successful_access) {
+        memStall = true;
         DEBUG(cout << "Unsucessful Mem access => stalling\n" ;)
         return;
     }
@@ -487,6 +494,13 @@ void Processor::pipelined_processor_advance() {
     write_back_stage();
     DEBUG(cout << "==MEMORY==" << "\n";)
     memory_stage();
+    if (memStall){
+        memStall = false;
+        table[2].push_back(DXReg.pc);
+        table[1].push_back(DXReg.pc);
+        table[0].push_back(regfile.pc);
+        return;
+    }
     DEBUG(cout << "==EXECUTE=="<< "\n";)
     execute_stage(forward_a, forward_b, tempMWData, MWWrite);
     DEBUG(cout << "==DECODE==" << "\n";)

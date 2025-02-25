@@ -14,7 +14,7 @@ class Processor {
         vector<vector<int>> table;
         
         uint32_t finishedPC;
-        bool FDRegWrite = 1;
+        bool FDRegWrite = 1, memStall = false;
 
 
         // add other structures as needed
