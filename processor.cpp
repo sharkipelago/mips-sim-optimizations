@@ -121,6 +121,8 @@ void Processor::single_cycle_processor_advance() {
     // Stores: sb or sh mask and preserve original leftmost bits
     write_data_mem = control.halfword ? (read_data_mem & 0xffff0000) | (read_data_2 & 0xffff) : 
                     control.byte ? (read_data_mem & 0xffffff00) | (read_data_2 & 0xff): read_data_2;
+
+    cout << "read data 2: " << read_data_2 << "\n";
     // Write to memory only if mem_write is 1, i.e store
     memory->access(alu_result, read_data_mem, write_data_mem, control.mem_read, control.mem_write);
     cout << "write data mem: " << write_data_mem << " mem write control: " << control.mem_write << " Resulting alu result " << alu_result << "\n";
@@ -238,6 +240,8 @@ void Processor::decode_stage(){
     // Read from reg file
     regfile.access(rs, rt, read_data_1, read_data_2, 0, 0, 0);
 
+    cout << "read_data_1: " << read_data_1 << " read_data_2: " << read_data_2 << "\n";
+
     // Sign Extend Or Zero Extend the immediate
     // Using Arithmetic right shift in order to replicate 1 
     imm = control.zero_extend ? imm : (imm >> 15) ? 0xffff0000 | imm : imm;
@@ -305,10 +309,18 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
 
     if (DXReg.rs == XMReg.write_reg && XMReg.reg_write_control){
         operand_1 = XMReg.alu_result;
+        // If I-type, need to forward to rt if mem read
+        if (DXReg.ALU_src_control == 1 && XMReg.mem_read_control){
+            DXReg.read_data_2 = operand_1;
+        }
         cout << "Forwarding: " << operand_1 << " for operand 1 (forward a: " << forward_a << ")\n";
     }
     else if (forward_a == 1 && prevMWWRite){
         operand_1 = prevMWData; 
+        // If I-type, need to forward to rt
+        if (DXReg.ALU_src_control == 1){
+            DXReg.read_data_2 = operand_1;
+        }
         cout << "Forwarding: " << operand_1 << " for operand 1 (forward a: " << forward_a << ")\n";
     }
     else {
@@ -317,20 +329,30 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
     }
     
     // Operand 2 is immediate if ALU_src = 1, for I-type, in this case do not forward to rt
-    if (DXReg.ALU_src_control != 1) {
-        if (DXReg.rt == XMReg.write_reg && XMReg.reg_write_control){
-            operand_2 = XMReg.alu_result;
-            cout << "Forwarding: " << operand_2 << " for operand 2 (forward b: " << forward_b << ")\n";
+    if (DXReg.rt == XMReg.write_reg && XMReg.reg_write_control){
+        if (DXReg.ALU_src_control == 1){
+            DXReg.read_data_2 = XMReg.alu_result;
         }
-        else if (forward_b == 1 && prevMWWRite){
-            operand_2 = prevMWData; 
-            cout << "Forwarding: " << operand_2 << " for operand 2 (forward b: " << forward_b << ")\n";
-        }      
         else {
-            cout << "Did not forward: " << prevMWData << " with control: " << prevMWWRite << " for operand 2 (forward b: " << forward_b << ")\n";
-        }  
-
+            operand_2 = XMReg.alu_result;
+        }
+        cout << "Forwarding: " << operand_2 << " for operand 2 (forward b: " << forward_b << ")\n";
     }
+    else if (forward_b == 1 && prevMWWRite){
+        if (DXReg.ALU_src_control == 1){
+            DXReg.read_data_2 = prevMWData;
+        }
+        else {
+            operand_2 = prevMWData; 
+        }
+        
+        cout << "Forwarding: " << operand_2 << " for operand 2 (forward b: " << forward_b << ")\n";
+    }      
+    else {
+        cout << "Did not forward: " << prevMWData << " with control: " << prevMWWRite << " for operand 2 (forward b: " << forward_b << ")\n";
+    }  
+
+    
 
     uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
     cout << "pc: " << DXReg.pc << " op1 " << operand_1 << " op2 "  << operand_2 << " alu_zero " << alu_zero << " alu result " << alu_result << "\n";
@@ -379,6 +401,8 @@ void Processor::memory_stage(){
     // Stores: sb or sh mask and preserve original leftmost bits
     write_data_mem = XMReg.halfword_control ? (read_data_mem & 0xffff0000) | (XMReg.read_data_2 & 0xffff) : 
                     XMReg.byte_control ? (read_data_mem & 0xffffff00) | (XMReg.read_data_2 & 0xff): XMReg.read_data_2;
+
+    cout << "read data 2: " << XMReg.read_data_2 << "\n";
     // Write to memory only if mem_write is 1, i.e store
     memory->access(XMReg.alu_result, read_data_mem, write_data_mem, XMReg.mem_read_control, XMReg.mem_write_control);
     cout << "write data mem: " << write_data_mem << " mem write control: " << XMReg.mem_write_control << " Resulting alu result " << XMReg.alu_result << "\n";
@@ -409,6 +433,7 @@ void Processor::memory_stage(){
     MWBReg.link_control = XMReg.link_control;
     MWBReg.mem_to_reg_control = XMReg.mem_to_reg_control;
     MWBReg.reg_write_control = XMReg.reg_write_control;
+    MWBReg.read_data_mem = read_data_mem;
 
 }
 
@@ -437,7 +462,7 @@ void Processor::pipelined_processor_advance() {
     bool MWWrite;
     forward_a = DXReg.rs == MWBReg.write_reg ? 1 : 0;
     forward_b = DXReg.rt == MWBReg.write_reg ? 1 : 0;
-    tempMWData = MWBReg.alu_result;
+    tempMWData = MWBReg.link_control ? regfile.pc+8 : MWBReg.mem_to_reg_control ? MWBReg.read_data_mem : MWBReg.alu_result; 
     MWWrite = MWBReg.reg_write_control;
         
     cout << "\n\n";
