@@ -331,7 +331,6 @@ void Processor::memory_stage(){
         regfile.pc = XMReg.pc_add_result;
         cout << "Branch taken => Flushing \n";
         hdu.start_flush();
-        return;
     }
     //Jump
     else{

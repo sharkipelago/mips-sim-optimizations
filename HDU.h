@@ -30,7 +30,7 @@ class HDU {
 		void start_flush() {
 			flushing = true;
 
-			fetch_stall = true;
+			// fetch_stall = true;
 			decode_stall = true;
 			execute_stall = true;
 			memory_stall = true;
@@ -59,6 +59,7 @@ class HDU {
 				else if (writeback_stall) {
 					cout << "(writeback is free)\n";
 					writeback_stall = false;
+					flushing = false;
 				}
 			}
 			else {
