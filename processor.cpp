@@ -47,6 +47,20 @@ void Processor::advance() {
     }
 }
 
+uint32_t Processor::getPC(){
+    switch (opt_level)
+    {
+        case 0:
+            return regfile.pc;
+            break;
+        case 1:
+            return finishedPC;
+        default:
+            break;
+    }
+    return 0;
+}
+
 void Processor::single_cycle_processor_advance() {
     // fetch
     uint32_t instruction;
@@ -128,15 +142,59 @@ void Processor::single_cycle_processor_advance() {
     regfile.pc = control.jump_reg ? read_data_1 : control.jump ? (regfile.pc & 0xf0000000) & (addr << 2): regfile.pc;
 }
 
+
+void Processor::emptyDXReg(){
+    DXReg.reg_dest_control = 0;
+    DXReg.jump_control = 0;
+    DXReg.jump_reg_control = 0;
+    DXReg.link_control = 0;
+    DXReg.shift_control = 0;
+    DXReg.branch_control = 0;
+    DXReg.bne_control = 0;
+    DXReg.mem_read_control = 0;
+    DXReg.mem_to_reg_control = 0;
+    DXReg.ALU_op_control = 0;
+    DXReg.mem_write_control = 0;
+    DXReg.halfword_control = 0;
+    DXReg.byte_control = 0;
+    DXReg.ALU_src_control = 0;
+    DXReg.reg_write_control = 0;
+    DXReg.zero_extend_control = 0;
+}
+void Processor::flush(){
+    FDReg.instruction = 0;
+    FDReg.pc = 0;
+    emptyDXReg();
+    
+}
+
+void Processor::stall(){
+    emptyDXReg();
+    FDRegWrite = 0;
+}
+
 void Processor::fetch_stage(){
     uint32_t instruction;
+
+    table[0].push_back(regfile.pc+4);
     
     // fetch
-    memory->access(regfile.pc, instruction, 0, 1, 0);
+    bool successful_access = memory->access(regfile.pc, instruction, 0, 1, 0);
+    cout << "Succesful Access?: " << successful_access << "\n";
+    if (!successful_access) {
+        cout << "Unsucessful Fetch access => stalling\n" ;
+        return;
+    }
+
+    if (FDRegWrite == 0){
+        return;
+    }
+
     // increment pc
     regfile.pc += 4;
-    table[0].push_back(regfile.pc);
+    
     cout << "inst:" << instruction  << " \n";
+    
     
     // pass variables
     FDReg.pc = regfile.pc;
@@ -154,6 +212,8 @@ void Processor::decode_stage(){
     DEBUG(control.print());
     table[1].push_back(FDReg.pc);
 
+    
+
     // extract rs, rt, rd, imm, funct 
     int opcode = (instruction >> 26) & 0x3f;
     int rs = (instruction >> 21) & 0x1f;
@@ -163,6 +223,14 @@ void Processor::decode_stage(){
     int funct = instruction & 0x3f;
     uint32_t imm = (instruction & 0xffff);
     int addr = instruction & 0x3ffffff;
+
+    //Stalling - for I type, only check rs
+    if ((rs == XMReg.write_reg || (rt == XMReg.write_reg && opcode == 0)) && XMReg.mem_read_control){
+        cout << "Stalling - rs: " << rs << " , rt: " << rt << ", XM write reg: " << XMReg.write_reg << "\n";
+        return;
+    }
+    FDRegWrite = 1;
+
     // Variables to read data into
     uint32_t read_data_1 = 0;
     uint32_t read_data_2 = 0;
@@ -199,14 +267,18 @@ void Processor::decode_stage(){
     DXReg.read_data_2 = read_data_2;
     DXReg.pc = FDReg.pc;
     DXReg.rd = rd;
+    DXReg.rs = rs;
     DXReg.rt = rt;
     DXReg.addr = addr;
     DXReg.shamt = shamt;
     DXReg.opcode = opcode;
     DXReg.funct = funct;
+
+    cout << "[R-Type]" << " opcode: " << opcode <<  ", rs: " << rs << ", rt: " << rt << ", rd: "<< rd << ", shamt: " << shamt << ", funct: " << funct << "\n";
+    cout << "[I-Type]" << " opcode: " << opcode <<  ", rs: " << rs << ", rt: " << rt << ", imm: " << imm << "\n";
 }
 
-void Processor::execute_stage(){
+void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t prevMWData, bool prevMWWRite){
     alu.generate_control_inputs(DXReg.ALU_op_control, DXReg.funct, DXReg.opcode);
     cout << "ALU op: " << DXReg.ALU_op_control << " Funct: " << DXReg.funct << " opcode: " << DXReg.opcode << "\n";
 
@@ -218,6 +290,47 @@ void Processor::execute_stage(){
     uint32_t operand_1 = DXReg.shift_control ? DXReg.shamt : DXReg.read_data_1;
     uint32_t operand_2 = DXReg.ALU_src_control ? DXReg.imm : DXReg.read_data_2;
     uint32_t alu_zero = 0;
+
+
+
+    // if (forward_a != 0) {
+    //     operand_1 = forward_a == 2 ? XMReg.alu_result : prevMWData; 
+    //     cout << "Forwarding: " << operand_1 << " for operand 1 (forward a: " << forward_a << ")\n";
+    // }
+    // // Operand 2 is immediate if ALU_src = 1, for I-type, in this case do not forward to rt
+    // if (forward_b != 0 && DXReg.ALU_src_control != 1) {
+    //     operand_2 = forward_b == 2 ? XMReg.alu_result : prevMWData; 
+    //     cout << "Forwarding: " << operand_2 << " for operand 2 (forward b: " << forward_b << ")\n";
+    // }
+
+    if (DXReg.rs == XMReg.write_reg && XMReg.reg_write_control){
+        operand_1 = XMReg.alu_result;
+        cout << "Forwarding: " << operand_1 << " for operand 1 (forward a: " << forward_a << ")\n";
+    }
+    else if (forward_a == 1 && prevMWWRite){
+        operand_1 = prevMWData; 
+        cout << "Forwarding: " << operand_1 << " for operand 1 (forward a: " << forward_a << ")\n";
+    }
+    else {
+        cout << "Did not forward: " << prevMWData << " with control: " << prevMWWRite << " for operand 1 (forward a: " << forward_a << ")\n";
+
+    }
+    
+    // Operand 2 is immediate if ALU_src = 1, for I-type, in this case do not forward to rt
+    if (DXReg.ALU_src_control != 1) {
+        if (DXReg.rt == XMReg.write_reg && XMReg.reg_write_control){
+            operand_2 = XMReg.alu_result;
+            cout << "Forwarding: " << operand_2 << " for operand 2 (forward b: " << forward_b << ")\n";
+        }
+        else if (forward_b == 1 && prevMWWRite){
+            operand_2 = prevMWData; 
+            cout << "Forwarding: " << operand_2 << " for operand 2 (forward b: " << forward_b << ")\n";
+        }      
+        else {
+            cout << "Did not forward: " << prevMWData << " with control: " << prevMWWRite << " for operand 2 (forward b: " << forward_b << ")\n";
+        }  
+
+    }
 
     uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
     cout << "pc: " << DXReg.pc << " op1 " << operand_1 << " op2 "  << operand_2 << " alu_zero " << alu_zero << " alu result " << alu_result << "\n";
@@ -255,7 +368,13 @@ void Processor::memory_stage(){
     table[3].push_back(XMReg.orig_pc);
 
       // First read no matter whether it is a load or a store
-    memory->access(XMReg.alu_result, read_data_mem, 0, XMReg.mem_read_control | XMReg.mem_write_control, 0);
+    bool successful_access = memory->access(XMReg.alu_result, read_data_mem, 0, XMReg.mem_read_control | XMReg.mem_write_control, 0);
+    cout << "Succesful Access?: " << successful_access << "\n";
+    if (!successful_access) {
+        cout << "Unsucessful Mem access => stalling\n" ;
+        return;
+    }
+
     cout << "read data mem: " << read_data_mem << " mem read control: " << XMReg.mem_read_control << " Resulting alu result " << XMReg.alu_result << "\n";
     // Stores: sb or sh mask and preserve original leftmost bits
     write_data_mem = XMReg.halfword_control ? (read_data_mem & 0xffff0000) | (XMReg.read_data_2 & 0xffff) : 
@@ -267,12 +386,17 @@ void Processor::memory_stage(){
     // Loads: lbu or lhu modify read data by masking
     MWBReg.read_data_mem &= XMReg.halfword_control ? 0xffff : XMReg.byte_control ? 0xff : 0xffffffff;
 
+    //Branch
     if ((XMReg.branch_control && !XMReg.bne_control && XMReg.alu_zero) || (XMReg.bne_control && !XMReg.alu_zero)){
         regfile.pc = XMReg.pc_add_result;
+        cout << "Branch taken => Flushing \n";
+        flush();
     }
+    //Jump
     else{
         if (XMReg.pc != XMReg.orig_pc){
             regfile.pc = XMReg.pc;
+            flush();
         }
     }
     cout << "Orig pc:" << XMReg.orig_pc << " jump pc: " << XMReg.pc << " add pc: " << XMReg.pc_add_result << "\n";
@@ -295,6 +419,10 @@ void Processor::write_back_stage() {
     cout << "Mem to reg: " << MWBReg.mem_to_reg_control << " Read data mem: " << MWBReg.read_data_mem << " Alu result: " << MWBReg.alu_result << "\n";
     cout << "Are we writing: " << MWBReg.reg_write_control << ", writing " << write_data << " to " << MWBReg.write_reg << "\n";
     regfile.access(0, 0, read_data_dummy, read_data_dummy, MWBReg.write_reg, MWBReg.reg_write_control, write_data);
+    if (MWBReg.pc != 0){
+        finishedPC = MWBReg.pc - 4;
+    }
+    
 }
 
 void Processor::pipelined_processor_advance() { 
@@ -302,18 +430,34 @@ void Processor::pipelined_processor_advance() {
     // does nothing currently -- if you call it from the cmd line, you'll run into an infinite loop
     // might be helpful to implement stages in a separate module
 
-
+    //FORWARDING LOGIC
+    uint32_t forward_a;
+    uint32_t forward_b;
+    uint32_t tempMWData;
+    bool MWWrite;
+    forward_a = DXReg.rs == MWBReg.write_reg ? 1 : 0;
+    forward_b = DXReg.rt == MWBReg.write_reg ? 1 : 0;
+    tempMWData = MWBReg.alu_result;
+    MWWrite = MWBReg.reg_write_control;
         
+    cout << "\n\n";
+    cout << "==WRITEBACK==" << "\n";        
     write_back_stage();
+    cout << "==MEMORY==" << "\n";
     memory_stage();
-    execute_stage();
+    cout << "==EXECUTE=="<< "\n";
+    execute_stage(forward_a, forward_b, tempMWData, MWWrite);
+    cout << "==DECODE==" << "\n";
     decode_stage();
+    cout << "==FETCH=="<< "\n";
     fetch_stage();
 
+
+    string stage_strings[5] = {"F", "D", "X", "M", "W"};
     vector<int> lens = {};
     for (unsigned int i = 0; i < table.size(); i++)
     {
-        
+        cout << stage_strings[i] << ": ";
         for (unsigned int j = 0; j < table[i].size(); j++)
         {
             int len = to_string(abs(table[i][j])).length();
