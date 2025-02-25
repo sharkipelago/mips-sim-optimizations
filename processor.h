@@ -14,6 +14,9 @@ class Processor {
         Memory *memory;
         Registers regfile;
         vector<vector<int>> table;
+        
+        uint32_t finishedPC;
+        bool FDRegWrite = 1;
 
 
         // add other structures as needed
@@ -33,7 +36,7 @@ class Processor {
         Processor(Memory *mem) { regfile.pc = 0; memory = mem;}
 
         // Get PC
-        uint32_t getPC() { return regfile.pc; }
+        uint32_t getPC();
 
         // Prints the Register File
         void printRegFile() { regfile.print(); }
@@ -44,10 +47,14 @@ class Processor {
         // Advances the processor to an appropriate state every cycle
         void advance(); 
 
+        void emptyFDReg();
+        void emptyDXReg();
+        void stall();
         void fetch_stage();
         void decode_stage();
-        void execute_stage();
+        void execute_stage(uint32_t, uint32_t, uint32_t, bool);
         void memory_stage();
         void write_back_stage();
+        void flush();
 
 };
