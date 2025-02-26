@@ -3,7 +3,7 @@
 #include "processor.h"
 #include <string>
 using namespace std;
-#define ENABLE_DEBUG
+// #define ENABLE_DEBUG
 
 #ifdef ENABLE_DEBUG
 #define DEBUG(x) x
@@ -162,6 +162,7 @@ void Processor::emptyDXReg(){
     DXReg.ALU_src_control = 0;
     DXReg.reg_write_control = 0;
     DXReg.zero_extend_control = 0;
+    // DXReg.pc = 0;
 }
 
 void Processor::emptyFDReg(){
@@ -427,9 +428,13 @@ void Processor::memory_stage(){
 
     DEBUG(cout << "read data 2: " << XMReg.read_data_2 << "\n";)
     // Write to memory only if mem_write is 1, i.e store
-    memory->access(XMReg.alu_result, read_data_mem, write_data_mem, XMReg.mem_read_control, XMReg.mem_write_control);
+    successful_access = memory->access(XMReg.alu_result, read_data_mem, write_data_mem, XMReg.mem_read_control, XMReg.mem_write_control);
     DEBUG(cout << "write data mem: " << write_data_mem << " mem write control: " << XMReg.mem_write_control << " Resulting alu result " << XMReg.alu_result << "\n";)
-
+    // if (!successful_access) {
+    //     memStall = true;
+    //     DEBUG(cout << "Unsucessful Mem access => stalling\n" ;)
+    //     return;
+    // }
     // Loads: lbu or lhu modify read data by masking
     MWBReg.read_data_mem &= XMReg.halfword_control ? 0xffff : XMReg.byte_control ? 0xff : 0xffffffff;
 
@@ -467,7 +472,7 @@ void Processor::write_back_stage() {
     DEBUG(cout << "Mem to reg: " << MWBReg.mem_to_reg_control << " Read data mem: " << MWBReg.read_data_mem << " Alu result: " << MWBReg.alu_result << "\n";)
     DEBUG(cout << "Are we writing: " << MWBReg.reg_write_control << ", writing " << write_data << " to " << MWBReg.write_reg << "\n";)
     regfile.access(0, 0, read_data_dummy, read_data_dummy, MWBReg.write_reg, MWBReg.reg_write_control, write_data);
-    if (MWBReg.pc != 0){
+    if (MWBReg.pc > 3){
         finishedPC = MWBReg.pc - 4;
     }
     
@@ -509,23 +514,23 @@ void Processor::pipelined_processor_advance() {
     fetch_stage();
 
 
-    string stage_strings[5] = {"F", "D", "X", "M", "W"};
-    vector<int> lens = {};
-    for (unsigned int i = 0; i < table.size(); i++)
-    {
-        DEBUG(cout << stage_strings[i] << ": ";)
-        for (unsigned int j = 0; j < table[i].size(); j++)
-        {
-            int len = to_string(abs(table[i][j])).length();
-            if (i == 0){
-                lens.push_back(len);
-            }
-            string space(lens[j]-len + 1, ' ');
-            DEBUG(cout << table[i][j] << space;)
-        }
-        DEBUG(cout << "\n";)
-    }
-    lens.clear();
+    // string stage_strings[5] = {"F", "D", "X", "M", "W"};
+    // vector<int> lens = {};
+    // for (unsigned int i = 0; i < table.size(); i++)
+    // {
+    //     DEBUG(cout << stage_strings[i] << ": ";)
+    //     for (unsigned int j = 0; j < table[i].size(); j++)
+    //     {
+    //         int len = to_string(abs(table[i][j])).length();
+    //         if (i == 0){
+    //             lens.push_back(len);
+    //         }
+    //         string space(lens[j]-len + 1, ' ');
+    //         DEBUG(cout << table[i][j] << space;)
+    //     }
+    //     DEBUG(cout << "\n";)
+    // }
+    // lens.clear();
 
 
 
