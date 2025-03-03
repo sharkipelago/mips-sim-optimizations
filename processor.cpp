@@ -3,7 +3,7 @@
 #include "processor.h"
 #include <string>
 using namespace std;
-// #define ENABLE_DEBUG
+#define ENABLE_DEBUG
 
 #ifdef ENABLE_DEBUG
 #define DEBUG(x) x
@@ -183,6 +183,11 @@ void Processor::fetch_stage(){
     uint32_t instruction;
 
     table[0].push_back(regfile.pc+4);
+    
+    if (stopFetch2){
+        stopFetch2 = false;
+        return;
+    }
     
     // fetch
     bool successful_access = memory->access(regfile.pc, instruction, 0, 1, 0);
@@ -391,6 +396,7 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
     // DEBUG(cout << DXReg.jump_control << " " << DXReg.jump_reg_control << "\n";
     XMReg.orig_pc = DXReg.pc;
 
+
     // Pass Variables
     // Control
 
@@ -405,6 +411,11 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
     XMReg.reg_write_control = DXReg.reg_write_control;
 
     XMReg.read_data_2 = DXReg.read_data_2;
+
+    if ((XMReg.branch_control && !XMReg.bne_control && XMReg.alu_zero) || (XMReg.bne_control && !XMReg.alu_zero)){
+        stopFetch2 = true;
+    }
+
 }    
 
 void Processor::memory_stage(){
