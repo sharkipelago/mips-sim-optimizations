@@ -4,6 +4,14 @@
 #include "control.h"
 #include "pipeline.h"
 
+#define BHTSIZE 64
+
+
+struct BHTLine {
+    int prediction;
+    uint32_t address;
+};
+
 class Processor {
     private:
         int opt_level;
@@ -15,8 +23,8 @@ class Processor {
         
         uint32_t finishedPC;
         bool FDRegWrite = 1, memStall = false, stopFetch2 = false;
-        
 
+        std::vector<BHTLine> BHT;
 
         // add other structures as needed
         FetchDecodePipeReg FDReg;
@@ -31,7 +39,11 @@ class Processor {
  
     public:
 
-        Processor(Memory *mem) { regfile.pc = 0; memory = mem;}
+        Processor(Memory *mem) { 
+            regfile.pc = 0; 
+            memory = mem;
+            BHT.resize(BHTSIZE);
+        }
 
         // Get PC
         uint32_t getPC();

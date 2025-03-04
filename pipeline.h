@@ -6,6 +6,7 @@
 
 struct FetchDecodePipeReg {
     uint32_t pc = 0;
+    uint32_t predict_pc = 0;
     uint32_t instruction = 0;
 };
 
@@ -42,6 +43,7 @@ struct DecodeExPipeReg {
     int funct = 0;
     uint32_t imm = 0;
     uint32_t pc = 0;
+    uint32_t predict_pc = 0;
 };
 
 struct ExMemPipeReg {
@@ -64,6 +66,7 @@ struct ExMemPipeReg {
     
     uint32_t pc_add_result = 0;
     uint32_t pc = 0;
+    uint32_t predict_pc = 0;
     uint32_t orig_pc = 0;
 
     uint32_t alu_zero = 0;

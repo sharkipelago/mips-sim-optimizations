@@ -65,7 +65,7 @@ void Processor::single_cycle_processor_advance() {
     // fetch
     uint32_t instruction;
     memory->access(regfile.pc, instruction, 0, 1, 0);
-    DEBUG(cout << "\nPC: 0x" << std::hex << regfile.pc << std::dec << " inst: " << instruction << "\n");
+    DEBUG(cout << "\nPC: "  << regfile.pc << std::dec << " inst: " << instruction << "\n");
     // increment pc
     regfile.pc += 4;
     
@@ -202,13 +202,22 @@ void Processor::fetch_stage(){
         return;
     }
 
-    // increment pc
-    regfile.pc += 4;
-    
+    // Branch Prediction
+    int ind = hash<uint32_t>{}(regfile.pc) % (BHTSIZE + 1);
+    FDReg.pc = regfile.pc + 4;
+    if (BHT[ind].prediction > 1){
+        regfile.pc = BHT[ind].address;
+        FDReg.predict_pc = regfile.pc;
+    }
+    else {
+        // increment pc
+        regfile.pc += 4;
+        FDReg.predict_pc = regfile.pc;
+    }
+ 
     DEBUG(cout << "inst:" << instruction  << " \n";)
     
     // pass variables
-    FDReg.pc = regfile.pc;
     FDReg.instruction = instruction;
 }
 
@@ -295,6 +304,7 @@ void Processor::decode_stage(){
     DXReg.read_data_1 = read_data_1;
     DXReg.read_data_2 = read_data_2;
     DXReg.pc = FDReg.pc;
+    DXReg.predict_pc = FDReg.predict_pc;
     DXReg.rd = rd;
     DXReg.rs = rs;
     DXReg.rt = rt;
@@ -395,6 +405,10 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
     XMReg.pc = DXReg.jump_reg_control ? DXReg.read_data_1 : DXReg.jump_control ? (DXReg.pc & 0xf0000000) & (DXReg.addr << 2): DXReg.pc;
     // DEBUG(cout << DXReg.jump_control << " " << DXReg.jump_reg_control << "\n";
     XMReg.orig_pc = DXReg.pc;
+    XMReg.predict_pc = DXReg.predict_pc;
+
+    DEBUG(cout << "orig_pc: " << XMReg.orig_pc << " predict_pc " << DXReg.predict_pc << " pc_add_result "  << XMReg.pc_add_result << "\n";)
+
 
 
     // Pass Variables
@@ -413,7 +427,14 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
     XMReg.read_data_2 = DXReg.read_data_2;
 
     if ((XMReg.branch_control && !XMReg.bne_control && XMReg.alu_zero) || (XMReg.bne_control && !XMReg.alu_zero)){
-        stopFetch2 = true;
+        if (XMReg.predict_pc != XMReg.pc_add_result){
+            stopFetch2 = true;
+        }
+    }
+    else if (XMReg.branch_control || XMReg.bne_control){
+        if (XMReg.predict_pc != XMReg.orig_pc){
+            stopFetch2 = true;
+        }
     }
 
 }    
@@ -449,11 +470,94 @@ void Processor::memory_stage(){
     // Loads: lbu or lhu modify read data by masking
     MWBReg.read_data_mem &= XMReg.halfword_control ? 0xffff : XMReg.byte_control ? 0xff : 0xffffffff;
 
+
+    // //Branch
+    // if ((XMReg.branch_control && !XMReg.bne_control && XMReg.alu_zero) || (XMReg.bne_control && !XMReg.alu_zero)){
+    //     // DEBUG(cout << "Branch taken => Flushing \n";)
+    //     DEBUG(cout << "Branch taken \n";)
+    //     int ind = hash<uint32_t>{}(regfile.pc) % (BHTSIZE + 1);
+    //     // Predicted taken
+    //     if (XMReg.predict_pc != XMReg.orig_pc){
+    //         BHT[ind].prediction += 1;
+    //         if (BHT[ind].prediction > 3) { BHT[ind].prediction = 3; }
+    //         if (XMReg.predict_pc != XMReg.pc_add_result){
+    //             regfile.pc = XMReg.pc_add_result;   
+    //             DEBUG(cout << "Prediction was: " << XMReg.predict_pc << " Actual was: XMReg.pc_add_result " << "Address prediction wrong => Flushing \n";)
+    //             flush();
+    //         }
+    //         else {
+    //             DEBUG(cout << "Prediction correct - branch taken \n";)
+    //         }
+    //     }
+    //     // Predicted not taken
+    //     else {
+    //         BHT[ind].prediction -= 1;
+    //         if (BHT[ind].prediction < 0) { BHT[ind].prediction = 0; }
+    //         regfile.pc = XMReg.pc_add_result;
+    //         DEBUG(cout << "Prediction wrong => Flushing \n";)
+    //         flush();
+    //     }
+    //     BHT[ind].address = XMReg.pc_add_result;
+    // }
+    // //Branch not taken
+    // else if (XMReg.branch_control || XMReg.bne_control){
+    //     int ind = hash<uint32_t>{}(regfile.pc) % (BHTSIZE + 1);
+    //     // Predicted taken
+    //     if (XMReg.predict_pc != XMReg.orig_pc){
+    //         BHT[ind].prediction += 1;
+    //         if (BHT[ind].prediction > 3) { BHT[ind].prediction = 3; }
+    //         regfile.pc = XMReg.orig_pc; 
+    //         DEBUG(cout << "Branch not taken - prediction wrong => Flushing \n";)  
+    //         flush();
+    //     }
+    //     // Predicted not taken
+    //     else {
+    //         BHT[ind].prediction -= 1;
+    //         if (BHT[ind].prediction < 0) { BHT[ind].prediction = 0; }
+    //         DEBUG(cout << "Prediction correct \n";)
+    //     }
+    // }
     //Branch
     if ((XMReg.branch_control && !XMReg.bne_control && XMReg.alu_zero) || (XMReg.bne_control && !XMReg.alu_zero)){
-        regfile.pc = XMReg.pc_add_result;
-        DEBUG(cout << "Branch taken => Flushing \n";)
-        flush();
+        // DEBUG(cout << "Branch taken => Flushing \n";)
+        DEBUG(cout << "Branch taken \n";)
+        int ind = hash<uint32_t>{}(XMReg.orig_pc-4) % (BHTSIZE + 1);
+        BHT[ind].prediction += 1;
+        if (BHT[ind].prediction > 3) { BHT[ind].prediction = 3; }
+        // Predicted taken
+        if (XMReg.predict_pc != XMReg.orig_pc){
+            if (XMReg.predict_pc != XMReg.pc_add_result){
+                regfile.pc = XMReg.pc_add_result;   
+                DEBUG(cout << "Prediction was: " << XMReg.predict_pc << " Actual was: XMReg.pc_add_result " << "Address prediction wrong => Flushing \n";)
+                flush();
+            }
+            else {
+                DEBUG(cout << "Prediction correct - branch taken \n";)
+            }
+        }
+        // Predicted not taken
+        else {
+            regfile.pc = XMReg.pc_add_result;
+            DEBUG(cout << "Prediction wrong => Flushing \n";)
+            flush();
+        }
+        BHT[ind].address = XMReg.pc_add_result;
+    }
+    //Branch not taken
+    else if (XMReg.branch_control || XMReg.bne_control){
+        int ind = hash<uint32_t>{}(XMReg.orig_pc-4) % (BHTSIZE + 1);
+        BHT[ind].prediction -= 1;
+        if (BHT[ind].prediction < 0) { BHT[ind].prediction = 0; }
+        // Predicted taken
+        if (XMReg.predict_pc != XMReg.orig_pc){
+            regfile.pc = XMReg.orig_pc; 
+            DEBUG(cout << "Branch not taken - prediction wrong => Flushing \n";)  
+            flush();
+        }
+        // Predicted not taken
+        else {
+            DEBUG(cout << "Prediction correct \n";)
+        }
     }
     //Jump
     else{
