@@ -1,0 +1,93 @@
+#ifndef OOOReg_FILE
+#define OOOReg_FILE
+#include <vector>
+#include <cstdint>
+#include <iostream>
+
+struct ControlSignals {
+    bool reg_dest_control = 0; 
+    bool jump_control = 0;
+    bool jump_reg_control = 0;
+    bool link_control = 0;
+    bool shift_control = 0;
+    bool branch_control = 0;
+    bool bne_control = 0;
+    bool mem_read_control = 0;
+    bool mem_to_reg_control = 0;
+    unsigned ALU_op_control : 2; 
+    bool mem_write_control = 0;
+    bool halfword_control = 0;
+    bool byte_control = 0;
+    bool ALU_src_control = 0;
+    bool reg_write_control = 0;
+    bool zero_extend_control = 0;
+};
+
+struct FetchDecodeReg {
+    uint32_t pc = 0;
+    uint32_t predict_pc = 0;
+    uint32_t instruction = 0;
+};
+
+struct DecodeRenameReg {
+    //Control
+    ControlSignals control;
+
+    //Main Reg
+    uint32_t read_data_1 = 0;
+    uint32_t read_data_2 = 0;
+
+
+    int opcode = 0;
+    int addr = 0;
+    int rt = 0;
+    int rs = 0;
+    int rd = 0;
+    int shamt = 0;
+    int funct = 0;
+    uint32_t imm = 0;
+    uint32_t pc = 0;
+    uint32_t predict_pc = 0;
+};
+
+struct RenameIssueReg {
+    ControlSignals control;
+
+    int physRT = 0;
+    int physRS= 0;
+    int physRD = 0;
+    
+    uint32_t pc_add_result = 0;
+    uint32_t pc = 0;
+    uint32_t predict_pc = 0;
+    uint32_t orig_pc = 0;
+
+    uint32_t alu_zero = 0;
+    uint32_t alu_result = 0;
+    uint32_t read_data_2 = 0;
+    uint32_t write_reg = 0;
+};
+
+struct IssueDispatchReg {
+    ControlSignals control;
+
+    uint32_t read_data_mem = 0;
+    uint32_t alu_result = 0; 
+    uint32_t pc = 0;
+    int write_reg = 0;
+};  
+
+struct DispatchExecuteReg {
+    ControlSignals control;
+};
+
+struct ExecuteWritebackReg {
+    ControlSignals control;
+};
+
+struct WritebackCommitReg {
+
+};
+
+
+#endif

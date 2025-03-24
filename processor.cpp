@@ -42,6 +42,7 @@ void Processor::advance() {
                 break;
         case 1: pipelined_processor_advance();
                 break;
+        case 2: out_of_order_advance();
         // other optimization levels go here
         default: break;
     }
@@ -55,7 +56,9 @@ uint32_t Processor::getPC(){
             break;
         case 1:
             return finishedPC;
+            break;
         default:
+            return finishedPC;
             break;
     }
     return 0;
@@ -646,7 +649,169 @@ void Processor::pipelined_processor_advance() {
     //     DEBUG(cout << "\n";)
     // }
     // lens.clear();
+}
 
+void Processor::OOOfetch() {
 
+    uint32_t instruction;
+    
+    if (stopFetch2){
+        stopFetch2 = false;
+        return;
+    }
+    
+    // fetch
+    bool successful_access = memory->access(regfile.pc, instruction, 0, 1, 0);
+    DEBUG(cout << "Succesful Access?: " << successful_access << "\n";)
+    if (!successful_access) {
+        OFDReg.instruction = 0;
+        DEBUG(cout << "Unsucessful Fetch access => stalling\n" ;)
+        return;
+    }
+
+    if (FDRegWrite == 0){
+        return;
+    }
+
+    // Branch Prediction
+    int ind = hash<uint32_t>{}(regfile.pc) % (BHTSIZE + 1);
+    OFDReg.pc = regfile.pc + 4;
+    if (BHT[ind].prediction > 1){
+        regfile.pc = BHT[ind].address;
+        OFDReg.predict_pc = regfile.pc;
+    }
+    else {
+        // increment pc
+        regfile.pc += 4;
+        OFDReg.predict_pc = regfile.pc;
+    }
+ 
+    DEBUG(cout << "inst:" << instruction  << " \n";)
+    
+    // pass variables
+    OFDReg.instruction = instruction;
+
+}
+void Processor::OOOdecode() {
+    uint32_t instruction;
+    instruction = OFDReg.instruction;
+
+    uint32_t temp_pc = OFDReg.pc;
+    FDRegWrite = 1;
+    // decode into contol signals
+    if (OFDReg.pc != 0 && instruction != 0) { // TODO: Check this - is iffy
+        control.decode(instruction);
+    }
+    else {
+        DEBUG(cout << "NOP or failed access. \n";)
+        emptyDXReg();
+        DXReg.pc = temp_pc;
+        return;
+    }
+    DEBUG(control.print());
+
+    // extract rs, rt, rd, imm, funct 
+    int opcode = (instruction >> 26) & 0x3f;
+    int rs = (instruction >> 21) & 0x1f;
+    int rt = (instruction >> 16) & 0x1f;
+    int rd = (instruction >> 11) & 0x1f;
+    int shamt = (instruction >> 6) & 0x1f;
+    int funct = instruction & 0x3f;
+    uint32_t imm = (instruction & 0xffff);
+    int addr = instruction & 0x3ffffff;
+
+    // Variables to read data into
+    uint32_t read_data_1 = 0;
+    uint32_t read_data_2 = 0;
+
+    // Read from reg file
+    regfile.access(rs, rt, read_data_1, read_data_2, 0, 0, 0);
+
+    DEBUG(cout << "read_data_1: " << read_data_1 << " read_data_2: " << read_data_2 << "\n";)
+
+    // Sign Extend Or Zero Extend the immediate
+    // Using Arithmetic right shift in order to replicate 1 
+    imm = control.zero_extend ? imm : (imm >> 15) ? 0xffff0000 | imm : imm;
+
+    // Pass Variables
+    // Control
+    ControlSignals new_control;
+    new_control.reg_dest_control = control.reg_dest;
+    new_control.jump_control = control.jump;
+    new_control.jump_reg_control = control.jump_reg;
+    new_control.link_control = control.link;
+    new_control.shift_control = control.shift;
+    new_control.branch_control = control.branch;
+    new_control.bne_control = control.bne;
+    new_control.mem_read_control = control.mem_read;
+    new_control.mem_to_reg_control = control.mem_to_reg;
+    new_control.ALU_op_control = control.ALU_op;
+    new_control.mem_write_control = control.mem_write;
+    new_control.halfword_control = control.halfword;
+    new_control.byte_control = control.byte;
+    new_control.ALU_src_control = control.ALU_src;
+    new_control.reg_write_control = control.reg_write;
+    new_control.zero_extend_control = control.zero_extend;
+    ODRReg.control = new_control;
+
+    // Instructions
+    ODRReg.imm = imm;
+    ODRReg.read_data_1 = read_data_1;
+    ODRReg.read_data_2 = read_data_2;
+    ODRReg.pc = OFDReg.pc;
+    ODRReg.predict_pc = OFDReg.predict_pc;
+    ODRReg.rd = rd;
+    ODRReg.rs = rs;
+    ODRReg.rt = rt;
+    ODRReg.addr = addr;
+    ODRReg.shamt = shamt;
+    ODRReg.opcode = opcode;
+    ODRReg.funct = funct;
+
+    DEBUG(cout << "[R-Type]" << " opcode: " << opcode <<  ", rs: " << rs << ", rt: " << rt << ", rd: "<< rd << ", shamt: " << shamt << ", funct: " << funct << "\n";)
+    DEBUG(cout << "[I-Type]" << " opcode: " << opcode <<  ", rs: " << rs << ", rt: " << rt << ", imm: " << imm << "\n";)
+
+}
+void Processor::OOOrename() {
+    if (ODRReg.opcode == 0){ //R type
+
+    }
+    else if (ODRReg.opcode == 4) { // whatever load is
+
+    }
+    else { // Rest of I type
+
+    }
+}
+void Processor::OOOissue() {
+
+}
+void Processor::OOOdispatch() {
+
+}
+void Processor::OOOexecute() {
+
+}
+void Processor::OOOwriteback() {
+
+}
+
+void Processor::OOOcommit() {
+
+}
+
+void Processor::squash() {
+
+}
+
+void Processor::out_of_order_advance() { 
+    OOOfetch();
+    OOOdecode();
+    OOOrename();
+    OOOissue();
+    OOOdispatch();
+    OOOexecute();
+    OOOwriteback();
+    OOOcommit();
 
 }

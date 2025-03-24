@@ -15,11 +15,22 @@ class Registers {
         std::vector<PhysReg> R;
         std::vector<int> regmap;
         std::vector<int> rename_pool;
+        int size;
     public:
         uint32_t pc;
         Registers() {
-            R.resize(32);
-            for (int i = 0; i < 32; i++) {
+            size = 32;
+            R.resize(size);
+            for (int i = 0; i < size; i++) {
+                R[i].value = 0;
+                R[i].ready = true;
+            }
+        }
+
+        Registers(int orig_size) {
+            size = orig_size;
+            R.resize(size);
+            for (int i = 0; i < size; i++) {
                 R[i].value = 0;
                 R[i].ready = true;
             }
@@ -43,9 +54,26 @@ class Registers {
             return R[reg].ready;
         }
 
+        void setReady(int reg, bool isReady){
+            R[reg].ready = isReady;
+        }
+
+        int firstReady(){
+            for (int i = 0; i < size; i++) {
+                if (R[i].ready){
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        int getSize(){
+            return size;
+        }
+
         // Prints the contents of all the registers
         void print() {
-            for(int i = 0; i < 32; ++i) {
+            for(int i = 0; i < size; ++i) {
                 std::cout << std::dec << "R[" << i << "]: " << R[i].value << "\n";
             }
         }
