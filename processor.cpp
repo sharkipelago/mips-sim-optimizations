@@ -42,6 +42,8 @@ void Processor::advance() {
                 break;
         case 1: pipelined_processor_advance();
                 break;
+        case 2: pipelined_processor_advance();
+                break;
         // other optimization levels go here
         default: break;
     }
@@ -54,6 +56,8 @@ uint32_t Processor::getPC(){
             return regfile.pc;
             break;
         case 1:
+            return finishedPC;
+        case 2:
             return finishedPC;
         default:
             break;
