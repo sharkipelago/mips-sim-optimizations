@@ -33,6 +33,7 @@ void Processor::initialize(int level) {
     opt_level = level;
 
     table = {{}, {}, {}, {}, {}};
+    table2 = {{}, {}, {}, {}, {}, {}};
     // Optimization level-specific initialization
 }
 
@@ -165,6 +166,27 @@ void Processor::emptyDXReg(){
     DXReg.ALU_src_control = 0;
     DXReg.reg_write_control = 0;
     DXReg.zero_extend_control = 0;
+    // DXReg.pc = 0;
+}
+
+void Processor::emptyODRReg(){
+    ODRReg.control.reg_dest_control = 0;
+    ODRReg.control.jump_control = 0;
+    ODRReg.control.jump_reg_control = 0;
+    ODRReg.control.link_control = 0;
+    ODRReg.control.shift_control = 0;
+    ODRReg.control.branch_control = 0;
+    ODRReg.control.bne_control = 0;
+    ODRReg.control.mem_read_control = 0;
+    ODRReg.control.mem_to_reg_control = 0;
+    ODRReg.control.ALU_op_control = 0;
+    ODRReg.control.mem_write_control = 0;
+    ODRReg.control.halfword_control = 0;
+    ODRReg.control.byte_control = 0;
+    ODRReg.control.ALU_src_control = 0;
+    ODRReg.control.reg_write_control = 0;
+    ODRReg.control.zero_extend_control = 0;
+    ODRReg.instruction = 0;
     // DXReg.pc = 0;
 }
 
@@ -473,53 +495,6 @@ void Processor::memory_stage(){
     // Loads: lbu or lhu modify read data by masking
     MWBReg.read_data_mem &= XMReg.halfword_control ? 0xffff : XMReg.byte_control ? 0xff : 0xffffffff;
 
-
-    // //Branch
-    // if ((XMReg.branch_control && !XMReg.bne_control && XMReg.alu_zero) || (XMReg.bne_control && !XMReg.alu_zero)){
-    //     // DEBUG(cout << "Branch taken => Flushing \n";)
-    //     DEBUG(cout << "Branch taken \n";)
-    //     int ind = hash<uint32_t>{}(regfile.pc) % (BHTSIZE + 1);
-    //     // Predicted taken
-    //     if (XMReg.predict_pc != XMReg.orig_pc){
-    //         BHT[ind].prediction += 1;
-    //         if (BHT[ind].prediction > 3) { BHT[ind].prediction = 3; }
-    //         if (XMReg.predict_pc != XMReg.pc_add_result){
-    //             regfile.pc = XMReg.pc_add_result;   
-    //             DEBUG(cout << "Prediction was: " << XMReg.predict_pc << " Actual was: XMReg.pc_add_result " << "Address prediction wrong => Flushing \n";)
-    //             flush();
-    //         }
-    //         else {
-    //             DEBUG(cout << "Prediction correct - branch taken \n";)
-    //         }
-    //     }
-    //     // Predicted not taken
-    //     else {
-    //         BHT[ind].prediction -= 1;
-    //         if (BHT[ind].prediction < 0) { BHT[ind].prediction = 0; }
-    //         regfile.pc = XMReg.pc_add_result;
-    //         DEBUG(cout << "Prediction wrong => Flushing \n";)
-    //         flush();
-    //     }
-    //     BHT[ind].address = XMReg.pc_add_result;
-    // }
-    // //Branch not taken
-    // else if (XMReg.branch_control || XMReg.bne_control){
-    //     int ind = hash<uint32_t>{}(regfile.pc) % (BHTSIZE + 1);
-    //     // Predicted taken
-    //     if (XMReg.predict_pc != XMReg.orig_pc){
-    //         BHT[ind].prediction += 1;
-    //         if (BHT[ind].prediction > 3) { BHT[ind].prediction = 3; }
-    //         regfile.pc = XMReg.orig_pc; 
-    //         DEBUG(cout << "Branch not taken - prediction wrong => Flushing \n";)  
-    //         flush();
-    //     }
-    //     // Predicted not taken
-    //     else {
-    //         BHT[ind].prediction -= 1;
-    //         if (BHT[ind].prediction < 0) { BHT[ind].prediction = 0; }
-    //         DEBUG(cout << "Prediction correct \n";)
-    //     }
-    // }
     //Branch
     if ((XMReg.branch_control && !XMReg.bne_control && XMReg.alu_zero) || (XMReg.bne_control && !XMReg.alu_zero)){
         // DEBUG(cout << "Branch taken => Flushing \n";)
@@ -632,31 +607,32 @@ void Processor::pipelined_processor_advance() {
     fetch_stage();
 
 
-    // string stage_strings[5] = {"F", "D", "X", "M", "W"};
-    // vector<int> lens = {};
-    // for (unsigned int i = 0; i < table.size(); i++)
-    // {
-    //     DEBUG(cout << stage_strings[i] << ": ";)
-    //     for (unsigned int j = 0; j < table[i].size(); j++)
-    //     {
-    //         int len = to_string(abs(table[i][j])).length();
-    //         if (i == 0){
-    //             lens.push_back(len);
-    //         }
-    //         string space(lens[j]-len + 1, ' ');
-    //         DEBUG(cout << table[i][j] << space;)
-    //     }
-    //     DEBUG(cout << "\n";)
-    // }
-    // lens.clear();
+    string stage_strings[5] = {"F", "D", "X", "M", "W"};
+    vector<int> lens = {};
+    for (unsigned int i = 0; i < table.size(); i++)
+    {
+        DEBUG(cout << stage_strings[i] << ": ";)
+        for (unsigned int j = 0; j < table[i].size(); j++)
+        {
+            int len = to_string(abs(table[i][j])).length();
+            if (i == 0){
+                lens.push_back(len);
+            }
+            string space(lens[j]-len + 1, ' ');
+            DEBUG(cout << table[i][j] << space;)
+        }
+        DEBUG(cout << "\n";)
+    }
+    lens.clear();
 }
 
 void Processor::OOOfetch() {
 
     uint32_t instruction;
-    
+    table2[0].push_back(regfile.pc+4);
     if (stopFetch2){
         stopFetch2 = false;
+        OFDReg.fetched = false;
         return;
     }
     
@@ -666,10 +642,12 @@ void Processor::OOOfetch() {
     if (!successful_access) {
         OFDReg.instruction = 0;
         DEBUG(cout << "Unsucessful Fetch access => stalling\n" ;)
+        OFDReg.fetched = false;
         return;
     }
 
     if (FDRegWrite == 0){
+        OFDReg.fetched = false;
         return;
     }
 
@@ -690,22 +668,26 @@ void Processor::OOOfetch() {
     
     // pass variables
     OFDReg.instruction = instruction;
+    OFDReg.fetched = true;
 
 }
 void Processor::OOOdecode() {
     uint32_t instruction;
     instruction = OFDReg.instruction;
+    DEBUG(cout << "Decode inst:" << OFDReg.instruction  << " \n";)
 
     uint32_t temp_pc = OFDReg.pc;
+    table2[1].push_back(OFDReg.pc);
     FDRegWrite = 1;
     // decode into contol signals
-    if (OFDReg.pc != 0 && instruction != 0) { // TODO: Check this - is iffy
+    if (OFDReg.fetched) { // TODO: Check this - is iffy
         control.decode(instruction);
     }
     else {
         DEBUG(cout << "NOP or failed access. \n";)
-        emptyDXReg();
-        DXReg.pc = temp_pc;
+        emptyODRReg();
+        // DXReg.pc = temp_pc;
+        ODRReg.pc = 0;
         return;
     }
     DEBUG(control.print());
@@ -767,51 +749,439 @@ void Processor::OOOdecode() {
     ODRReg.shamt = shamt;
     ODRReg.opcode = opcode;
     ODRReg.funct = funct;
+    ODRReg.instruction = instruction;
+
 
     DEBUG(cout << "[R-Type]" << " opcode: " << opcode <<  ", rs: " << rs << ", rt: " << rt << ", rd: "<< rd << ", shamt: " << shamt << ", funct: " << funct << "\n";)
     DEBUG(cout << "[I-Type]" << " opcode: " << opcode <<  ", rs: " << rs << ", rt: " << rt << ", imm: " << imm << "\n";)
 
 }
+int Processor::mapReg(int reg){
+    int newReg = physRegFile.firstReady();
+    physRegFile.setReady(newReg, false);
+    regMap[reg] = newReg;
+    cout << "Mapped " << reg << " to " << newReg << "\n";
+    return newReg;
+}
 void Processor::OOOrename() {
-    if (ODRReg.opcode == 0){ //R type
-
+    table2[2].push_back(ODRReg.pc);
+    DEBUG(cout << "Rename inst:" << ODRReg.instruction  << " \n";)
+    if (ODRReg.pc == 0){
+        return;
     }
-    else if (ODRReg.opcode == 4) { // whatever load is
-
+    if (ODRReg.instruction == 0) {
+        ReorderBufferEntry rob = ReorderBufferEntry(sequence);
+        QueueEntry iqe = QueueEntry(sequence, ODRReg, vector<int>());
+        ReorderBuffer.push_back(rob);
+        InstructionQueue.push_back(iqe);
+        sequence += 1;
     }
-    else { // Rest of I type
-
+    else {
+        int oldDest = ODRReg.rd;
+        vector<int> regs;
+        if (ODRReg.opcode == 0){ //R type
+            int newRD = physRegFile.firstReady();
+            physRegFile.setReady(newRD, false);
+            regMap[ODRReg.rd] = newRD;
+            cout << "Mapped RD " << ODRReg.rd << " to " << newRD << "\n";
+            ODRReg.rt = regMap[ODRReg.rt];
+            if (ODRReg.rt != -1){
+                regs.push_back(ODRReg.rt);
+            }
+            else {
+                int newRT = physRegFile.firstReady();
+                physRegFile.setReady(newRT, false);
+                regMap[ODRReg.rt] = newRT;
+                ODRReg.rt = regMap[ODRReg.rt];
+                cout << "Mapped RT " << ODRReg.rt << " to " << newRT << "\n";
+            }
+            ODRReg.rd = newRD;        
+        }
+        else { // Rest of I type
+            oldDest = ODRReg.rt;
+            if (ODRReg.opcode != 40 && ODRReg.opcode != 56 && ODRReg.opcode != 41 && ODRReg.opcode != 43 && ODRReg.opcode != 57 && ODRReg.opcode != 61){
+                int newRT = physRegFile.firstReady();
+                physRegFile.setReady(newRT, false);
+                regMap[ODRReg.rt] = newRT;
+                ODRReg.rt = newRT;
+                cout << "Mapped RT " << ODRReg.rt << " to " << newRT << "\n";
+            }
+            else { 
+                ODRReg.rt = regMap[ODRReg.rt]; 
+                if (ODRReg.rt != -1){
+                    regs.push_back(ODRReg.rt);
+                }
+                else {
+                    int newRT = physRegFile.firstReady();
+                    physRegFile.setReady(newRT, false);
+                    regMap[ODRReg.rt] = newRT;
+                    ODRReg.rt = regMap[ODRReg.rt];
+                    cout << "Mapped RT " << ODRReg.rt << " to " << newRT << "\n";
+                }
+            }
+            
+        }
+        ODRReg.rs = regMap[ODRReg.rs];
+        if (ODRReg.rs != -1){
+            regs.push_back(ODRReg.rs);
+        }
+        else {
+            int newRS = physRegFile.firstReady();
+            physRegFile.setReady(newRS, false);
+            regMap[ODRReg.rs] = newRS;
+            ODRReg.rs = regMap[ODRReg.rs];
+            cout << "Mapped RS " << ODRReg.rs << " to " << newRS << "\n";
+        }
+        ODRReg.oldDest = oldDest;
+        ReorderBufferEntry rob = ReorderBufferEntry(sequence);
+        if (ODRReg.opcode == 0){
+            QueueEntry iqe = QueueEntry(sequence, ODRReg, regs);
+            InstructionQueue.push_back(iqe);
+            cout << "Instruction pushed to InstQueue with dependencies: ";
+        }
+        else {
+            QueueEntry lse = QueueEntry(sequence, ODRReg, regs);
+            LoadStoreQueue.push_back(lse);
+            cout << "Instruction pushed to LoadStoreQueue with dependencies: ";
+        }
+        ReorderBuffer.push_back(rob);
+        for (int i = 0; i < regs.size(); i++){
+            cout << regs[i] << " ";
+        }
+        cout << "\n";
     }
-}
-void Processor::OOOissue() {
+    cout << "Removing dependency: " << OEWReg.write_reg << "\n";
+    sequence += 1;
 
-}
-void Processor::OOOdispatch() {
+    for (QueueEntry& entry : InstructionQueue){
+        for (int i = 0; i < entry.regDependencies.size(); i++){
+            if (entry.regDependencies[i] == OEWReg.write_reg){
+                entry.regDependencies.erase(entry.regDependencies.begin()+i);
+                cout << "Removed dependency: " << OEWReg.write_reg << " from " << entry.controls.pc << "\n";
+            }
+            i--;
+        }
+    }
+    for (QueueEntry& entry : LoadStoreQueue){
+        for (int i = 0; i < entry.regDependencies.size(); i++){
+            if (entry.regDependencies[i] == OEWReg.write_reg){
+                entry.regDependencies.erase(entry.regDependencies.begin()+i);
+                cout << "Removed dependency: " << OEWReg.write_reg << " from " << entry.controls.pc << "\n";
+            }
+            i--;
+        }
+    }
 
 }
 void Processor::OOOexecute() {
+    bool exe = false;
+    bool memExe = false;
+    QueueEntry intr;
+    if (LoadStoreQueue.size() > 0) {
+        cout << "Front of lsq has dependencies: ";
+        for (int i = 0; i < LoadStoreQueue.front().regDependencies.size(); i++){
+            cout << LoadStoreQueue.front().regDependencies[i] << " ";
+        }
+        cout << "\n";
+        if (LoadStoreQueue.front().regDependencies.empty()) {
+        
+            intr = LoadStoreQueue.front();
+            memExe = true;
+            exe = true;
+        }
+    }
+    else {
+        cout << "Instruction queue has dependencies: ";
+        for (int i = 0; i < InstructionQueue.size(); i++){
+            cout << "Instruction with pc: " << InstructionQueue[i].controls.pc << " ";
+            for (int j = 0; j < InstructionQueue[i].regDependencies.size(); j++){
+                cout << InstructionQueue[i].regDependencies[j] << " ";
+            }
+            cout << "\n";
+            if (InstructionQueue[i].regDependencies.empty()){
+                intr = InstructionQueue[i];
+                InstructionQueue.erase(InstructionQueue.begin() + i);
+                exe = true;
+                break;
+            }
+        }
+        cout << "\n";
+    }
+    cout << "found instruction: " << exe << "\n";
+    if (!exe){
+        table2[3].push_back(0);
+        OEWReg.changed = false;
+        return;
+    }
+    table2[3].push_back(intr.controls.pc);
+
+    physRegFile.access(intr.controls.rs, intr.controls.rt, intr.controls.read_data_1, intr.controls.read_data_2, 0, 0, 0);
+    
+
+
+    alu.generate_control_inputs(intr.controls.control.ALU_op_control, intr.controls.funct, intr.controls.opcode);
+    // DEBUG(cout << "ALU op: " << DXReg.ALU_op_control << " Funct: " << DXReg.funct << " opcode: " << DXReg.opcode << "\n";)
+
+
+    // Find operands for the ALU Execution
+    // Operand 1 is always R[rs] -> read_data_1, except sll and srl
+    // Operand 2 is immediate if ALU_src = 1, for I-type
+    uint32_t operand_1 = intr.controls.control.shift_control ? intr.controls.shamt : intr.controls.read_data_1;
+    uint32_t operand_2 = intr.controls.control.ALU_src_control ? intr.controls.imm : intr.controls.read_data_2;
+    uint32_t alu_zero = 0;
+    
+
+    uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
+    // DEBUG(cout << "pc: " << DXReg.pc << " op1 " << operand_1 << " op2 "  << operand_2 << " alu_zero " << alu_zero << " alu result " << alu_result << "\n";)
+
+    
+    int write_reg = intr.controls.control.link_control ? 31 : intr.controls.control.reg_dest_control ? intr.controls.rd : intr.controls.rt;  
+
+    uint32_t pc_add_result = intr.controls.pc + (intr.controls.imm << 2);
+    uint32_t pc = intr.controls.control.jump_reg_control ? intr.controls.read_data_1 : intr.controls.control.jump_control ? (intr.controls.pc & 0xf0000000) & (intr.controls.addr << 2): intr.controls.pc;
+    // DEBUG(cout << DXReg.jump_control << " " << DXReg.jump_reg_control << "\n";
+    uint32_t orig_pc = intr.controls.pc;
+    uint32_t predict_pc = intr.controls.predict_pc;
+
+    // DEBUG(cout << "orig_pc: " << XMReg.orig_pc << " predict_pc " << DXReg.predict_pc << " pc_add_result "  << XMReg.pc_add_result << "\n";)
+    uint32_t read_data_mem = 0;
+    uint32_t write_data_mem = 0;
+    // table[3].push_back(XMReg.orig_pc);
+
+    
+
+    if (intr.controls.instruction == 0){
+        OEWReg.pc = orig_pc;
+        OEWReg.sequence = intr.sequenceNum;
+        OEWReg.changed = true;
+        return;
+    }
+      // First read no matter whether it is a load or a store
+    bool successful_access = memory->access(alu_result, read_data_mem, 0, intr.controls.control.mem_read_control | intr.controls.control.mem_write_control, 0);
+    DEBUG(cout << "Succesful Access?: " << successful_access << "\n";)
+    if (!successful_access) {
+        OOOmemStall = true;
+        DEBUG(cout << "Unsucessful Mem access => stalling\n" ;)
+        OEWReg.changed = false;
+        return;
+    }
+    if (memExe) {
+        LoadStoreQueue.erase(LoadStoreQueue.begin());
+        OOOmemStall = false;
+    }
+
+    DEBUG(cout << "read data mem: " << read_data_mem << " mem read control: " << intr.controls.control.mem_read_control << " Resulting alu result " << alu_result << "\n";)
+    // Stores: sb or sh mask and preserve original leftmost bits
+    write_data_mem = intr.controls.control.halfword_control ? (read_data_mem & 0xffff0000) | (intr.controls.read_data_2 & 0xffff) : 
+                    intr.controls.control.byte_control ? (read_data_mem & 0xffffff00) | (intr.controls.read_data_2 & 0xff): intr.controls.read_data_2;
+
+    // DEBUG(cout << "read data 2: " << XMReg.read_data_2 << "\n";)
+    // Write to memory only if mem_write is 1, i.e store
+    successful_access = memory->access(alu_result, read_data_mem, write_data_mem, intr.controls.control.mem_read_control, intr.controls.control.mem_write_control);
+    DEBUG(cout << "write data mem: " << write_data_mem << " mem write control: " << intr.controls.control.mem_write_control << " Resulting alu result " << alu_result << "\n";)
+    // if (!successful_access) {
+    //     memStall = true;
+    //     DEBUG(cout << "Unsucessful Mem access => stalling\n" ;)
+    //     return;
+    // }
+    // Loads: lbu or lhu modify read data by masking
+    MWBReg.read_data_mem &= intr.controls.control.halfword_control ? 0xffff : intr.controls.control.byte_control ? 0xff : 0xffffffff;
+
+    //Branch
+    if ((intr.controls.control.branch_control && !intr.controls.control.bne_control && alu_zero) || (intr.controls.control.bne_control && !alu_zero)){
+        // DEBUG(cout << "Branch taken => Flushing \n";)
+        DEBUG(cout << "Branch taken \n";)
+        int ind = hash<uint32_t>{}(XMReg.orig_pc-4) % (BHTSIZE + 1);
+        BHT[ind].prediction += 1;
+        if (BHT[ind].prediction > 3) { BHT[ind].prediction = 3; }
+        // Predicted taken
+        if (predict_pc != orig_pc){
+            if (predict_pc != pc_add_result){
+                regfile.pc = pc_add_result;   
+                DEBUG(cout << "Prediction was: " << XMReg.predict_pc << " Actual was: " << XMReg.pc_add_result  << " Address prediction wrong => Flushing \n";)
+                squash(intr.sequenceNum);
+            }
+            else {
+                DEBUG(cout << "Prediction correct - branch taken \n";)
+            }
+        }
+        // Predicted not taken
+        else {
+            regfile.pc = pc_add_result;
+            DEBUG(cout << "Prediction wrong => Flushing \n";)
+            squash(intr.sequenceNum);
+        }
+        BHT[ind].address = pc_add_result;
+    }
+    //Branch not taken
+    else if (intr.controls.control.branch_control || intr.controls.control.bne_control){
+        int ind = hash<uint32_t>{}(orig_pc-4) % (BHTSIZE + 1);
+        BHT[ind].prediction -= 1;
+        if (BHT[ind].prediction < 0) { BHT[ind].prediction = 0; }
+        // Predicted taken
+        if (predict_pc != orig_pc){
+            regfile.pc = orig_pc; 
+            DEBUG(cout << "Branch not taken - prediction wrong => Flushing \n";)  
+            squash(intr.sequenceNum);
+        }
+        // Predicted not taken
+        else {
+            DEBUG(cout << "Prediction correct \n";)
+        }
+    }
+    //Jump
+    else{
+        if (pc != orig_pc){
+            regfile.pc = pc;
+            squash(intr.sequenceNum);
+        }
+    }
+    DEBUG(cout << "Orig pc:" << orig_pc << " jump pc: " << pc << " add pc: " << pc_add_result << "\n";)
+
+    
+
+    OEWReg.pc = orig_pc;
+    OEWReg.write_reg = write_reg;
+    OEWReg.alu_result = alu_result;
+
+    OEWReg.link_control = intr.controls.control.link_control;
+    OEWReg.mem_to_reg_control = intr.controls.control.mem_to_reg_control;
+    OEWReg.reg_write_control = intr.controls.control.reg_write_control;
+    OEWReg.read_data_mem = read_data_mem;
+    OEWReg.arch_write_reg = intr.controls.oldDest;
+    OEWReg.sequence = intr.sequenceNum;
+    OEWReg.changed = true;
 
 }
 void Processor::OOOwriteback() {
+    table2[4].push_back(OEWReg.pc);
+    uint32_t read_data_dummy;
+    uint32_t write_data = MWBReg.link_control ? regfile.pc+8 : OEWReg.mem_to_reg_control ? OEWReg.read_data_mem : OEWReg.alu_result; 
+    DEBUG(cout << "Mem to reg: " << OEWReg.mem_to_reg_control << " Read data mem: " << OEWReg.read_data_mem << " Alu result: " << OEWReg.alu_result << "\n";)
+    DEBUG(cout << "Are we writing: " << OEWReg.reg_write_control << ", writing " << write_data << " to " << OEWReg.write_reg << "\n";)
+    physRegFile.access(0, 0, read_data_dummy, read_data_dummy, OEWReg.write_reg, OEWReg.reg_write_control, write_data);
+    OWCReg.arch_write_reg = OEWReg.arch_write_reg;
+    OWCReg.reg_write_control = OEWReg.reg_write_control;
+    OWCReg.write_data = write_data;
+    OWCReg.write_reg = OEWReg.write_reg;
+    OWCReg.sequence = OEWReg.sequence;
+    OWCReg.pc = OEWReg.pc;
+    if (OEWReg.changed){
+        commitReady.push_back(OWCReg);
 
+    }
 }
 
 void Processor::OOOcommit() {
+    table2[5].push_back(OWCReg.pc);
+    cout << "List of ready instruction pcs: ";
+    for (int i = 0; i < commitReady.size(); i++){
+        cout << "(" << commitReady[i].pc << ", " << commitReady[i].sequence << ")";
+    }
+    cout << "\n";
+    uint32_t read_data_dummy;
+    if (ReorderBuffer.size() == 0){
+        return;
+    }
+    int ind = 0;
+    for (WritebackCommitReg reg : commitReady){
+        if (reg.sequence == ReorderBuffer.front().sequenceNum){
+            cout << "Committing sequence number: " << reg.sequence << " with pc: " << reg.pc << "\n";
+            ReorderBuffer.erase(ReorderBuffer.begin());
+            commitReady.erase(commitReady.begin() + ind);
+            if (reg.pc > 3){
+                finishedPC = reg.pc - 4;
+            }
+            DEBUG(cout << "Are we writing: " << reg.reg_write_control << ", writing " << reg.write_data << " to " << reg.arch_write_reg << "\n";)
+            regfile.access(0, 0, read_data_dummy, read_data_dummy, reg.arch_write_reg, reg.reg_write_control, reg.write_data);
+            DEBUG(cout << "Released register: " << reg.write_reg << "\n";)
+            physRegFile.setReady(reg.write_reg, true);
+            break;
+        }
+        ind += 1;
+    }
+    
+    
+    
+    
+}   
 
-}
+void Processor::squash(int sequenceNum) {
+    cout << "Squashing all instructions over: " << sequenceNum << "\n";
+    vector<ReorderBufferEntry>::iterator it = ReorderBuffer.begin();
 
-void Processor::squash() {
+    while(it != ReorderBuffer.end()) {
+        if(it->sequenceNum > sequenceNum) {
+            it = ReorderBuffer.erase(it);
+        }
+        else ++it;
+    }
+    vector<QueueEntry>::iterator it2 = LoadStoreQueue.begin();
 
+    while(it2 != LoadStoreQueue.end()) {
+        if(it2->sequenceNum > sequenceNum) {
+            it2 = LoadStoreQueue.erase(it2);
+        }
+        else ++it2;
+    }
+    vector<QueueEntry>::iterator it3 = InstructionQueue.begin();
+
+    while(it3 != InstructionQueue.end()) {
+        if(it3->sequenceNum > sequenceNum) {
+            it3 = InstructionQueue.erase(it3);
+        }
+        else ++it3;
+    }
+
+    vector<WritebackCommitReg>::iterator it4 = commitReady.begin();
+
+    while(it4 != commitReady.end()) {
+        if(it4->sequence > sequenceNum) {
+            it4 = commitReady.erase(it4);
+        }
+        else ++it4;
+    }
 }
 
 void Processor::out_of_order_advance() { 
-    OOOfetch();
-    OOOdecode();
-    OOOrename();
-    OOOissue();
-    OOOdispatch();
-    OOOexecute();
-    OOOwriteback();
+    DEBUG(cout << "==COMMIT==" << "\n";)
     OOOcommit();
+    DEBUG(cout << "==WRITEBACK==" << "\n";)
+    OOOwriteback();
+    DEBUG(cout << "==EXECUTE==" << "\n";)
+    OOOexecute();
+    DEBUG(cout << "==RENAME==" << "\n";)
+    OOOrename();
+    DEBUG(cout << "==DECODE==" << "\n";)
+    OOOdecode();
+    DEBUG(cout << "==FETCH==" << "\n";)
+    OOOfetch();
+    
+    for (int i = 0; i < regfile.getSize(); i++){
+        cout << i << ":" << regMap[i] << "\n";
+    }
+    
+    // OOOissue();
+    // OOOdispatch();
+    
+    string stage_strings[6] = {"F", "D", "R", "X", "W", "C"};
+    vector<int> lens = {};
+    for (unsigned int i = 0; i < table2.size(); i++)
+    {
+        DEBUG(cout << stage_strings[i] << ": ";)
+        for (unsigned int j = 0; j < table2[i].size(); j++)
+        {
+            int len = to_string(abs(table2[i][j])).length();
+            if (i == 0){
+                lens.push_back(len);
+            }
+            string space(lens[j]-len + 1, ' ');
+            DEBUG(cout << table2[i][j] << space;)
+        }
+        DEBUG(cout << "\n";)
+    }
+    lens.clear();
+    
+    
 
 }

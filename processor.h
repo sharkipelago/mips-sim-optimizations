@@ -17,21 +17,60 @@ struct BHTLine {
 
 struct ReorderBufferEntry {
     int sequenceNum;
+    bool dead = false;
+    ReorderBufferEntry(int sequence){
+        sequenceNum = sequence;
+    }
+};
+struct QueueEntry {
+    int sequenceNum;
+    DecodeRenameReg controls;
+    vector<int> regDependencies;
+    QueueEntry(){}
+    QueueEntry(int sequence, DecodeRenameReg control, vector<int> regs){
+        sequenceNum = sequence;
+        controls = control;
+        regDependencies = regs;
+    }
 };
 
 struct InstructionQueueEntry {
     int sequenceNum;
-    ControlSignals controls;
+    DecodeRenameReg controls;
     vector<int> regDependencies;
+    InstructionQueueEntry(int sequence, DecodeRenameReg control, vector<int> regs){
+        sequenceNum = sequence;
+        controls = control;
+        regDependencies = regs;
+    }
 };
 
 struct LoadStoreEntry {
     int sequenceNum;
-    ControlSignals controls;
+    DecodeRenameReg controls;
     vector<int> regDependencies;
     uint32_t physicalAddress;
+    LoadStoreEntry(int sequence, DecodeRenameReg control, vector<int> regs){
+        sequenceNum = sequence;
+        controls = control;
+        regDependencies = regs; 
+    }
 };
 
+
+// class ExecutionPort {
+//     public: 
+//     ALU alu;
+//     Memory* memory;
+//     vector<BHTLine>* BHT;
+//     ExecutionPort(ALU nalu, Memory *mem, vector<BHTLine>* branchHist) { 
+//         alu = nalu;
+//         memory = mem;
+//         BHT = branchHist;
+//     }
+//     void executeIntr(InstructionQueueEntry intr);
+//     void executeMem(LoadStoreEntry lse);
+// };
 
 class Processor {
     private:
@@ -43,14 +82,18 @@ class Processor {
         Registers physRegFile = Registers(96);
         map<int, int> regMap;
         vector<vector<int>> table;
-        queue<ReorderBufferEntry> ReorderBuffer;
-        vector<InstructionQueueEntry> InstructionQueue;
-        queue<LoadStoreEntry> LoadStoreQueue;
+        vector<vector<int>> table2;
+        vector<ReorderBufferEntry> ReorderBuffer;
+        vector<QueueEntry> InstructionQueue;
+        vector<QueueEntry> LoadStoreQueue;
+        // vector<ExecutionPort> executes;
 
-        uint32_t finishedPC;
+        uint32_t finishedPC = 0;
         bool FDRegWrite = 1, memStall = false, stopFetch2 = false;
 
-        std::vector<BHTLine> BHT;
+        bool OOOmemStall = false;
+
+        vector<BHTLine> BHT;
 
         int sequence = 0;
 
@@ -68,13 +111,17 @@ class Processor {
         IssueDispatchReg OIDReg;
         DispatchExecuteReg ODEReg;
         ExecuteWritebackReg OEWReg;
+        
         WritebackCommitReg OWCReg;
+        vector<WritebackCommitReg> commitReady;
         
 
         // add private functions
         void single_cycle_processor_advance();
         void pipelined_processor_advance();
         void out_of_order_advance();
+
+        
  
     public:
 
@@ -85,6 +132,7 @@ class Processor {
             for (int i = 0; i < regfile.getSize(); i++) {
                 regMap[i] = -1;
             }
+            // executes.push_back(ExecutionPort(alu, mem, &BHT));
         }
 
         // Get PC
@@ -109,6 +157,8 @@ class Processor {
         void write_back_stage();
         void flush();
 
+        int mapReg(int reg);
+        void emptyODRReg();
         void OOOfetch();
         void OOOdecode();
         void OOOrename();
@@ -117,6 +167,6 @@ class Processor {
         void OOOexecute();
         void OOOwriteback();
         void OOOcommit();
-        void squash();
+        void squash(int num);
 
 };

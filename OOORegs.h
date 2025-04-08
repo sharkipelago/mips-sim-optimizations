@@ -27,6 +27,7 @@ struct FetchDecodeReg {
     uint32_t pc = 0;
     uint32_t predict_pc = 0;
     uint32_t instruction = 0;
+    bool fetched = false;
 };
 
 struct DecodeRenameReg {
@@ -45,9 +46,11 @@ struct DecodeRenameReg {
     int rd = 0;
     int shamt = 0;
     int funct = 0;
+    int oldDest = 0;
     uint32_t imm = 0;
     uint32_t pc = 0;
     uint32_t predict_pc = 0;
+    uint32_t instruction = 0;
 };
 
 struct RenameIssueReg {
@@ -82,11 +85,26 @@ struct DispatchExecuteReg {
 };
 
 struct ExecuteWritebackReg {
-    ControlSignals control;
+    bool link_control = 0;
+    bool mem_to_reg_control = 0;
+    bool reg_write_control = 0;
+
+    uint32_t read_data_mem = 0;
+    uint32_t alu_result = 0; 
+    uint32_t pc = 0;
+    int write_reg = 0;
+    int arch_write_reg = 0;
+    int sequence = 0;
+    bool changed = false;
 };
 
 struct WritebackCommitReg {
-
+    int arch_write_reg = 0;
+    int write_reg = 0;
+    bool reg_write_control = 0;
+    uint32_t write_data = 0;
+    int sequence = 0;
+    uint32_t pc = 0;
 };
 
 
