@@ -46,7 +46,7 @@ class Registers {
             read_data_2 = R[read_reg_2].value;
             if (write) {
                 R[write_reg].value = write_data;
-                R[write_reg].ready = true;
+                // R[write_reg].ready = true;
             }
         }
 

@@ -707,9 +707,9 @@ void Processor::OOOdecode() {
     uint32_t read_data_2 = 0;
 
     // Read from reg file
-    regfile.access(rs, rt, read_data_1, read_data_2, 0, 0, 0);
+    // regfile.access(rs, rt, read_data_1, read_data_2, 0, 0, 0);
 
-    DEBUG(cout << "read_data_1: " << read_data_1 << " read_data_2: " << read_data_2 << "\n";)
+    // DEBUG(cout << "read_data_1: " << read_data_1 << " read_data_2: " << read_data_2 << "\n";)
 
     // Sign Extend Or Zero Extend the immediate
     // Using Arithmetic right shift in order to replicate 1 
@@ -769,7 +769,7 @@ void Processor::OOOrename() {
     if (ODRReg.pc == 0){
         return;
     }
-    if (ODRReg.instruction == 0) {
+    if (ODRReg.instruction == 0) { // Maybe not needed
         ReorderBufferEntry rob = ReorderBufferEntry(sequence);
         QueueEntry iqe = QueueEntry(sequence, ODRReg, vector<int>());
         ReorderBuffer.push_back(rob);
@@ -778,63 +778,47 @@ void Processor::OOOrename() {
     }
     else {
         int oldDest = ODRReg.rd;
+        int temp;
         vector<int> regs;
         if (ODRReg.opcode == 0){ //R type
-            int newRD = physRegFile.firstReady();
-            physRegFile.setReady(newRD, false);
-            regMap[ODRReg.rd] = newRD;
-            cout << "Mapped RD " << ODRReg.rd << " to " << newRD << "\n";
-            ODRReg.rt = regMap[ODRReg.rt];
-            if (ODRReg.rt != -1){
-                regs.push_back(ODRReg.rt);
+            ODRReg.rd = mapReg(ODRReg.rd); // TO DO: Need to set old register to ready if not -1 in map
+            temp = regMap[ODRReg.rt];
+            if (temp != -1){
+                regs.push_back(temp);
             }
             else {
-                int newRT = physRegFile.firstReady();
-                physRegFile.setReady(newRT, false);
-                regMap[ODRReg.rt] = newRT;
-                ODRReg.rt = regMap[ODRReg.rt];
-                cout << "Mapped RT " << ODRReg.rt << " to " << newRT << "\n";
+                ODRReg.rt = mapReg(ODRReg.rt);
             }
-            ODRReg.rd = newRD;        
         }
         else { // Rest of I type
             oldDest = ODRReg.rt;
-            if (ODRReg.opcode != 40 && ODRReg.opcode != 56 && ODRReg.opcode != 41 && ODRReg.opcode != 43 && ODRReg.opcode != 57 && ODRReg.opcode != 61){
-                int newRT = physRegFile.firstReady();
-                physRegFile.setReady(newRT, false);
-                regMap[ODRReg.rt] = newRT;
-                ODRReg.rt = newRT;
-                cout << "Mapped RT " << ODRReg.rt << " to " << newRT << "\n";
+            if (ODRReg.opcode != 40 && ODRReg.opcode != 56 && ODRReg.opcode != 41
+                 && ODRReg.opcode != 43 && ODRReg.opcode != 57 && ODRReg.opcode != 61){ // Add branches
+                ODRReg.rt = mapReg(ODRReg.rt);
             }
             else { 
-                ODRReg.rt = regMap[ODRReg.rt]; 
-                if (ODRReg.rt != -1){
-                    regs.push_back(ODRReg.rt);
+                temp = regMap[ODRReg.rt]; 
+                if (temp != -1){
+                    regs.push_back(temp);
                 }
                 else {
-                    int newRT = physRegFile.firstReady();
-                    physRegFile.setReady(newRT, false);
-                    regMap[ODRReg.rt] = newRT;
-                    ODRReg.rt = regMap[ODRReg.rt];
-                    cout << "Mapped RT " << ODRReg.rt << " to " << newRT << "\n";
+                    ODRReg.rt = mapReg(ODRReg.rt);
                 }
             }
             
         }
-        ODRReg.rs = regMap[ODRReg.rs];
-        if (ODRReg.rs != -1){
-            regs.push_back(ODRReg.rs);
+        // ODRReg.rs = regMap[ODRReg.rs];
+        temp = regMap[ODRReg.rs];
+        if (temp != -1){
+            regs.push_back(temp);
+            cout << "Pushed back " << temp << "\n";
         }
         else {
-            int newRS = physRegFile.firstReady();
-            physRegFile.setReady(newRS, false);
-            regMap[ODRReg.rs] = newRS;
-            ODRReg.rs = regMap[ODRReg.rs];
-            cout << "Mapped RS " << ODRReg.rs << " to " << newRS << "\n";
+            ODRReg.rs = mapReg(ODRReg.rs);
         }
         ODRReg.oldDest = oldDest;
         ReorderBufferEntry rob = ReorderBufferEntry(sequence);
-        if (ODRReg.opcode == 0){
+        if (ODRReg.opcode == 0){ //Check for other i types
             QueueEntry iqe = QueueEntry(sequence, ODRReg, regs);
             InstructionQueue.push_back(iqe);
             cout << "Instruction pushed to InstQueue with dependencies: ";
@@ -850,7 +834,7 @@ void Processor::OOOrename() {
         }
         cout << "\n";
     }
-    cout << "Removing dependency: " << OEWReg.write_reg << "\n";
+    cout << "Removing dependency: " << OEWReg.write_reg << "\n"; //Fix issue with write_reg being 0 by default
     sequence += 1;
 
     for (QueueEntry& entry : InstructionQueue){
@@ -916,7 +900,7 @@ void Processor::OOOexecute() {
     table2[3].push_back(intr.controls.pc);
 
     physRegFile.access(intr.controls.rs, intr.controls.rt, intr.controls.read_data_1, intr.controls.read_data_2, 0, 0, 0);
-    
+    DEBUG(cout << "read_data_1: " << intr.controls.read_data_1 << " read_data_2: " << intr.controls.read_data_2 << "\n";)
 
 
     alu.generate_control_inputs(intr.controls.control.ALU_op_control, intr.controls.funct, intr.controls.opcode);
@@ -950,7 +934,7 @@ void Processor::OOOexecute() {
 
     
 
-    if (intr.controls.instruction == 0){
+    if (intr.controls.instruction == 0){ // for nops - could be not necessary as well
         OEWReg.pc = orig_pc;
         OEWReg.sequence = intr.sequenceNum;
         OEWReg.changed = true;
@@ -965,7 +949,7 @@ void Processor::OOOexecute() {
         OEWReg.changed = false;
         return;
     }
-    if (memExe) {
+    if (memExe) { // When non blocking cache is implemented - make sure to not pull from lsq while waiting for cache
         LoadStoreQueue.erase(LoadStoreQueue.begin());
         OOOmemStall = false;
     }
@@ -1157,7 +1141,14 @@ void Processor::out_of_order_advance() {
     DEBUG(cout << "==FETCH==" << "\n";)
     OOOfetch();
     
-    for (int i = 0; i < regfile.getSize(); i++){
+    cout << "Not ready registers: ";
+    for (int i = 0; i < physRegFile.getSize(); i++){
+        if (!physRegFile.ready(i)){
+            cout << i << " ";
+        }
+    }
+    cout << "\n";
+    for (int i = -1; i < regfile.getSize(); i++){
         cout << i << ":" << regMap[i] << "\n";
     }
     
