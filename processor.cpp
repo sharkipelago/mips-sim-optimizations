@@ -769,14 +769,14 @@ void Processor::OOOrename() {
     if (ODRReg.pc == 0){
         return;
     }
-    if (ODRReg.instruction == 0) { // Maybe not needed
-        ReorderBufferEntry rob = ReorderBufferEntry(sequence);
-        QueueEntry iqe = QueueEntry(sequence, ODRReg, vector<int>());
-        ReorderBuffer.push_back(rob);
-        InstructionQueue.push_back(iqe);
-        sequence += 1;
-    }
-    else {
+    // if (ODRReg.instruction == 0) { // Maybe not needed
+    //     ReorderBufferEntry rob = ReorderBufferEntry(sequence);
+    //     QueueEntry iqe = QueueEntry(sequence, ODRReg, vector<int>());
+    //     ReorderBuffer.push_back(rob);
+    //     InstructionQueue.push_back(iqe);
+    //     sequence += 1;
+    // }
+    // else {
         int oldDest = ODRReg.rd;
         int temp;
         vector<int> regs;
@@ -818,7 +818,7 @@ void Processor::OOOrename() {
         }
         ODRReg.oldDest = oldDest;
         ReorderBufferEntry rob = ReorderBufferEntry(sequence);
-        if (ODRReg.opcode == 0){ //Check for other i types
+        if (ODRReg.opcode != 35 && ODRReg.opcode != 43){ // Accept everything except load and store
             QueueEntry iqe = QueueEntry(sequence, ODRReg, regs);
             InstructionQueue.push_back(iqe);
             cout << "Instruction pushed to InstQueue with dependencies: ";
@@ -833,11 +833,12 @@ void Processor::OOOrename() {
             cout << regs[i] << " ";
         }
         cout << "\n";
-    }
+    // }
     cout << "Removing dependency: " << OEWReg.write_reg << "\n"; //Fix issue with write_reg being 0 by default
     sequence += 1;
 
     for (QueueEntry& entry : InstructionQueue){
+        cout << "DEPEND SIZE: " << entry.regDependencies.size() << "\n";
         for (int i = 0; i < entry.regDependencies.size(); i++){
             if (entry.regDependencies[i] == OEWReg.write_reg){
                 entry.regDependencies.erase(entry.regDependencies.begin()+i);
@@ -917,6 +918,7 @@ void Processor::OOOexecute() {
 
     uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
     // DEBUG(cout << "pc: " << DXReg.pc << " op1 " << operand_1 << " op2 "  << operand_2 << " alu_zero " << alu_zero << " alu result " << alu_result << "\n";)
+    DEBUG(cout << " op1 " << operand_1 << " op2 "  << operand_2 << " alu_zero " << alu_zero << " alu result " << alu_result << "\n";)
 
     
     int write_reg = intr.controls.control.link_control ? 31 : intr.controls.control.reg_dest_control ? intr.controls.rd : intr.controls.rt;  
@@ -1128,50 +1130,50 @@ void Processor::squash(int sequenceNum) {
 }
 
 void Processor::out_of_order_advance() { 
-    DEBUG(cout << "==COMMIT==" << "\n";)
+    DEBUG(cout << "==COMMIT==" <<  std::endl;)
     OOOcommit();
-    DEBUG(cout << "==WRITEBACK==" << "\n";)
+    DEBUG(cout << "==WRITEBACK==" <<  std::endl;)
     OOOwriteback();
-    DEBUG(cout << "==EXECUTE==" << "\n";)
+    DEBUG(cout << "==EXECUTE==" <<  std::endl;)
     OOOexecute();
-    DEBUG(cout << "==RENAME==" << "\n";)
+    DEBUG(cout << "==RENAME==" <<  std::endl;)
     OOOrename();
-    DEBUG(cout << "==DECODE==" << "\n";)
+    DEBUG(cout << "==DECODE==" <<  std::endl;)
     OOOdecode();
-    DEBUG(cout << "==FETCH==" << "\n";)
+    DEBUG(cout << "==FETCH==" <<  std::endl;)
     OOOfetch();
-    
-    cout << "Not ready registers: ";
-    for (int i = 0; i < physRegFile.getSize(); i++){
-        if (!physRegFile.ready(i)){
-            cout << i << " ";
-        }
-    }
-    cout << "\n";
-    for (int i = -1; i < regfile.getSize(); i++){
-        cout << i << ":" << regMap[i] << "\n";
-    }
+
+    // cout << "Not ready registers: ";
+    // for (int i = 0; i < physRegFile.getSize(); i++){
+    //     if (!physRegFile.ready(i)){
+    //         cout << i << " ";
+    //     }
+    // }
+    // cout << "\n";
+    // for (int i = -1; i < regfile.getSize(); i++){
+    //     cout << i << ":" << regMap[i] << "\n";
+    // }
     
     // OOOissue();
     // OOOdispatch();
     
-    string stage_strings[6] = {"F", "D", "R", "X", "W", "C"};
-    vector<int> lens = {};
-    for (unsigned int i = 0; i < table2.size(); i++)
-    {
-        DEBUG(cout << stage_strings[i] << ": ";)
-        for (unsigned int j = 0; j < table2[i].size(); j++)
-        {
-            int len = to_string(abs(table2[i][j])).length();
-            if (i == 0){
-                lens.push_back(len);
-            }
-            string space(lens[j]-len + 1, ' ');
-            DEBUG(cout << table2[i][j] << space;)
-        }
-        DEBUG(cout << "\n";)
-    }
-    lens.clear();
+    // string stage_strings[6] = {"F", "D", "R", "X", "W", "C"};
+    // vector<int> lens = {};
+    // for (unsigned int i = 0; i < table2.size(); i++)
+    // {
+    //     DEBUG(cout << stage_strings[i] << ": ";)
+    //     for (unsigned int j = 0; j < table2[i].size(); j++)
+    //     {
+    //         int len = to_string(abs(table2[i][j])).length();
+    //         if (i == 0){
+    //             lens.push_back(len);
+    //         }
+    //         string space(lens[j]-len + 1, ' ');
+    //         DEBUG(cout << table2[i][j] << space;)
+    //     }
+    //     DEBUG(cout << "\n";)
+    // }
+    // lens.clear();
     
     
 

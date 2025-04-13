@@ -1,0 +1,3191 @@
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 0
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 1
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 2
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 3
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 4
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 5
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 6
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 7
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 8
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 9
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 10
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 11
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 12
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 13
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 14
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 15
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 16
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 17
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 18
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 19
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 20
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 21
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 22
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 23
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 24
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 25
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 26
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 27
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 28
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 29
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 30
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 31
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 32
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 33
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 34
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 35
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 36
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 37
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 38
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 39
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 40
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 41
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 42
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 43
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 44
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 45
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 46
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 47
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 48
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 49
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 50
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 51
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 52
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 53
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 54
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 55
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 56
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 57
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 58
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 59
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 1
+inst:536936548 
+
+CYCLE 60
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:536936548 
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+[R-Type] opcode: 8, rs: 0, rt: 1, rd: 0, shamt: 1, funct: 36
+[I-Type] opcode: 8, rs: 0, rt: 1, imm: 100
+==FETCH==
+Succesful Access?: 1
+inst:537014752 
+
+CYCLE 61
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:536936548 
+Mapped 1 to 0
+Mapped 0 to 1
+Instruction pushed to InstQueue with dependencies: 
+Removing dependency: 0
+DEPEND SIZE: 0
+==DECODE==
+Decode inst:537014752 
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+[R-Type] opcode: 8, rs: 0, rt: 2, rd: 6, shamt: 7, funct: 32
+[I-Type] opcode: 8, rs: 0, rt: 2, imm: 12768
+==FETCH==
+Succesful Access?: 1
+inst:537145824 
+
+CYCLE 62
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 0
+Are we writing: 0, writing 0 to 0
+==EXECUTE==
+Instruction queue has dependencies: Instruction with pc: 4 
+
+found instruction: 1
+read_data_1: 0 read_data_2: 0
+ op1 0 op2 100 alu_zero 0 alu result 100
+Succesful Access?: 1
+read data mem: 0 mem read control: 0 Resulting alu result 100
+write data mem: 0 mem write control: 0 Resulting alu result 100
+Orig pc:4 jump pc: 4 add pc: 404
+==RENAME==
