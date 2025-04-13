@@ -44,6 +44,7 @@ void Processor::advance() {
         case 1: pipelined_processor_advance();
                 break;
         case 2: out_of_order_advance();
+                break;
         // other optimization levels go here
         default: break;
     }
@@ -56,6 +57,8 @@ uint32_t Processor::getPC(){
             return regfile.pc;
             break;
         case 1:
+            return finishedPC;
+        case 2:
             return finishedPC;
             break;
         default:
@@ -166,7 +169,8 @@ void Processor::emptyDXReg(){
     DXReg.ALU_src_control = 0;
     DXReg.reg_write_control = 0;
     DXReg.zero_extend_control = 0;
-    // DXReg.pc = 0;
+    DXReg.pc = 0;
+    DXReg.predict_pc = 0;
 }
 
 void Processor::emptyODRReg(){
@@ -187,7 +191,8 @@ void Processor::emptyODRReg(){
     ODRReg.control.reg_write_control = 0;
     ODRReg.control.zero_extend_control = 0;
     ODRReg.instruction = 0;
-    // DXReg.pc = 0;
+    ODRReg.pc = 0;
+    ODRReg.predict_pc = 0;
 }
 
 void Processor::emptyFDReg(){
@@ -197,6 +202,7 @@ void Processor::emptyFDReg(){
 void Processor::flush(){
     emptyFDReg();
     emptyDXReg();
+    
 }
 
 void Processor::stall(){
@@ -217,6 +223,7 @@ void Processor::fetch_stage(){
     // fetch
     bool successful_access = memory->access(regfile.pc, instruction, 0, 1, 0);
     DEBUG(cout << "Succesful Access?: " << successful_access << "\n";)
+    DEBUG(cout << "PC: " << regfile.pc << "\n";)
     if (!successful_access) {
         FDReg.instruction = 0;
         DEBUG(cout << "Unsucessful Fetch access => stalling\n" ;)
@@ -232,15 +239,18 @@ void Processor::fetch_stage(){
     FDReg.pc = regfile.pc + 4;
     if (BHT[ind].prediction > 1){
         regfile.pc = BHT[ind].address;
-        FDReg.predict_pc = regfile.pc;
+        DEBUG(cout << "Updated PC w/ prediction to: " << regfile.pc << "\n";)
     }
     else {
         // increment pc
         regfile.pc += 4;
-        FDReg.predict_pc = regfile.pc;
     }
+    FDReg.predict_pc = regfile.pc;
+
  
     DEBUG(cout << "inst:" << instruction  << " \n";)
+    DEBUG(cout << "PC:" << FDReg.pc  << " \n";)
+    DEBUG(cout << "Predict PC:" << FDReg.predict_pc  << " \n";)
     
     // pass variables
     FDReg.instruction = instruction;
@@ -253,13 +263,14 @@ void Processor::decode_stage(){
     uint32_t temp_pc = FDReg.pc;
     FDRegWrite = 1;
     // decode into contol signals
-    if (FDReg.pc != 0 && instruction != 0) { // TODO: Check this - is iffy
+    if (FDReg.pc != 0 && FDReg.instruction != 0 ) { // TODO: Check this - is iffy
         control.decode(instruction);
     }
     else {
         DEBUG(cout << "NOP or failed access. \n";)
         emptyDXReg();
         DXReg.pc = temp_pc;
+        DXReg.predict_pc = temp_pc;
         return;
     }
     DEBUG(control.print());
@@ -287,6 +298,7 @@ void Processor::decode_stage(){
         DEBUG(cout << "Stalling - rs: " << rs << " , rt: " << rt << ", XM write reg: " << XMReg.write_reg << " XM Mem Read Control: " << DXReg.mem_read_control << " opcode: " << opcode << "\n";)
         stall();
         DXReg.pc = temp_pc;
+        DXReg.predict_pc = temp_pc;
         return;
     }
     DEBUG(cout << "Did not stall - rs: " << rs << " , rt: " << rt << ", XM write reg: " << XMReg.write_reg << " XM Mem Read Control: " << " opcode: " << opcode << DXReg.mem_read_control<< "\n";)
@@ -356,6 +368,8 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
     uint32_t alu_zero = 0;
 
 
+    DEBUG(cout << "Op1: " << operand_1 << " Op2: " << operand_2 << "\n";)
+
 
     // if (forward_a != 0) {
     //     operand_1 = forward_a == 2 ? XMReg.alu_result : prevMWData; 
@@ -382,9 +396,9 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
         operand_1 = prevMWData; 
         // If I-type, need to forward to rt
         if (DXReg.opcode != 0){
-            DXReg.read_data_2 = operand_1;
+            // DXReg.read_data_2 = operand_1;
         }
-        DEBUG(cout << "Forwarding: " << operand_1 << " for operand 1 (forward a: " << forward_a << ")\n";)
+        DEBUG(cout << "Forwarding2: " << operand_1 << " for operand 1 (forward a: " << forward_a << ")\n";)
     }
     else {
         DEBUG(cout << "Did not forward: " << prevMWData << " with control: " << prevMWWRite << " for operand 1 (forward a: " << forward_a << ")\n";)
@@ -409,7 +423,7 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
             operand_2 = prevMWData; 
         }
         
-        DEBUG(cout << "Forwarding: " << operand_2 << " for operand 2 (forward b: " << forward_b << ")\n";)
+        DEBUG(cout << "Forwarding2: " << operand_2 << " for operand 2 (forward b: " << forward_b << ")\n";)
     }      
     else {
         DEBUG(cout << "Did not forward: " << prevMWData << " with control: " << prevMWWRite << " for operand 2 (forward b: " << forward_b << ")\n";)
@@ -461,7 +475,6 @@ void Processor::execute_stage(uint32_t forward_a, uint32_t forward_b, uint32_t p
             stopFetch2 = true;
         }
     }
-
 }    
 
 void Processor::memory_stage(){
@@ -495,6 +508,7 @@ void Processor::memory_stage(){
     // Loads: lbu or lhu modify read data by masking
     MWBReg.read_data_mem &= XMReg.halfword_control ? 0xffff : XMReg.byte_control ? 0xff : 0xffffffff;
 
+    bool flushed = false;
     //Branch
     if ((XMReg.branch_control && !XMReg.bne_control && XMReg.alu_zero) || (XMReg.bne_control && !XMReg.alu_zero)){
         // DEBUG(cout << "Branch taken => Flushing \n";)
@@ -508,6 +522,7 @@ void Processor::memory_stage(){
                 regfile.pc = XMReg.pc_add_result;   
                 DEBUG(cout << "Prediction was: " << XMReg.predict_pc << " Actual was: XMReg.pc_add_result " << "Address prediction wrong => Flushing \n";)
                 flush();
+                flushed = true;
             }
             else {
                 DEBUG(cout << "Prediction correct - branch taken \n";)
@@ -518,6 +533,7 @@ void Processor::memory_stage(){
             regfile.pc = XMReg.pc_add_result;
             DEBUG(cout << "Prediction wrong => Flushing \n";)
             flush();
+            flushed = true;
         }
         BHT[ind].address = XMReg.pc_add_result;
     }
@@ -529,8 +545,9 @@ void Processor::memory_stage(){
         // Predicted taken
         if (XMReg.predict_pc != XMReg.orig_pc){
             regfile.pc = XMReg.orig_pc; 
-            DEBUG(cout << "Branch not taken - prediction wrong => Flushing \n";)  
+            DEBUG(cout << "Branch not taken - prediction wrong => Flushing \n";) 
             flush();
+            flushed = true;
         }
         // Predicted not taken
         else {
@@ -541,10 +558,18 @@ void Processor::memory_stage(){
     else{
         if (XMReg.pc != XMReg.orig_pc){
             regfile.pc = XMReg.pc;
+            DEBUG(cout << "Jump to: " << regfile.pc << "\n";)
             flush();
+            flushed = true;
+        }
+        else if (XMReg.predict_pc != XMReg.pc){
+            regfile.pc = XMReg.pc;
+            DEBUG(cout << "Branch predict when not branch - flushing\n";)
+            flush();
+            flushed = true;
         }
     }
-    DEBUG(cout << "Orig pc:" << XMReg.orig_pc << " jump pc: " << XMReg.pc << " add pc: " << XMReg.pc_add_result << "\n";)
+    DEBUG(cout << "Orig pc:" << XMReg.orig_pc << " Pc:" << XMReg.pc << " Predict pc: " << XMReg.predict_pc << " jump pc: " << XMReg.pc << " add pc: " << XMReg.pc_add_result << "\n";)
 
     // Passing Values
     MWBReg.pc = XMReg.orig_pc;
@@ -556,6 +581,10 @@ void Processor::memory_stage(){
     MWBReg.reg_write_control = XMReg.reg_write_control;
     MWBReg.read_data_mem = read_data_mem;
 
+    if (flushed){
+        ExMemPipeReg newXM;
+        XMReg = newXM;
+    }
 }
 
 void Processor::write_back_stage() {
@@ -688,6 +717,7 @@ void Processor::OOOdecode() {
         emptyODRReg();
         // DXReg.pc = temp_pc;
         ODRReg.pc = 0;
+        ODRReg.predict_pc = 0;
         return;
     }
     DEBUG(control.print());
@@ -1019,6 +1049,12 @@ void Processor::OOOexecute() {
     else{
         if (pc != orig_pc){
             regfile.pc = pc;
+            squash(intr.sequenceNum);
+        }
+        else if (predict_pc != pc){
+            regfile.pc = pc;
+            DEBUG(cout << "Branch predict when not branch - squashing\n";)
+            flush();
             squash(intr.sequenceNum);
         }
     }
