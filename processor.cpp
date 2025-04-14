@@ -799,73 +799,82 @@ void Processor::OOOrename() {
     if (ODRReg.pc == 0){
         return;
     }
-    // if (ODRReg.instruction == 0) { // Maybe not needed
-    //     ReorderBufferEntry rob = ReorderBufferEntry(sequence);
-    //     QueueEntry iqe = QueueEntry(sequence, ODRReg, vector<int>());
-    //     ReorderBuffer.push_back(rob);
-    //     InstructionQueue.push_back(iqe);
-    //     sequence += 1;
-    // }
-    // else {
-        int oldDest = ODRReg.rd;
-        int temp;
-        vector<int> regs;
+    if (ODRReg.instruction == 0) { // Maybe not needed
+        ReorderBufferEntry rob = ReorderBufferEntry(sequence, -1);
+        QueueEntry iqe = QueueEntry(sequence, ODRReg, vector<int>());
+        ReorderBuffer.push_back(rob);
+        InstructionQueue.push_back(iqe);
+        sequence += 1;
+    }
+    else {
+        int archDest = ODRReg.rd;
+        vector<int> regs; // Dependent REgisters
+
+        if (regMap[ODRReg.rs] == -1){ mapReg(ODRReg.rs); } // "Initalize source rs if uninitalized"
+        regs.push_back(regMap[ODRReg.rs]);
+
         if (ODRReg.opcode == 0){ //R type
-            ODRReg.rd = mapReg(ODRReg.rd); // TO DO: Need to set old register to ready if not -1 in map
-            temp = regMap[ODRReg.rt];
-            if (temp != -1){
-                regs.push_back(temp);
-            }
-            else {
-                ODRReg.rt = mapReg(ODRReg.rt);
-            }
+            std::cout << "Rtype Rename" << std::endl;
+            if (regMap[ODRReg.rt] == -1){ mapReg(ODRReg.rt); } // Initalize source rt
+            regs.push_back(regMap[ODRReg.rt]);
         }
         else { // Rest of I type
-            oldDest = ODRReg.rt;
-            if (ODRReg.opcode != 40 && ODRReg.opcode != 56 && ODRReg.opcode != 41
-                 && ODRReg.opcode != 43 && ODRReg.opcode != 57 && ODRReg.opcode != 61){ // Add branches
-                ODRReg.rt = mapReg(ODRReg.rt);
+            std::cout << "Itype Rename" << std::endl;
+            archDest = ODRReg.rt;
+            if (ODRReg.opcode == 40 || ODRReg.opcode == 56 || ODRReg.opcode == 41 || ODRReg.opcode == 43 || ODRReg.opcode == 57 || ODRReg.opcode == 61 
+                 || ODRReg.opcode == 4 || ODRReg.opcode == 5  ){ // branches
+                    archDest = -1;
             }
-            else { 
-                temp = regMap[ODRReg.rt]; 
-                if (temp != -1){
-                    regs.push_back(temp);
-                }
-                else {
-                    ODRReg.rt = mapReg(ODRReg.rt);
+        }
+        if (archDest != -1) {
+            mapReg(archDest);
+        }
+
+        cout << "Initial Dependencies " ;
+        for (int i = 0; i < regs.size(); i++){
+            cout << "Phys" << regs[i] << " ";
+        }
+        cout << std::endl;
+
+        vector<int> trueDepRegs;
+        vector<ReorderBufferEntry>::iterator it = ReorderBuffer.begin();
+        for (int i = 0; i < regs.size(); i++){
+            for (int j = 0; j < ReorderBuffer.size(); j++){
+                if (!ReorderBuffer[j].dead && ReorderBuffer[j].destReg != -1) {
+                    if (regs[i] == ReorderBuffer[j].destReg) {
+                        trueDepRegs.push_back(regs[i]);
+                    }
                 }
             }
-            
         }
-        // ODRReg.rs = regMap[ODRReg.rs];
-        temp = regMap[ODRReg.rs];
-        if (temp != -1){
-            regs.push_back(temp);
-            cout << "Pushed back " << temp << "\n";
+
+        cout << "Actual Dependencies " ;
+        for (int i = 0; i < trueDepRegs.size(); i++){
+            cout << "Phys" << trueDepRegs[i] << " ";
         }
-        else {
-            ODRReg.rs = mapReg(ODRReg.rs);
-        }
-        ODRReg.oldDest = oldDest;
-        ReorderBufferEntry rob = ReorderBufferEntry(sequence);
+        cout << std::endl;
+
+        ReorderBufferEntry rob = ReorderBufferEntry(sequence, archDest);
         if (ODRReg.opcode != 35 && ODRReg.opcode != 43){ // Accept everything except load and store
-            QueueEntry iqe = QueueEntry(sequence, ODRReg, regs);
+            QueueEntry iqe = QueueEntry(sequence, ODRReg, trueDepRegs);
             InstructionQueue.push_back(iqe);
             cout << "Instruction pushed to InstQueue with dependencies: ";
         }
         else {
-            QueueEntry lse = QueueEntry(sequence, ODRReg, regs);
+            QueueEntry lse = QueueEntry(sequence, ODRReg, trueDepRegs);
             LoadStoreQueue.push_back(lse);
             cout << "Instruction pushed to LoadStoreQueue with dependencies: ";
         }
         ReorderBuffer.push_back(rob);
-        for (int i = 0; i < regs.size(); i++){
-            cout << regs[i] << " ";
+        for (int i = 0; i < trueDepRegs.size(); i++){
+            cout << trueDepRegs[i] << " ";
         }
         cout << "\n";
-    // }
-    cout << "Removing dependency: " << OEWReg.write_reg << "\n"; //Fix issue with write_reg being 0 by default
+    }
+    // DO NOT UNDERSTAND BELOW
+    // cout << "Removing dependency: " << OEWReg.write_reg << "\n"; //Fix issue with write_reg being 0 by default
     sequence += 1;
+    cout << "HERE5" << std::endl;
 
     for (QueueEntry& entry : InstructionQueue){
         cout << "DEPEND SIZE: " << entry.regDependencies.size() << "\n";
@@ -886,6 +895,8 @@ void Processor::OOOrename() {
             i--;
         }
     }
+    cout << "HERE6" << std::endl;
+
 
 }
 void Processor::OOOexecute() {
