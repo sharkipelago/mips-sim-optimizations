@@ -985,7 +985,7 @@ void Processor::OOOexecute() {
             exe = true;
         }
     }
-    else {
+    if (!exe) {
         cout << "Instruction queue has dependencies: \n";
         for (unsigned int i = 0; i < InstructionQueue.size(); i++){
             cout << "  Instruction with pc: " << InstructionQueue[i].controls.pc << " (Seq" << InstructionQueue[i].sequenceNum << ") ";
@@ -1189,6 +1189,7 @@ void Processor::OOOwriteback() {
     OWCReg.pc = OEWReg.pc;
     if (OEWReg.changed){
         commitReady.push_back(OWCReg);
+        cout << "Writeback: Seq" << OEWReg.sequence<<"\n";
 
     }
 }
