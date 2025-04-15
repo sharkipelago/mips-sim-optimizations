@@ -800,7 +800,7 @@ void Processor::OOOrename() {
         return;
     }
     if (ODRReg.instruction == 0) { // Maybe not needed
-        ReorderBufferEntry rob = ReorderBufferEntry(sequence, -1);
+        ReorderBufferEntry rob = ReorderBufferEntry(sequence, false);
         QueueEntry iqe = QueueEntry(sequence, ODRReg, vector<int>());
         ReorderBuffer.push_back(rob);
         InstructionQueue.push_back(iqe);
@@ -812,11 +812,14 @@ void Processor::OOOrename() {
 
         if (regMap[ODRReg.rs] == -1){ mapReg(ODRReg.rs); } // "Initalize source rs if uninitalized"
         regs.push_back(regMap[ODRReg.rs]);
+        ODRReg.rs = regMap[ODRReg.rs];
 
         if (ODRReg.opcode == 0){ //R type
             std::cout << "Rtype Rename" << std::endl;
             if (regMap[ODRReg.rt] == -1){ mapReg(ODRReg.rt); } // Initalize source rt
             regs.push_back(regMap[ODRReg.rt]);
+            ODRReg.rt = regMap[ODRReg.rt];
+            ODRReg.oldDest = mapReg(archDest);
         }
         else { // Rest of I type
             std::cout << "Itype Rename" << std::endl;
@@ -825,10 +828,14 @@ void Processor::OOOrename() {
                  || ODRReg.opcode == 4 || ODRReg.opcode == 5  ){ // branches
                     archDest = -1;
             }
+            else {
+                ODRReg.oldDest = mapReg(archDest);
+            }
+            ODRReg.rt = regMap[ODRReg.rt];
         }
-        if (archDest != -1) {
-            mapReg(archDest);
-        }
+        // if (archDest != -1) {
+        //     ODRReg.oldDest = mapReg(archDest);
+        // }
 
         cout << "Initial Dependencies " ;
         for (int i = 0; i < regs.size(); i++){
@@ -840,8 +847,8 @@ void Processor::OOOrename() {
         vector<ReorderBufferEntry>::iterator it = ReorderBuffer.begin();
         for (int i = 0; i < regs.size(); i++){
             for (int j = 0; j < ReorderBuffer.size(); j++){
-                if (!ReorderBuffer[j].dead && ReorderBuffer[j].destReg != -1) {
-                    if (regs[i] == ReorderBuffer[j].destReg) {
+                if (ReorderBuffer[j].validDest) {
+                    if (regs[i] == ReorderBuffer[j].physDestReg) {
                         trueDepRegs.push_back(regs[i]);
                     }
                 }
@@ -854,7 +861,11 @@ void Processor::OOOrename() {
         }
         cout << std::endl;
 
-        ReorderBufferEntry rob = ReorderBufferEntry(sequence, archDest);
+        ReorderBufferEntry rob = ReorderBufferEntry(sequence, true, archDest, regMap[archDest]);
+        if (archDest == -1) {
+            ReorderBufferEntry rob = ReorderBufferEntry(sequence, false);
+        }
+
         if (ODRReg.opcode != 35 && ODRReg.opcode != 43){ // Accept everything except load and store
             QueueEntry iqe = QueueEntry(sequence, ODRReg, trueDepRegs);
             InstructionQueue.push_back(iqe);
@@ -877,36 +888,77 @@ void Processor::OOOrename() {
     cout << "HERE5" << std::endl;
 
     for (QueueEntry& entry : InstructionQueue){
-        cout << "DEPEND SIZE: " << entry.regDependencies.size() << "\n";
+        vector<int> newDeps;
         for (int i = 0; i < entry.regDependencies.size(); i++){
-            if (entry.regDependencies[i] == OEWReg.write_reg){
-                entry.regDependencies.erase(entry.regDependencies.begin()+i);
-                cout << "Removed dependency: " << OEWReg.write_reg << " from " << entry.controls.pc << "\n";
+            cout << "instq i: " << i << std::endl;
+            cout << "Entry RegDep " << entry.regDependencies[i] << "\n";
+            cout << "OWCReg WriteReg " << OWCReg.write_reg << "\n"; 
+            // if (entry.regDependencies[i] == OEWReg.write_reg || entry.regDependencies[i] == OWCReg.write_reg){ // Forward from Writeback
+            if (entry.regDependencies[i] == OWCReg.write_reg){ // Forward from Writeback
+                // Forward from younger execute done in execute stage
+                cout << "Removed dependency: " << entry.regDependencies[i] << " from " << entry.controls.pc << "\n";
+                continue;
             }
-            i--;
+            newDeps.push_back(entry.regDependencies[i]);
         }
+        entry.regDependencies = newDeps;
     }
     for (QueueEntry& entry : LoadStoreQueue){
+        vector<int> newDeps;
         for (int i = 0; i < entry.regDependencies.size(); i++){
-            if (entry.regDependencies[i] == OEWReg.write_reg){
-                entry.regDependencies.erase(entry.regDependencies.begin()+i);
-                cout << "Removed dependency: " << OEWReg.write_reg << " from " << entry.controls.pc << "\n";
+            cout << "loadq i: " << i << std::endl;
+            cout << "Entry RegDep " << entry.regDependencies[i] << "\n";
+            cout << "OEWREG WriteReg " << OEWReg.write_reg << "\n"; 
+            if (entry.regDependencies[i] == OWCReg.write_reg){ 
+                cout << "Removed dependency: " << entry.regDependencies[i] << " from " << entry.controls.pc << "\n";
+                continue;
             }
-            i--;
+            newDeps.push_back(entry.regDependencies[i]);
         }
+        entry.regDependencies = newDeps;
     }
     cout << "HERE6" << std::endl;
 
 
 }
 void Processor::OOOexecute() {
+    bool validForward = OEWReg.reg_write_control;
+    int forwardReg = -1; //Register forwarding value of previous execute if something was written
+    uint32_t forwardValue = -1;
+    if (validForward) {
+        forwardReg = OEWReg.write_reg;
+        // forwardValue = OEWReg.link_control ? regfile.pc+8 : OEWReg.mem_to_reg_control ? OEWReg.read_data_mem : OEWReg.alu_result; 
+        forwardValue =  OEWReg.mem_to_reg_control ? OEWReg.read_data_mem : OEWReg.alu_result; 
+
+    }
+
+    //Eliminate forward dependency
+    for (QueueEntry& entry : InstructionQueue){
+        vector<int> newDeps;
+        for (int i = 0; i < entry.regDependencies.size(); i++){
+            if (entry.regDependencies[i] == forwardReg){ continue; }
+            newDeps.push_back(entry.regDependencies[i]);
+        }
+        entry.regDependencies = newDeps;
+    }
+    for (QueueEntry& entry : LoadStoreQueue){
+        vector<int> newDeps;
+        for (int i = 0; i < entry.regDependencies.size(); i++){
+            if (entry.regDependencies[i] == forwardReg){ continue; }
+            newDeps.push_back(entry.regDependencies[i]);
+        }
+        entry.regDependencies = newDeps;
+    }
+
+
+    cout << "Prev Execute Forward PhysReg " << forwardReg << "\n";
     bool exe = false;
     bool memExe = false;
     QueueEntry intr;
     if (LoadStoreQueue.size() > 0) {
         cout << "Front of lsq has dependencies: ";
         for (int i = 0; i < LoadStoreQueue.front().regDependencies.size(); i++){
-            cout << LoadStoreQueue.front().regDependencies[i] << " ";
+            cout << "Phys" << LoadStoreQueue.front().regDependencies[i] << " ";
         }
         cout << "\n";
         if (LoadStoreQueue.front().regDependencies.empty()) {
@@ -934,6 +986,7 @@ void Processor::OOOexecute() {
         cout << "\n";
     }
     cout << "found instruction: " << exe << "\n";
+
     if (!exe){
         table2[3].push_back(0);
         OEWReg.changed = false;
@@ -943,6 +996,7 @@ void Processor::OOOexecute() {
 
     physRegFile.access(intr.controls.rs, intr.controls.rt, intr.controls.read_data_1, intr.controls.read_data_2, 0, 0, 0);
     DEBUG(cout << "read_data_1: " << intr.controls.read_data_1 << " read_data_2: " << intr.controls.read_data_2 << "\n";)
+    cout << "Read " << intr.controls.read_data_1 << " from  RS " << intr.controls.rs << " read " << intr.controls.read_data_2 << " from  RT " << intr.controls.rt << "\n";
 
 
     alu.generate_control_inputs(intr.controls.control.ALU_op_control, intr.controls.funct, intr.controls.opcode);
@@ -957,12 +1011,25 @@ void Processor::OOOexecute() {
     uint32_t alu_zero = 0;
     
 
+    if (intr.controls.rs == forwardReg && validForward){
+        operand_1 = forwardValue;
+        DEBUG(cout << "Forwarding: " << operand_1 << " for operand 1\n";)
+    }
+    cout << "test rt" << intr.controls.rt << "\n";
+    // Operand 2 is immediate if ALU_src = 1, for I-type, in this case do not forward to rt
+    if (intr.controls.rt == forwardReg && validForward){
+        if (DXReg.ALU_src_control == 0){
+            operand_2 = forwardValue;
+        }
+        DEBUG(cout << "Forwarding: " << operand_2 << " for operand 2\n";)
+    }
+
     uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
     // DEBUG(cout << "pc: " << DXReg.pc << " op1 " << operand_1 << " op2 "  << operand_2 << " alu_zero " << alu_zero << " alu result " << alu_result << "\n";)
     DEBUG(cout << " op1 " << operand_1 << " op2 "  << operand_2 << " alu_zero " << alu_zero << " alu result " << alu_result << "\n";)
 
     
-    int write_reg = intr.controls.control.link_control ? 31 : intr.controls.control.reg_dest_control ? intr.controls.rd : intr.controls.rt;  
+    int write_reg = intr.controls.control.link_control ? 31 : intr.controls.oldDest;  
 
     uint32_t pc_add_result = intr.controls.pc + (intr.controls.imm << 2);
     uint32_t pc = intr.controls.control.jump_reg_control ? intr.controls.read_data_1 : intr.controls.control.jump_control ? (intr.controls.pc & 0xf0000000) & (intr.controls.addr << 2): intr.controls.pc;
@@ -1076,7 +1143,6 @@ void Processor::OOOexecute() {
     OEWReg.pc = orig_pc;
     OEWReg.write_reg = write_reg;
     OEWReg.alu_result = alu_result;
-
     OEWReg.link_control = intr.controls.control.link_control;
     OEWReg.mem_to_reg_control = intr.controls.control.mem_to_reg_control;
     OEWReg.reg_write_control = intr.controls.control.reg_write_control;
@@ -1089,9 +1155,9 @@ void Processor::OOOexecute() {
 void Processor::OOOwriteback() {
     table2[4].push_back(OEWReg.pc);
     uint32_t read_data_dummy;
-    uint32_t write_data = MWBReg.link_control ? regfile.pc+8 : OEWReg.mem_to_reg_control ? OEWReg.read_data_mem : OEWReg.alu_result; 
+    uint32_t write_data = OEWReg.link_control ? regfile.pc+8 : OEWReg.mem_to_reg_control ? OEWReg.read_data_mem : OEWReg.alu_result; 
     DEBUG(cout << "Mem to reg: " << OEWReg.mem_to_reg_control << " Read data mem: " << OEWReg.read_data_mem << " Alu result: " << OEWReg.alu_result << "\n";)
-    DEBUG(cout << "Are we writing: " << OEWReg.reg_write_control << ", writing " << write_data << " to " << OEWReg.write_reg << "\n";)
+    DEBUG(cout << "Are we writing: " << OEWReg.reg_write_control << ", writing " << write_data << " to Phys" << OEWReg.write_reg << "\n";)
     physRegFile.access(0, 0, read_data_dummy, read_data_dummy, OEWReg.write_reg, OEWReg.reg_write_control, write_data);
     OWCReg.arch_write_reg = OEWReg.arch_write_reg;
     OWCReg.reg_write_control = OEWReg.reg_write_control;
@@ -1119,22 +1185,59 @@ void Processor::OOOcommit() {
     int ind = 0;
     for (WritebackCommitReg reg : commitReady){
         if (reg.sequence == ReorderBuffer.front().sequenceNum){
+            ReorderBufferEntry rob_entry = ReorderBuffer[0];
+            cout << "PC CHECK " << reg.pc << "\n";
             cout << "Committing sequence number: " << reg.sequence << " with pc: " << reg.pc << "\n";
             ReorderBuffer.erase(ReorderBuffer.begin());
             commitReady.erase(commitReady.begin() + ind);
             if (reg.pc > 3){
                 finishedPC = reg.pc - 4;
             }
-            DEBUG(cout << "Are we writing: " << reg.reg_write_control << ", writing " << reg.write_data << " to " << reg.arch_write_reg << "\n";)
-            regfile.access(0, 0, read_data_dummy, read_data_dummy, reg.arch_write_reg, reg.reg_write_control, reg.write_data);
-            DEBUG(cout << "Released register: " << reg.write_reg << "\n";)
-            physRegFile.setReady(reg.write_reg, true);
+
+            if (!rob_entry.validDest) {
+                return;
+            }
+            DEBUG(cout << "Are we writing: " << reg.reg_write_control << ", writing " << reg.write_data << " to Arch" <<  rob_entry.archDestReg << "\n";)
+            regfile.access(0, 0, read_data_dummy, read_data_dummy,  rob_entry.archDestReg, reg.reg_write_control, reg.write_data);
+            
+            // Make sure phys reg is not being used in any queues or rename map before freeing
+            bool canFreePhysReg = true;
+            for (QueueEntry& entry : InstructionQueue){
+                if (entry.controls.rs == rob_entry.physDestReg) {
+                    canFreePhysReg = false;
+                    break;
+                }
+                if (entry.controls.opcode == 0 && entry.controls.rt == rob_entry.physDestReg) {
+                    canFreePhysReg = false;
+                    break;
+                }
+            }
+            if (!canFreePhysReg){ break;}
+            for (QueueEntry& entry : LoadStoreQueue){
+                if (entry.controls.rs == rob_entry.physDestReg && entry.controls.opcode == 43) { // Do not free reg if dependent store
+                    canFreePhysReg = false;
+                    break;
+                }
+            }
+            if (!canFreePhysReg){ break;}
+            for (int i = 0 ; i < regfile.getSize(); i++) {
+                cout << "i: " << i << " regmap[i]: " << regMap[i] << " rob " << rob_entry.physDestReg << "\n";  
+                if (regMap[i] ==  rob_entry.physDestReg ) {
+                    canFreePhysReg = false;
+                    break;
+                }
+            }
+            if (!canFreePhysReg){ break;}
+
+            DEBUG(cout << "Released PhysRegister: " << rob_entry.physDestReg << " ArchRegister " << rob_entry.archDestReg << "\n";)
+            physRegFile.setReady(rob_entry.physDestReg, true);
+            physRegFile.zeroReg(rob_entry.physDestReg);
             break;
         }
         ind += 1;
     }
     
-    
+    cout << "break" << std::endl;
     
     
 }   

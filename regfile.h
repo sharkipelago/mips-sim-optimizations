@@ -58,6 +58,10 @@ class Registers {
             R[reg].ready = isReady;
         }
 
+        void zeroReg(int reg) {
+            R[reg].value = 0;
+        }
+
         int firstReady(){
             for (int i = 0; i < size; i++) {
                 if (R[i].ready){

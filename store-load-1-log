@@ -2,8 +2,9 @@
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -52,8 +53,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -102,8 +104,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -152,8 +155,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -202,8 +206,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -252,8 +257,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -302,8 +308,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -352,8 +359,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -402,8 +410,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -452,8 +461,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -502,8 +512,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -552,8 +563,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -602,8 +614,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -652,8 +665,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -702,8 +716,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -752,8 +767,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -802,8 +818,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -852,8 +869,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -902,8 +920,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -952,8 +971,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1002,8 +1022,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1052,8 +1073,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1102,8 +1124,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1152,8 +1175,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1202,8 +1226,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1252,8 +1277,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1302,8 +1328,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1352,8 +1379,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1402,8 +1430,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1452,8 +1481,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1502,8 +1532,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1552,8 +1583,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1602,8 +1634,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1652,8 +1685,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1702,8 +1736,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1752,8 +1787,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1802,8 +1838,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1852,8 +1889,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1902,8 +1940,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -1952,8 +1991,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2002,8 +2042,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2052,8 +2093,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2102,8 +2144,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2152,8 +2195,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2202,8 +2246,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2252,8 +2297,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2302,8 +2348,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2352,8 +2399,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2402,8 +2450,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2452,8 +2501,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2502,8 +2552,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2552,8 +2603,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2602,8 +2654,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2652,8 +2705,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2702,8 +2756,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2752,8 +2807,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2802,8 +2858,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2852,8 +2909,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2902,8 +2960,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -2952,8 +3011,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -3002,8 +3062,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -3052,8 +3113,9 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
@@ -3112,17 +3174,21 @@ R[31]: 0
 List of ready instruction pcs: 
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: 
 found instruction: 0
 ==RENAME==
 Rename inst:536936548 
-Mapped 1 to 0
-Mapped 0 to 1
+Mapped 0 to 0
+Itype Rename
+Mapped 1 to 1
+Initial Dependencies Phys0 
+Actual Dependencies 
 Instruction pushed to InstQueue with dependencies: 
-Removing dependency: 0
-DEPEND SIZE: 0
+HERE5
+HERE6
 ==DECODE==
 Decode inst:537014752 
 REG_DEST: 0
@@ -3175,17 +3241,6791 @@ R[30]: 0
 R[31]: 0
 ==COMMIT==
 List of ready instruction pcs: 
+break
 ==WRITEBACK==
 Mem to reg: 0 Read data mem: 0 Alu result: 0
-Are we writing: 0, writing 0 to 0
+Are we writing: 0, writing 0 to Phys0
 ==EXECUTE==
+Prev Execute Forward PhysReg -1
 Instruction queue has dependencies: Instruction with pc: 4 
 
 found instruction: 1
 read_data_1: 0 read_data_2: 0
+Read 0 from  RS 0 read 0 from  RT 1
+test rt1
  op1 0 op2 100 alu_zero 0 alu result 100
 Succesful Access?: 1
 read data mem: 0 mem read control: 0 Resulting alu result 100
 write data mem: 0 mem write control: 0 Resulting alu result 100
 Orig pc:4 jump pc: 4 add pc: 404
 ==RENAME==
+Rename inst:537014752 
+Itype Rename
+Mapped 2 to 2
+Initial Dependencies Phys0 
+Actual Dependencies 
+Instruction pushed to InstQueue with dependencies: 
+HERE5
+HERE6
+==DECODE==
+Decode inst:537145824 
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+[R-Type] opcode: 8, rs: 0, rt: 4, rd: 6, shamt: 7, funct: 32
+[I-Type] opcode: 8, rs: 0, rt: 4, imm: 12768
+==FETCH==
+Succesful Access?: 1
+inst:2889940992 
+
+CYCLE 63
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 100
+Are we writing: 1, writing 100 to Phys1
+==EXECUTE==
+Prev Execute Forward PhysReg 1
+Instruction queue has dependencies: Instruction with pc: 8 
+
+found instruction: 1
+read_data_1: 0 read_data_2: 0
+Read 0 from  RS 0 read 0 from  RT 2
+test rt2
+ op1 0 op2 12768 alu_zero 0 alu result 12768
+Succesful Access?: 1
+read data mem: 0 mem read control: 0 Resulting alu result 12768
+write data mem: 0 mem write control: 0 Resulting alu result 12768
+Orig pc:8 jump pc: 8 add pc: 51080
+==RENAME==
+Rename inst:537145824 
+Itype Rename
+Mapped 4 to 3
+Initial Dependencies Phys0 
+Actual Dependencies 
+Instruction pushed to InstQueue with dependencies: 
+HERE5
+HERE6
+==DECODE==
+Decode inst:2889940992 
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 0
+MEM_WRITE: 1
+ALU_SRC: 1
+REG_WRITE: 0
+[R-Type] opcode: 43, rs: 2, rt: 1, rd: 0, shamt: 0, funct: 0
+[I-Type] opcode: 43, rs: 2, rt: 1, imm: 0
+==FETCH==
+Succesful Access?: 1
+inst:539033650 
+
+CYCLE 64
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: (4, 0)
+PC CHECK 4
+Committing sequence number: 0 with pc: 4
+Are we writing: 1, writing 100 to Arch1
+i: 0 regmap[i]: 0 rob 1
+i: 1 regmap[i]: 1 rob 1
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys2
+==EXECUTE==
+Prev Execute Forward PhysReg 2
+Instruction queue has dependencies: Instruction with pc: 12 
+
+found instruction: 1
+read_data_1: 0 read_data_2: 0
+Read 0 from  RS 0 read 0 from  RT 3
+test rt3
+ op1 0 op2 12768 alu_zero 0 alu result 12768
+Succesful Access?: 1
+read data mem: 0 mem read control: 0 Resulting alu result 12768
+write data mem: 0 mem write control: 0 Resulting alu result 12768
+Orig pc:12 jump pc: 12 add pc: 51084
+==RENAME==
+Rename inst:2889940992 
+Itype Rename
+Initial Dependencies Phys2 
+Actual Dependencies Phys2 
+Instruction pushed to LoadStoreQueue with dependencies: 2 
+HERE5
+loadq i: 0
+Entry RegDep 2
+OEWREG WriteReg 3
+Removed dependency: 2 from 16
+HERE6
+==DECODE==
+Decode inst:539033650 
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+[R-Type] opcode: 8, rs: 1, rt: 1, rd: 0, shamt: 0, funct: 50
+[I-Type] opcode: 8, rs: 1, rt: 1, imm: 50
+==FETCH==
+Succesful Access?: 1
+inst:552009928 
+
+CYCLE 65
+R[0]: 0
+R[1]: 100
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: (8, 1)
+PC CHECK 8
+Committing sequence number: 1 with pc: 8
+Are we writing: 1, writing 12768 to Arch2
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:539033650 
+Itype Rename
+Mapped 1 to 4
+Initial Dependencies Phys1 
+Actual Dependencies 
+Instruction pushed to InstQueue with dependencies: 
+HERE5
+HERE6
+==DECODE==
+Decode inst:552009928 
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+[R-Type] opcode: 8, rs: 7, rt: 7, rd: 0, shamt: 3, funct: 8
+[I-Type] opcode: 8, rs: 7, rt: 7, imm: 200
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 66
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: (12, 2)
+PC CHECK 12
+Committing sequence number: 2 with pc: 12
+Are we writing: 1, writing 12768 to Arch4
+i: 0 regmap[i]: 0 rob 3
+i: 1 regmap[i]: 4 rob 3
+i: 2 regmap[i]: 2 rob 3
+i: 3 regmap[i]: -1 rob 3
+i: 4 regmap[i]: 3 rob 3
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:552009928 
+Mapped 7 to 5
+Itype Rename
+Mapped 7 to 6
+Initial Dependencies Phys5 
+Actual Dependencies 
+Instruction pushed to InstQueue with dependencies: 
+HERE5
+HERE6
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 67
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 68
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 69
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 70
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 71
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 72
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 73
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 74
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 75
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 76
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 77
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 78
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 79
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 80
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 81
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 82
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 83
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 84
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 85
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 86
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 87
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 88
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 89
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 90
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 91
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 92
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 93
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 94
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 95
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 96
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 97
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 98
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 99
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 100
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 0
+Unsucessful Mem access => stalling
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 101
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 1, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg 3
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 100
+Read 12768 from  RS 2 read 100 from  RT 1
+test rt1
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 1
+read data mem: 0 mem read control: 0 Resulting alu result 12768
+write data mem: 100 mem write control: 1 Resulting alu result 12768
+Orig pc:16 jump pc: 16 add pc: 16
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 1
+inst:539033625 
+
+CYCLE 102
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 12768
+Are we writing: 0, writing 12768 to Phys3
+==EXECUTE==
+Prev Execute Forward PhysReg -1
+Instruction queue has dependencies: Instruction with pc: 20 
+
+found instruction: 1
+read_data_1: 100 read_data_2: 0
+Read 100 from  RS 1 read 0 from  RT 4
+test rt4
+ op1 100 op2 50 alu_zero 0 alu result 150
+Succesful Access?: 1
+read data mem: 0 mem read control: 0 Resulting alu result 150
+write data mem: 0 mem write control: 0 Resulting alu result 150
+Orig pc:20 jump pc: 20 add pc: 220
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:539033625 
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+[R-Type] opcode: 8, rs: 1, rt: 1, rd: 0, shamt: 0, funct: 25
+[I-Type] opcode: 8, rs: 1, rt: 1, imm: 25
+==FETCH==
+Succesful Access?: 1
+inst:554172566 
+
+CYCLE 103
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: (16, 3)
+PC CHECK 16
+Committing sequence number: 3 with pc: 16
+Are we writing: 0, writing 12768 to Arch-1
+i: 0 regmap[i]: 0 rob 0
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 150
+Are we writing: 1, writing 150 to Phys4
+==EXECUTE==
+Prev Execute Forward PhysReg 4
+Instruction queue has dependencies: Instruction with pc: 24 
+
+found instruction: 1
+read_data_1: 0 read_data_2: 0
+Read 0 from  RS 5 read 0 from  RT 6
+test rt6
+ op1 0 op2 200 alu_zero 0 alu result 200
+Succesful Access?: 1
+read data mem: 0 mem read control: 0 Resulting alu result 200
+write data mem: 0 mem write control: 0 Resulting alu result 200
+Orig pc:24 jump pc: 24 add pc: 824
+==RENAME==
+Rename inst:539033625 
+Itype Rename
+Mapped 1 to 7
+Initial Dependencies Phys4 
+Actual Dependencies Phys4 
+Instruction pushed to InstQueue with dependencies: 4 
+HERE5
+instq i: 0
+Entry RegDep 4
+OWCReg WriteReg 4
+Removed dependency: 4 from 28
+HERE6
+==DECODE==
+Decode inst:554172566 
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+[R-Type] opcode: 8, rs: 8, rt: 8, rd: 0, shamt: 2, funct: 22
+[I-Type] opcode: 8, rs: 8, rt: 8, imm: 150
+==FETCH==
+Succesful Access?: 1
+inst:556335204 
+
+CYCLE 104
+R[0]: 0
+R[1]: 100
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: (20, 4)
+PC CHECK 20
+Committing sequence number: 4 with pc: 20
+Are we writing: 1, writing 150 to Arch1
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 200
+Are we writing: 1, writing 200 to Phys6
+==EXECUTE==
+Prev Execute Forward PhysReg 6
+Instruction queue has dependencies: Instruction with pc: 28 
+
+found instruction: 1
+read_data_1: 150 read_data_2: 0
+Read 150 from  RS 4 read 0 from  RT 7
+test rt7
+ op1 150 op2 25 alu_zero 0 alu result 175
+Succesful Access?: 1
+read data mem: 0 mem read control: 0 Resulting alu result 175
+write data mem: 0 mem write control: 0 Resulting alu result 175
+Orig pc:28 jump pc: 28 add pc: 128
+==RENAME==
+Rename inst:554172566 
+Mapped 8 to 8
+Itype Rename
+Mapped 8 to 9
+Initial Dependencies Phys8 
+Actual Dependencies 
+Instruction pushed to InstQueue with dependencies: 
+HERE5
+HERE6
+==DECODE==
+Decode inst:556335204 
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+[R-Type] opcode: 8, rs: 9, rt: 9, rd: 0, shamt: 1, funct: 36
+[I-Type] opcode: 8, rs: 9, rt: 9, imm: 100
+==FETCH==
+Succesful Access?: 1
+inst:539033675 
+
+CYCLE 105
+R[0]: 0
+R[1]: 150
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: (24, 5)
+PC CHECK 24
+Committing sequence number: 5 with pc: 24
+Are we writing: 1, writing 200 to Arch7
+i: 0 regmap[i]: 0 rob 6
+i: 1 regmap[i]: 7 rob 6
+i: 2 regmap[i]: 2 rob 6
+i: 3 regmap[i]: -1 rob 6
+i: 4 regmap[i]: 3 rob 6
+i: 5 regmap[i]: -1 rob 6
+i: 6 regmap[i]: -1 rob 6
+i: 7 regmap[i]: 6 rob 6
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 175
+Are we writing: 1, writing 175 to Phys7
+==EXECUTE==
+Prev Execute Forward PhysReg 7
+Instruction queue has dependencies: Instruction with pc: 32 
+
+found instruction: 1
+read_data_1: 0 read_data_2: 0
+Read 0 from  RS 8 read 0 from  RT 9
+test rt9
+ op1 0 op2 150 alu_zero 0 alu result 150
+Succesful Access?: 1
+read data mem: 0 mem read control: 0 Resulting alu result 150
+write data mem: 0 mem write control: 0 Resulting alu result 150
+Orig pc:32 jump pc: 32 add pc: 632
+==RENAME==
+Rename inst:556335204 
+Mapped 9 to 10
+Itype Rename
+Mapped 9 to 11
+Initial Dependencies Phys10 
+Actual Dependencies 
+Instruction pushed to InstQueue with dependencies: 
+HERE5
+HERE6
+==DECODE==
+Decode inst:539033675 
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+[R-Type] opcode: 8, rs: 1, rt: 1, rd: 0, shamt: 1, funct: 11
+[I-Type] opcode: 8, rs: 1, rt: 1, imm: 75
+==FETCH==
+Succesful Access?: 1
+inst:558498042 
+
+CYCLE 106
+R[0]: 0
+R[1]: 150
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 200
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: (28, 6)
+PC CHECK 28
+Committing sequence number: 6 with pc: 28
+Are we writing: 1, writing 175 to Arch1
+i: 0 regmap[i]: 0 rob 7
+i: 1 regmap[i]: 7 rob 7
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 150
+Are we writing: 1, writing 150 to Phys9
+==EXECUTE==
+Prev Execute Forward PhysReg 9
+Instruction queue has dependencies: Instruction with pc: 36 
+
+found instruction: 1
+read_data_1: 0 read_data_2: 0
+Read 0 from  RS 10 read 0 from  RT 11
+test rt11
+ op1 0 op2 100 alu_zero 0 alu result 100
+Succesful Access?: 1
+read data mem: 0 mem read control: 0 Resulting alu result 100
+write data mem: 0 mem write control: 0 Resulting alu result 100
+Orig pc:36 jump pc: 36 add pc: 436
+==RENAME==
+Rename inst:539033675 
+Itype Rename
+Mapped 1 to 12
+Initial Dependencies Phys7 
+Actual Dependencies 
+Instruction pushed to InstQueue with dependencies: 
+HERE5
+HERE6
+==DECODE==
+Decode inst:558498042 
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+[R-Type] opcode: 8, rs: 10, rt: 10, rd: 0, shamt: 3, funct: 58
+[I-Type] opcode: 8, rs: 10, rt: 10, imm: 250
+==FETCH==
+Succesful Access?: 1
+inst:549847165 
+
+CYCLE 107
+R[0]: 0
+R[1]: 175
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 200
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: (32, 7)
+PC CHECK 32
+Committing sequence number: 7 with pc: 32
+Are we writing: 1, writing 150 to Arch8
+i: 0 regmap[i]: 0 rob 9
+i: 1 regmap[i]: 12 rob 9
+i: 2 regmap[i]: 2 rob 9
+i: 3 regmap[i]: -1 rob 9
+i: 4 regmap[i]: 3 rob 9
+i: 5 regmap[i]: -1 rob 9
+i: 6 regmap[i]: -1 rob 9
+i: 7 regmap[i]: 6 rob 9
+i: 8 regmap[i]: 9 rob 9
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 100
+Are we writing: 1, writing 100 to Phys11
+==EXECUTE==
+Prev Execute Forward PhysReg 11
+Instruction queue has dependencies: Instruction with pc: 40 
+
+found instruction: 1
+read_data_1: 175 read_data_2: 0
+Read 175 from  RS 7 read 0 from  RT 12
+test rt12
+ op1 175 op2 75 alu_zero 0 alu result 250
+Succesful Access?: 1
+read data mem: 0 mem read control: 0 Resulting alu result 250
+write data mem: 0 mem write control: 0 Resulting alu result 250
+Orig pc:40 jump pc: 40 add pc: 340
+==RENAME==
+Rename inst:558498042 
+Mapped 10 to 13
+Itype Rename
+Mapped 10 to 14
+Initial Dependencies Phys13 
+Actual Dependencies 
+Instruction pushed to InstQueue with dependencies: 
+HERE5
+HERE6
+==DECODE==
+Decode inst:549847165 
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 3
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+[R-Type] opcode: 8, rs: 6, rt: 6, rd: 0, shamt: 1, funct: 61
+[I-Type] opcode: 8, rs: 6, rt: 6, imm: 125
+==FETCH==
+Succesful Access?: 1
+inst:2889940992 
+
+CYCLE 108
+R[0]: 0
+R[1]: 175
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 200
+R[8]: 150
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: (36, 8)
+PC CHECK 36
+Committing sequence number: 8 with pc: 36
+Are we writing: 1, writing 100 to Arch9
+i: 0 regmap[i]: 0 rob 11
+i: 1 regmap[i]: 12 rob 11
+i: 2 regmap[i]: 2 rob 11
+i: 3 regmap[i]: -1 rob 11
+i: 4 regmap[i]: 3 rob 11
+i: 5 regmap[i]: -1 rob 11
+i: 6 regmap[i]: -1 rob 11
+i: 7 regmap[i]: 6 rob 11
+i: 8 regmap[i]: 9 rob 11
+i: 9 regmap[i]: 11 rob 11
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 250
+Are we writing: 1, writing 250 to Phys12
+==EXECUTE==
+Prev Execute Forward PhysReg 12
+Instruction queue has dependencies: Instruction with pc: 44 
+
+found instruction: 1
+read_data_1: 0 read_data_2: 0
+Read 0 from  RS 13 read 0 from  RT 14
+test rt14
+ op1 0 op2 250 alu_zero 0 alu result 250
+Succesful Access?: 1
+read data mem: 0 mem read control: 0 Resulting alu result 250
+write data mem: 0 mem write control: 0 Resulting alu result 250
+Orig pc:44 jump pc: 44 add pc: 1044
+==RENAME==
+Rename inst:549847165 
+Mapped 6 to 15
+Itype Rename
+Mapped 6 to 16
+Initial Dependencies Phys15 
+Actual Dependencies 
+Instruction pushed to InstQueue with dependencies: 
+HERE5
+HERE6
+==DECODE==
+Decode inst:2889940992 
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 0
+MEM_WRITE: 1
+ALU_SRC: 1
+REG_WRITE: 0
+[R-Type] opcode: 43, rs: 2, rt: 1, rd: 0, shamt: 0, funct: 0
+[I-Type] opcode: 43, rs: 2, rt: 1, imm: 0
+==FETCH==
+Succesful Access?: 1
+inst:2357395456 
+
+CYCLE 109
+R[0]: 0
+R[1]: 175
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: (40, 9)
+PC CHECK 40
+Committing sequence number: 9 with pc: 40
+Are we writing: 1, writing 250 to Arch1
+i: 0 regmap[i]: 0 rob 12
+i: 1 regmap[i]: 12 rob 12
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 250
+Are we writing: 1, writing 250 to Phys14
+==EXECUTE==
+Prev Execute Forward PhysReg 14
+Instruction queue has dependencies: Instruction with pc: 48 
+
+found instruction: 1
+read_data_1: 0 read_data_2: 0
+Read 0 from  RS 15 read 0 from  RT 16
+test rt16
+ op1 0 op2 125 alu_zero 0 alu result 125
+Succesful Access?: 1
+read data mem: 0 mem read control: 0 Resulting alu result 125
+write data mem: 0 mem write control: 0 Resulting alu result 125
+Orig pc:48 jump pc: 48 add pc: 548
+==RENAME==
+Rename inst:2889940992 
+Itype Rename
+Initial Dependencies Phys2 
+Actual Dependencies 
+Instruction pushed to LoadStoreQueue with dependencies: 
+HERE5
+HERE6
+==DECODE==
+Decode inst:2357395456 
+REG_DEST: 0
+JUMP: 0
+BRANCH: 0
+MEM_READ: 1
+MEM_TO_REG: 1
+ALU_OP: 0
+MEM_WRITE: 0
+ALU_SRC: 1
+REG_WRITE: 1
+[R-Type] opcode: 35, rs: 4, rt: 3, rd: 0, shamt: 0, funct: 0
+[I-Type] opcode: 35, rs: 4, rt: 3, imm: 0
+==FETCH==
+Succesful Access?: 1
+inst:6694944 
+
+CYCLE 110
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: (44, 10)
+PC CHECK 44
+Committing sequence number: 10 with pc: 44
+Are we writing: 1, writing 250 to Arch10
+i: 0 regmap[i]: 0 rob 14
+i: 1 regmap[i]: 12 rob 14
+i: 2 regmap[i]: 2 rob 14
+i: 3 regmap[i]: -1 rob 14
+i: 4 regmap[i]: 3 rob 14
+i: 5 regmap[i]: -1 rob 14
+i: 6 regmap[i]: 16 rob 14
+i: 7 regmap[i]: 6 rob 14
+i: 8 regmap[i]: 9 rob 14
+i: 9 regmap[i]: 11 rob 14
+i: 10 regmap[i]: 14 rob 14
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 125
+Are we writing: 1, writing 125 to Phys16
+==EXECUTE==
+Prev Execute Forward PhysReg 16
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 250
+Read 12768 from  RS 2 read 250 from  RT 12
+test rt12
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 1
+read data mem: 100 mem read control: 0 Resulting alu result 12768
+write data mem: 250 mem write control: 1 Resulting alu result 12768
+Orig pc:52 jump pc: 52 add pc: 52
+==RENAME==
+Rename inst:2357395456 
+Itype Rename
+Mapped 3 to 17
+Initial Dependencies Phys3 
+Actual Dependencies 
+Instruction pushed to LoadStoreQueue with dependencies: 
+HERE5
+HERE6
+==DECODE==
+Decode inst:6694944 
+REG_DEST: 1
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 2
+MEM_WRITE: 0
+ALU_SRC: 0
+REG_WRITE: 1
+[R-Type] opcode: 0, rs: 3, rt: 6, rd: 5, shamt: 0, funct: 32
+[I-Type] opcode: 0, rs: 3, rt: 6, imm: 10272
+==FETCH==
+Succesful Access?: 1
+inst:0 
+
+CYCLE 111
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 0
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: (48, 11)
+PC CHECK 48
+Committing sequence number: 11 with pc: 48
+Are we writing: 1, writing 125 to Arch6
+i: 0 regmap[i]: 0 rob 16
+i: 1 regmap[i]: 12 rob 16
+i: 2 regmap[i]: 2 rob 16
+i: 3 regmap[i]: 17 rob 16
+i: 4 regmap[i]: 3 rob 16
+i: 5 regmap[i]: -1 rob 16
+i: 6 regmap[i]: 16 rob 16
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 100 Alu result: 12768
+Are we writing: 0, writing 12768 to Phys16
+==EXECUTE==
+Prev Execute Forward PhysReg -1
+Front of lsq has dependencies: 
+found instruction: 1
+read_data_1: 12768 read_data_2: 0
+Read 12768 from  RS 3 read 0 from  RT 17
+test rt17
+ op1 12768 op2 0 alu_zero 0 alu result 12768
+Succesful Access?: 1
+read data mem: 250 mem read control: 1 Resulting alu result 12768
+write data mem: 0 mem write control: 0 Resulting alu result 12768
+Orig pc:56 jump pc: 56 add pc: 56
+==RENAME==
+Rename inst:6694944 
+Rtype Rename
+Mapped 5 to 18
+Initial Dependencies Phys17 Phys16 
+Actual Dependencies Phys17 
+Instruction pushed to InstQueue with dependencies: 17 
+HERE5
+instq i: 0
+Entry RegDep 17
+OWCReg WriteReg 16
+HERE6
+==DECODE==
+Decode inst:0 
+REG_DEST: 1
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 2
+MEM_WRITE: 0
+ALU_SRC: 0
+REG_WRITE: 1
+[R-Type] opcode: 0, rs: 0, rt: 0, rd: 0, shamt: 0, funct: 0
+[I-Type] opcode: 0, rs: 0, rt: 0, imm: 0
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 112
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: (52, 12)
+PC CHECK 52
+Committing sequence number: 12 with pc: 52
+Are we writing: 0, writing 12768 to Arch-1
+i: 0 regmap[i]: 0 rob 0
+break
+==WRITEBACK==
+Mem to reg: 1 Read data mem: 250 Alu result: 12768
+Are we writing: 1, writing 250 to Phys17
+==EXECUTE==
+Prev Execute Forward PhysReg 17
+Instruction queue has dependencies: Instruction with pc: 60 
+
+found instruction: 1
+read_data_1: 250 read_data_2: 125
+Read 250 from  RS 17 read 125 from  RT 16
+Forwarding: 250 for operand 1
+test rt16
+ op1 250 op2 125 alu_zero 0 alu result 375
+Succesful Access?: 1
+read data mem: 0 mem read control: 0 Resulting alu result 375
+write data mem: 125 mem write control: 0 Resulting alu result 375
+Orig pc:60 jump pc: 60 add pc: 41148
+==RENAME==
+Rename inst:0 
+HERE5
+HERE6
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 113
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 0
+R[4]: 12768
+R[5]: 0
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: (56, 13)
+PC CHECK 56
+Committing sequence number: 13 with pc: 56
+Are we writing: 1, writing 250 to Arch3
+i: 0 regmap[i]: 0 rob 17
+i: 1 regmap[i]: 12 rob 17
+i: 2 regmap[i]: 2 rob 17
+i: 3 regmap[i]: 17 rob 17
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: Instruction with pc: 64 
+
+found instruction: 1
+read_data_1: 0 read_data_2: 0
+Read 0 from  RS 0 read 0 from  RT 0
+test rt0
+ op1 0 op2 0 alu_zero 1 alu result 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 114
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 0
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: (60, 14)
+PC CHECK 60
+Committing sequence number: 14 with pc: 60
+Are we writing: 1, writing 375 to Arch5
+i: 0 regmap[i]: 0 rob 18
+i: 1 regmap[i]: 12 rob 18
+i: 2 regmap[i]: 2 rob 18
+i: 3 regmap[i]: 17 rob 18
+i: 4 regmap[i]: 3 rob 18
+i: 5 regmap[i]: 18 rob 18
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 115
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: (64, 15)
+PC CHECK 64
+Committing sequence number: 15 with pc: 64
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 116
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 117
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 118
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 119
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 120
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 121
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 122
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 123
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 124
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 125
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 126
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 127
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 128
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 129
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 130
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 131
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 132
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 133
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 134
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 135
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 136
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 137
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 138
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 139
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 140
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 141
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 142
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 143
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 144
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 145
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 146
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 147
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 148
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 149
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 150
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 151
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 152
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 153
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 154
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 155
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 156
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 157
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 158
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 159
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 160
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 161
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 162
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 163
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 164
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 165
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 166
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 167
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 168
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 169
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 170
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 0
+Unsucessful Fetch access => stalling
+
+CYCLE 171
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+NOP or failed access. 
+==FETCH==
+Succesful Access?: 1
+inst:0 
+
+CYCLE 172
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+==DECODE==
+Decode inst:0 
+REG_DEST: 1
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 2
+MEM_WRITE: 0
+ALU_SRC: 0
+REG_WRITE: 1
+[R-Type] opcode: 0, rs: 0, rt: 0, rd: 0, shamt: 0, funct: 0
+[I-Type] opcode: 0, rs: 0, rt: 0, imm: 0
+==FETCH==
+Succesful Access?: 1
+inst:0 
+
+CYCLE 173
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: 
+found instruction: 0
+==RENAME==
+Rename inst:0 
+HERE5
+HERE6
+==DECODE==
+Decode inst:0 
+REG_DEST: 1
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 2
+MEM_WRITE: 0
+ALU_SRC: 0
+REG_WRITE: 1
+[R-Type] opcode: 0, rs: 0, rt: 0, rd: 0, shamt: 0, funct: 0
+[I-Type] opcode: 0, rs: 0, rt: 0, imm: 0
+==FETCH==
+Succesful Access?: 1
+inst:0 
+
+CYCLE 174
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: Instruction with pc: 68 
+
+found instruction: 1
+read_data_1: 0 read_data_2: 0
+Read 0 from  RS 0 read 0 from  RT 0
+test rt0
+ op1 0 op2 0 alu_zero 1 alu result 0
+==RENAME==
+Rename inst:0 
+HERE5
+HERE6
+==DECODE==
+Decode inst:0 
+REG_DEST: 1
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 2
+MEM_WRITE: 0
+ALU_SRC: 0
+REG_WRITE: 1
+[R-Type] opcode: 0, rs: 0, rt: 0, rd: 0, shamt: 0, funct: 0
+[I-Type] opcode: 0, rs: 0, rt: 0, imm: 0
+==FETCH==
+Succesful Access?: 1
+inst:0 
+
+CYCLE 175
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: 
+break
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: Instruction with pc: 72 
+
+found instruction: 1
+read_data_1: 0 read_data_2: 0
+Read 0 from  RS 0 read 0 from  RT 0
+test rt0
+ op1 0 op2 0 alu_zero 1 alu result 0
+==RENAME==
+Rename inst:0 
+HERE5
+HERE6
+==DECODE==
+Decode inst:0 
+REG_DEST: 1
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 2
+MEM_WRITE: 0
+ALU_SRC: 0
+REG_WRITE: 1
+[R-Type] opcode: 0, rs: 0, rt: 0, rd: 0, shamt: 0, funct: 0
+[I-Type] opcode: 0, rs: 0, rt: 0, imm: 0
+==FETCH==
+Succesful Access?: 1
+inst:0 
+
+CYCLE 176
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: (68, 17)
+PC CHECK 68
+Committing sequence number: 17 with pc: 68
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: Instruction with pc: 76 
+
+found instruction: 1
+read_data_1: 0 read_data_2: 0
+Read 0 from  RS 0 read 0 from  RT 0
+test rt0
+ op1 0 op2 0 alu_zero 1 alu result 0
+==RENAME==
+Rename inst:0 
+HERE5
+HERE6
+==DECODE==
+Decode inst:0 
+REG_DEST: 1
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 2
+MEM_WRITE: 0
+ALU_SRC: 0
+REG_WRITE: 1
+[R-Type] opcode: 0, rs: 0, rt: 0, rd: 0, shamt: 0, funct: 0
+[I-Type] opcode: 0, rs: 0, rt: 0, imm: 0
+==FETCH==
+Succesful Access?: 1
+inst:0 
+
+CYCLE 177
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+==COMMIT==
+List of ready instruction pcs: (72, 19)
+PC CHECK 72
+Committing sequence number: 19 with pc: 72
+==WRITEBACK==
+Mem to reg: 0 Read data mem: 0 Alu result: 375
+Are we writing: 1, writing 375 to Phys18
+==EXECUTE==
+Prev Execute Forward PhysReg 18
+Instruction queue has dependencies: Instruction with pc: 80 
+
+found instruction: 1
+read_data_1: 0 read_data_2: 0
+Read 0 from  RS 0 read 0 from  RT 0
+test rt0
+ op1 0 op2 0 alu_zero 1 alu result 0
+==RENAME==
+Rename inst:0 
+HERE5
+HERE6
+==DECODE==
+Decode inst:0 
+REG_DEST: 1
+JUMP: 0
+BRANCH: 0
+MEM_READ: 0
+MEM_TO_REG: 0
+ALU_OP: 2
+MEM_WRITE: 0
+ALU_SRC: 0
+REG_WRITE: 1
+[R-Type] opcode: 0, rs: 0, rt: 0, rd: 0, shamt: 0, funct: 0
+[I-Type] opcode: 0, rs: 0, rt: 0, imm: 0
+==FETCH==
+Succesful Access?: 1
+inst:0 
+
+CYCLE 178
+R[0]: 0
+R[1]: 250
+R[2]: 12768
+R[3]: 250
+R[4]: 12768
+R[5]: 375
+R[6]: 125
+R[7]: 200
+R[8]: 150
+R[9]: 100
+R[10]: 250
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+
+Completed execution in 89.5 nanoseconds.

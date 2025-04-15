@@ -18,10 +18,16 @@ struct BHTLine {
 struct ReorderBufferEntry {
     int sequenceNum;
     bool dead = false;
-    int destReg = -1; //If -1 invalid dest reg
-    ReorderBufferEntry(int sequence, int destReg){
+    bool validDest = false;
+    int physDestReg = -1; //If -1 invalid dest reg
+    int archDestReg = -1;
+    ReorderBufferEntry(int sequence, bool valid, int archDest = -1, int physDest = -1){
         sequenceNum = sequence;
-        destReg = destReg;
+        validDest = valid;
+        if (validDest){
+            archDestReg = archDest;
+            physDestReg = physDest;
+        }
     }
 };
 struct QueueEntry {
