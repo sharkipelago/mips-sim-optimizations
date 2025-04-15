@@ -851,16 +851,18 @@ void Processor::OOOrename() {
         // }
 
         cout << "Initial Dependencies " ;
-        for (int i = 0; i < regs.size(); i++){
+        for (unsigned int i = 0; i < regs.size(); i++){
             cout << "Phys" << regs[i] << " ";
         }
         cout << std::endl;
 
         vector<int> trueDepRegs;
         vector<ReorderBufferEntry>::iterator it = ReorderBuffer.begin();
-        for (int i = 0; i < regs.size(); i++){
-            for (int j = 0; j < ReorderBuffer.size(); j++){
+        cout << "REGSIZE Check: " << regs.size() << "\n";
+        for (unsigned int i = 0; i < regs.size(); i++){
+            for (unsigned int j = 0; j < ReorderBuffer.size(); j++){
                 if (ReorderBuffer[j].validDest) {
+                    cout << "ROB" << j << " Seq" << ReorderBuffer[j].sequenceNum << " with physDest: " << ReorderBuffer[j].physDestReg << "\n";
                     if (regs[i] == ReorderBuffer[j].physDestReg) {
                         trueDepRegs.push_back(regs[i]);
                     }
@@ -869,15 +871,16 @@ void Processor::OOOrename() {
         }
 
         cout << "Actual Dependencies " ;
-        for (int i = 0; i < trueDepRegs.size(); i++){
+        for (unsigned int i = 0; i < trueDepRegs.size(); i++){
             cout << "Phys" << trueDepRegs[i] << " ";
         }
         cout << std::endl;
 
         ReorderBufferEntry rob = ReorderBufferEntry(sequence, true, archDest, regMap[archDest]);
         if (archDest == -1) {
-            ReorderBufferEntry rob = ReorderBufferEntry(sequence, false);
+            rob = ReorderBufferEntry(sequence, false);
         }
+        cout << "Created Rob Entry w/Valid Dest: " << rob.validDest << " Arch Dest: " << rob.archDestReg << "\n";  
 
         if (ODRReg.opcode != 35 && ODRReg.opcode != 43){ // Accept everything except load and store
             QueueEntry iqe = QueueEntry(sequence, ODRReg, trueDepRegs);
@@ -890,22 +893,22 @@ void Processor::OOOrename() {
             cout << "Instruction pushed to LoadStoreQueue with dependencies: ";
         }
         ReorderBuffer.push_back(rob);
-        for (int i = 0; i < trueDepRegs.size(); i++){
+        for (unsigned int i = 0; i < trueDepRegs.size(); i++){
             cout << trueDepRegs[i] << " ";
         }
         cout << "\n";
+       
     }
     // DO NOT UNDERSTAND BELOW
     // cout << "Removing dependency: " << OEWReg.write_reg << "\n"; //Fix issue with write_reg being 0 by default
+    cout << "Created Rob Entry w/Seq" << sequence << "\n";  
     sequence += 1;
-    cout << "HERE5" << std::endl;
-
+    
+    int entry_ind = 0;
     for (QueueEntry& entry : InstructionQueue){
         vector<int> newDeps;
-        for (int i = 0; i < entry.regDependencies.size(); i++){
-            cout << "instq i: " << i << std::endl;
-            cout << "Entry RegDep " << entry.regDependencies[i] << "\n";
-            cout << "OWCReg WriteReg " << OWCReg.write_reg << "\n"; 
+        for (unsigned int i = 0; i < entry.regDependencies.size(); i++){
+            cout << "InstQ entry " << entry_ind <<  "(Seq" << entry.sequenceNum << "): Entry RegDep " << entry.regDependencies[i] << " V.S. OWCReg WriteReg " << OWCReg.write_reg << std::endl;
             // if (entry.regDependencies[i] == OEWReg.write_reg || entry.regDependencies[i] == OWCReg.write_reg){ // Forward from Writeback
             if (entry.regDependencies[i] == OWCReg.write_reg){ // Forward from Writeback
                 // Forward from younger execute done in execute stage
@@ -915,10 +918,11 @@ void Processor::OOOrename() {
             newDeps.push_back(entry.regDependencies[i]);
         }
         entry.regDependencies = newDeps;
+        entry_ind += 1;
     }
     for (QueueEntry& entry : LoadStoreQueue){
         vector<int> newDeps;
-        for (int i = 0; i < entry.regDependencies.size(); i++){
+        for (unsigned int i = 0; i < entry.regDependencies.size(); i++){
             cout << "loadq i: " << i << std::endl;
             cout << "Entry RegDep " << entry.regDependencies[i] << "\n";
             cout << "OEWREG WriteReg " << OEWReg.write_reg << "\n"; 
@@ -948,7 +952,7 @@ void Processor::OOOexecute() {
     //Eliminate forward dependency
     for (QueueEntry& entry : InstructionQueue){
         vector<int> newDeps;
-        for (int i = 0; i < entry.regDependencies.size(); i++){
+        for (unsigned int i = 0; i < entry.regDependencies.size(); i++){
             if (entry.regDependencies[i] == forwardReg){ continue; }
             newDeps.push_back(entry.regDependencies[i]);
         }
@@ -956,7 +960,7 @@ void Processor::OOOexecute() {
     }
     for (QueueEntry& entry : LoadStoreQueue){
         vector<int> newDeps;
-        for (int i = 0; i < entry.regDependencies.size(); i++){
+        for (unsigned int i = 0; i < entry.regDependencies.size(); i++){
             if (entry.regDependencies[i] == forwardReg){ continue; }
             newDeps.push_back(entry.regDependencies[i]);
         }
@@ -969,8 +973,8 @@ void Processor::OOOexecute() {
     bool memExe = false;
     QueueEntry intr;
     if (LoadStoreQueue.size() > 0) {
-        cout << "Front of lsq has dependencies: ";
-        for (int i = 0; i < LoadStoreQueue.front().regDependencies.size(); i++){
+        cout << "Front of lsq (Seq" << LoadStoreQueue.front().sequenceNum << ") has dependencies: ";
+        for (unsigned int i = 0; i < LoadStoreQueue.front().regDependencies.size(); i++){
             cout << "Phys" << LoadStoreQueue.front().regDependencies[i] << " ";
         }
         cout << "\n";
@@ -982,11 +986,11 @@ void Processor::OOOexecute() {
         }
     }
     else {
-        cout << "Instruction queue has dependencies: ";
-        for (int i = 0; i < InstructionQueue.size(); i++){
-            cout << "Instruction with pc: " << InstructionQueue[i].controls.pc << " ";
-            for (int j = 0; j < InstructionQueue[i].regDependencies.size(); j++){
-                cout << InstructionQueue[i].regDependencies[j] << " ";
+        cout << "Instruction queue has dependencies: \n";
+        for (unsigned int i = 0; i < InstructionQueue.size(); i++){
+            cout << "  Instruction with pc: " << InstructionQueue[i].controls.pc << " (Seq" << InstructionQueue[i].sequenceNum << ") ";
+            for (unsigned int j = 0; j < InstructionQueue[i].regDependencies.size(); j++){
+                cout << "Phys" << InstructionQueue[i].regDependencies[j] << " ";
             }
             cout << "\n";
             if (InstructionQueue[i].regDependencies.empty()){
@@ -1192,8 +1196,8 @@ void Processor::OOOwriteback() {
 void Processor::OOOcommit() {
     table2[5].push_back(OWCReg.pc);
     cout << "List of ready instruction pcs: ";
-    for (int i = 0; i < commitReady.size(); i++){
-        cout << "(" << commitReady[i].pc << ", " << commitReady[i].sequence << ")";
+    for (unsigned int i = 0; i < commitReady.size(); i++){
+        cout << "(" << commitReady[i].pc << ",  Seq" << commitReady[i].sequence << ")";
     }
     cout << "\n";
     uint32_t read_data_dummy;
@@ -1205,7 +1209,7 @@ void Processor::OOOcommit() {
         if (reg.sequence == ReorderBuffer.front().sequenceNum){
             ReorderBufferEntry rob_entry = ReorderBuffer[0];
             cout << "PC CHECK " << reg.pc << "\n";
-            cout << "Committing sequence number: " << reg.sequence << " with pc: " << reg.pc << "\n";
+            cout << "Committing: Seq" << reg.sequence << " with pc: " << reg.pc << "\n";
             ReorderBuffer.erase(ReorderBuffer.begin());
             commitReady.erase(commitReady.begin() + ind);
             if (reg.pc > 3){
