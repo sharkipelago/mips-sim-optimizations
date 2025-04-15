@@ -199,10 +199,23 @@ void Processor::emptyFDReg(){
     FDReg.instruction = 0;
     FDReg.pc = 0;
 }
+
+void Processor::emptyOFDReg(){
+    OFDReg.pc = 0;
+    OFDReg.predict_pc = 0;
+    OFDReg.instruction = 0;
+    OFDReg.fetched = false;
+}
+
 void Processor::flush(){
     emptyFDReg();
     emptyDXReg();
     
+}
+
+void Processor::OOOflush() {
+    emptyOFDReg();
+    emptyODRReg();
 }
 
 void Processor::stall(){
@@ -986,6 +999,7 @@ void Processor::OOOexecute() {
         cout << "\n";
     }
     cout << "found instruction: " << exe << "\n";
+    DEBUG(cout << "Execute inst:" << intr.controls.instruction << " \n";)
 
     if (!exe){
         table2[3].push_back(0);
@@ -1093,6 +1107,7 @@ void Processor::OOOexecute() {
             if (predict_pc != pc_add_result){
                 regfile.pc = pc_add_result;   
                 DEBUG(cout << "Prediction was: " << XMReg.predict_pc << " Actual was: " << XMReg.pc_add_result  << " Address prediction wrong => Flushing \n";)
+                OOOflush();
                 squash(intr.sequenceNum);
             }
             else {
@@ -1103,6 +1118,7 @@ void Processor::OOOexecute() {
         else {
             regfile.pc = pc_add_result;
             DEBUG(cout << "Prediction wrong => Flushing \n";)
+            OOOflush();
             squash(intr.sequenceNum);
         }
         BHT[ind].address = pc_add_result;
@@ -1116,15 +1132,17 @@ void Processor::OOOexecute() {
         if (predict_pc != orig_pc){
             regfile.pc = orig_pc; 
             DEBUG(cout << "Branch not taken - prediction wrong => Flushing \n";)  
+            OOOflush();
             squash(intr.sequenceNum);
         }
         // Predicted not taken
         else {
-            DEBUG(cout << "Prediction correct \n";)
+            DEBUG(cout << "Prediction correct  - branch not taken\n";)
         }
     }
     //Jump
     else{
+        cout << "jump section\n";
         if (pc != orig_pc){
             regfile.pc = pc;
             squash(intr.sequenceNum);
@@ -1132,7 +1150,7 @@ void Processor::OOOexecute() {
         else if (predict_pc != pc){
             regfile.pc = pc;
             DEBUG(cout << "Branch predict when not branch - squashing\n";)
-            flush();
+            OOOflush();
             squash(intr.sequenceNum);
         }
     }

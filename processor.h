@@ -166,7 +166,9 @@ class Processor {
         void flush();
 
         int mapReg(int reg);
+        void emptyOFDReg();
         void emptyODRReg();
+        void OOOflush();
         void OOOfetch();
         void OOOdecode();
         void OOOrename();
