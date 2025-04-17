@@ -672,6 +672,9 @@ void Processor::OOOfetch() {
 
     uint32_t instruction;
     table2[0].push_back(regfile.pc+4);
+
+    if(stopOOOFetch) { return;}
+
     if (stopFetch2){
         stopFetch2 = false;
         OFDReg.fetched = false;
@@ -722,6 +725,11 @@ void Processor::OOOdecode() {
     table2[1].push_back(OFDReg.pc);
     FDRegWrite = 1;
     // decode into contol signals
+
+    if(stopOOODecode) {
+        return;
+    }
+
     if (OFDReg.fetched) { // TODO: Check this - is iffy
         control.decode(instruction);
     }
@@ -802,7 +810,8 @@ void Processor::OOOdecode() {
 int Processor::mapReg(int reg){
     int newReg = physRegFile.firstReady();
     physRegFile.setReady(newReg, false);
-    regMap[reg] = newReg;
+    // regMap[reg] = newReg;
+    setRegMap(reg, newReg);
     cout << "Mapped " << reg << " to " << newReg << "\n";
     return newReg;
 }
@@ -812,6 +821,22 @@ void Processor::OOOrename() {
     if (ODRReg.pc == 0){
         return;
     }
+
+    if (physRegFile.firstReady() == -1 ){
+        stopOOOFetch = true;
+        stopOOODecode = true;
+        // for (int i = 0; i < regMap.size(); i++) {
+        //     cout << "Arch" << i << " : Phys" << regMap[i] << "\n";
+        // }
+        return;
+    }
+    stopOOOFetch = false;
+    stopOOODecode = false;
+
+    int prevMappingRS = getRegMap(ODRReg.rs);// regMap[ODRReg.rs];
+    int prevMappingRT = getRegMap(ODRReg.rt);// regMap[ODRReg.rt];
+    int prevMappingRD = getRegMap(ODRReg.rd);//regMap[ODRReg.rd];
+
     if (ODRReg.instruction == 0) { // Maybe not needed
         ReorderBufferEntry rob = ReorderBufferEntry(sequence, false);
         QueueEntry iqe = QueueEntry(sequence, ODRReg, vector<int>());
@@ -823,15 +848,21 @@ void Processor::OOOrename() {
         int archDest = ODRReg.rd;
         vector<int> regs; // Dependent REgisters
 
-        if (regMap[ODRReg.rs] == -1){ mapReg(ODRReg.rs); } // "Initalize source rs if uninitalized"
-        regs.push_back(regMap[ODRReg.rs]);
-        ODRReg.rs = regMap[ODRReg.rs];
+        if (getRegMap(ODRReg.rs) == -1){ mapReg(ODRReg.rs); } // "Initalize source rs if uninitalized"
+        regs.push_back(getRegMap(ODRReg.rs));
+        if (ODRReg.rs > 31 || ODRReg.rs < 0) {
+            cout << "RS OVER 31\n"; 
+        }   
+        ODRReg.rs = getRegMap(ODRReg.rs);
 
         if (ODRReg.opcode == 0){ //R type
             std::cout << "Rtype Rename" << std::endl;
-            if (regMap[ODRReg.rt] == -1){ mapReg(ODRReg.rt); } // Initalize source rt
-            regs.push_back(regMap[ODRReg.rt]);
-            ODRReg.rt = regMap[ODRReg.rt];
+            if (getRegMap(ODRReg.rt) == -1){ mapReg(ODRReg.rt); } // Initalize source rt
+            regs.push_back(getRegMap(ODRReg.rt));
+            if (ODRReg.rt > 31 || ODRReg.rt < 0) {
+                cout << "RT OVER 31\n"; 
+            }
+            ODRReg.rt = getRegMap(ODRReg.rt);
             ODRReg.oldDest = mapReg(archDest);
         }
         else { // Rest of I type
@@ -844,7 +875,7 @@ void Processor::OOOrename() {
             else {
                 ODRReg.oldDest = mapReg(archDest);
             }
-            ODRReg.rt = regMap[ODRReg.rt];
+            ODRReg.rt = getRegMap(ODRReg.rt);
         }
         // if (archDest != -1) {
         //     ODRReg.oldDest = mapReg(archDest);
@@ -876,9 +907,10 @@ void Processor::OOOrename() {
         }
         cout << std::endl;
 
-        ReorderBufferEntry rob = ReorderBufferEntry(sequence, true, archDest, regMap[archDest]);
-        if (archDest == -1) {
-            rob = ReorderBufferEntry(sequence, false);
+        ReorderBufferEntry rob = ReorderBufferEntry(sequence, false, ODRReg.rs, ODRReg.rt);
+        //REDO Reorder buffers
+        if (archDest != -1) {
+            rob = ReorderBufferEntry(sequence, true, ODRReg.rs, ODRReg.rt, archDest, getRegMap(archDest));
         }
         cout << "Created Rob Entry w/Valid Dest: " << rob.validDest << " Arch Dest: " << rob.archDestReg << "\n";  
 
@@ -895,6 +927,19 @@ void Processor::OOOrename() {
         ReorderBuffer.push_back(rob);
         for (unsigned int i = 0; i < trueDepRegs.size(); i++){
             cout << trueDepRegs[i] << " ";
+        }
+        
+        cout << "prevMappingRT: " << prevMappingRT << "\n";
+        cout << "prevMappingRD: " << prevMappingRD << "\n";
+        if (prevMappingRS != -1) {
+            cout << ": " << prevMappingRD << "\n";
+            tryFreeReg(prevMappingRS);
+        }
+        if (prevMappingRT != -1) {
+            tryFreeReg(prevMappingRT);
+        }
+        if (prevMappingRD != -1) {
+            tryFreeReg(prevMappingRD);
         }
         cout << "\n";
        
@@ -934,9 +979,6 @@ void Processor::OOOrename() {
         }
         entry.regDependencies = newDeps;
     }
-    cout << "HERE6" << std::endl;
-
-
 }
 void Processor::OOOexecute() {
     bool validForward = OEWReg.reg_write_control;
@@ -979,7 +1021,7 @@ void Processor::OOOexecute() {
         }
         cout << "\n";
         if (LoadStoreQueue.front().regDependencies.empty()) {
-        
+            cout << "Executing from Load Store Queue \n";
             intr = LoadStoreQueue.front();
             memExe = true;
             exe = true;
@@ -994,6 +1036,7 @@ void Processor::OOOexecute() {
             }
             cout << "\n";
             if (InstructionQueue[i].regDependencies.empty()){
+                cout << "Executing from Instruction Queue \n";
                 intr = InstructionQueue[i];
                 InstructionQueue.erase(InstructionQueue.begin() + i);
                 exe = true;
@@ -1003,7 +1046,8 @@ void Processor::OOOexecute() {
         cout << "\n";
     }
     cout << "found instruction: " << exe << "\n";
-    DEBUG(cout << "Execute inst:" << intr.controls.instruction << " \n";)
+    DEBUG(cout << "Execute inst:" << intr.controls.instruction << " Seq" << intr.sequenceNum << " \n";)
+    cout << "LoadStore Q size: " << LoadStoreQueue.size() << " Inst Q Size: " << InstructionQueue.size() << "\n";
 
     if (!exe){
         table2[3].push_back(0);
@@ -1033,10 +1077,9 @@ void Processor::OOOexecute() {
         operand_1 = forwardValue;
         DEBUG(cout << "Forwarding: " << operand_1 << " for operand 1\n";)
     }
-    cout << "test rt" << intr.controls.rt << "\n";
     // Operand 2 is immediate if ALU_src = 1, for I-type, in this case do not forward to rt
     if (intr.controls.rt == forwardReg && validForward){
-        if (DXReg.ALU_src_control == 0){
+        if (intr.controls.control.ALU_src_control == 0){
             operand_2 = forwardValue;
         }
         DEBUG(cout << "Forwarding: " << operand_2 << " for operand 2\n";)
@@ -1060,7 +1103,6 @@ void Processor::OOOexecute() {
     uint32_t write_data_mem = 0;
     // table[3].push_back(XMReg.orig_pc);
 
-    
 
     if (intr.controls.instruction == 0){ // for nops - could be not necessary as well
         OEWReg.pc = orig_pc;
@@ -1070,6 +1112,7 @@ void Processor::OOOexecute() {
     }
       // First read no matter whether it is a load or a store
     bool successful_access = memory->access(alu_result, read_data_mem, 0, intr.controls.control.mem_read_control | intr.controls.control.mem_write_control, 0);
+
     DEBUG(cout << "Succesful Access?: " << successful_access << "\n";)
     if (!successful_access) {
         OOOmemStall = true;
@@ -1160,7 +1203,6 @@ void Processor::OOOexecute() {
     }
     DEBUG(cout << "Orig pc:" << orig_pc << " jump pc: " << pc << " add pc: " << pc_add_result << "\n";)
 
-    
 
     OEWReg.pc = orig_pc;
     OEWReg.write_reg = write_reg;
@@ -1217,53 +1259,102 @@ void Processor::OOOcommit() {
                 finishedPC = reg.pc - 4;
             }
 
-            if (!rob_entry.validDest) {
-                return;
+            if (rob_entry.validDest) {
+                DEBUG(cout << "Are we writing: " << reg.reg_write_control << ", writing " << reg.write_data << " to Arch" <<  rob_entry.archDestReg << "\n";)
+                regfile.access(0, 0, read_data_dummy, read_data_dummy,  rob_entry.archDestReg, reg.reg_write_control, reg.write_data);
             }
-            DEBUG(cout << "Are we writing: " << reg.reg_write_control << ", writing " << reg.write_data << " to Arch" <<  rob_entry.archDestReg << "\n";)
-            regfile.access(0, 0, read_data_dummy, read_data_dummy,  rob_entry.archDestReg, reg.reg_write_control, reg.write_data);
-            
-            // Make sure phys reg is not being used in any queues or rename map before freeing
-            bool canFreePhysReg = true;
-            for (QueueEntry& entry : InstructionQueue){
-                if (entry.controls.rs == rob_entry.physDestReg) {
-                    canFreePhysReg = false;
-                    break;
-                }
-                if (entry.controls.opcode == 0 && entry.controls.rt == rob_entry.physDestReg) {
-                    canFreePhysReg = false;
-                    break;
-                }
+           
+            if (rob_entry.physDestReg != - 1) {
+                tryFreeReg(rob_entry.physDestReg);
             }
-            if (!canFreePhysReg){ break;}
-            for (QueueEntry& entry : LoadStoreQueue){
-                if (entry.controls.rs == rob_entry.physDestReg && entry.controls.opcode == 43) { // Do not free reg if dependent store
-                    canFreePhysReg = false;
-                    break;
-                }
+            if(rob_entry.physRS != -1) {
+                tryFreeReg(rob_entry.physRS);
             }
-            if (!canFreePhysReg){ break;}
-            for (int i = 0 ; i < regfile.getSize(); i++) {
-                cout << "i: " << i << " regmap[i]: " << regMap[i] << " rob " << rob_entry.physDestReg << "\n";  
-                if (regMap[i] ==  rob_entry.physDestReg ) {
-                    canFreePhysReg = false;
-                    break;
-                }
+            if(rob_entry.physRT != -1) {
+                tryFreeReg(rob_entry.physRT);
             }
-            if (!canFreePhysReg){ break;}
 
-            DEBUG(cout << "Released PhysRegister: " << rob_entry.physDestReg << " ArchRegister " << rob_entry.archDestReg << "\n";)
-            physRegFile.setReady(rob_entry.physDestReg, true);
-            physRegFile.zeroReg(rob_entry.physDestReg);
-            break;
+    //         // Make sure phys reg is not being used in any queues or rename map before freeing
+    //         bool canFreePhysReg = true;
+    //         for (QueueEntry& entry : InstructionQueue){
+    //             if (entry.controls.rs == rob_entry.physDestReg) {
+    //                 cout << "Can't free R" << entry.controls.rs << "; its InstQ Seq" << entry.sequenceNum << " RS\n";
+    //                 canFreePhysReg = false;
+    //                 break;
+    //             }
+    //             if (entry.controls.opcode == 0 && entry.controls.rt == rob_entry.physDestReg) {
+    //                 cout << "Can't free R" << entry.controls.rt << "; its InstQ Seq" << entry.sequenceNum << " RT\n";
+    //                 canFreePhysReg = false;
+    //                 break;
+    //             }
+    //         }
+    //         if (!canFreePhysReg){ break;}
+    //         for (QueueEntry& entry : LoadStoreQueue){
+    //             if (entry.controls.rs == rob_entry.physDestReg ) { // Do not free reg if dependent store
+    //                 canFreePhysReg = false;
+    //                 break;
+    //             }
+    //         }
+    //         if (!canFreePhysReg){ break;}
+    //         for (int i = 0 ; i < regfile.getSize(); i++) {
+    //             cout << "i: " << i << " regmap[i]: " << regMap[i] << " rob " << rob_entry.physDestReg << "\n";  
+    //             if (regMap[i] ==  rob_entry.physDestReg ) {
+    //                 cout << "Can't free R" << regMap[i]<< "; its in regmap for Arch" << i << " \n";
+
+    //                 canFreePhysReg = false;
+    //                 break;
+    //             }
+    //         }
+    //         if (!canFreePhysReg){ break;}
+
+    //         DEBUG(cout << "Released PhysRegister: " << rob_entry.physDestReg << " ArchRegister " << rob_entry.archDestReg << "\n";)
+    //         physRegFile.setReady(rob_entry.physDestReg, true);
+    //         physRegFile.zeroReg(rob_entry.physDestReg);
+    //         break;
+    //     }
+    //     ind += 1;
+    // }
+    
+    // cout << "break" << std::endl;
         }
         ind += 1;
     }
-    
-    cout << "break" << std::endl;
-    
-    
 }   
+
+bool Processor::tryFreeReg(int physReg) {
+// Make sure phys reg is not being used in any queues or rename map before freeing
+    if (physReg < 0 || physRegFile.getSize() < physReg ) {
+        cout << "Trying to free with invalid phys reg\n";
+        return false;
+    }
+    if (physRegFile.ready(physReg)) {
+        cout << "Phys" << physReg << " is already ready!\n"; 
+    }
+    for (QueueEntry& entry : InstructionQueue){
+        if (entry.controls.rs == physReg) {
+            cout << "Can't free R" << entry.controls.rs << "; its InstQ Seq" << entry.sequenceNum << " RS\n";
+            return false;
+        }
+        if (entry.controls.opcode == 0 && entry.controls.rt == physReg) {
+            cout << "Can't free R" << entry.controls.rt << "; its InstQ Seq" << entry.sequenceNum << " RT\n";
+            return false;
+        }
+    }
+    for (QueueEntry& entry : LoadStoreQueue){
+        if (entry.controls.rs == physReg ) { return false; }
+    }
+    for (int i = 0 ; i < regfile.getSize(); i++) {
+        cout << "i: " << i << " regmap[i]: " << getRegMap(i) << " rob " << physReg << "\n";  
+        if (getRegMap(i) ==  physReg ) {
+            cout << "Can't free R" << getRegMap(i)<< "; its in regmap for Arch" << i << " \n";
+            return false;
+        }
+    }
+    DEBUG(cout << "Released PhysRegister: " << physReg  << "\n";)
+    physRegFile.setReady(physReg, true);
+    physRegFile.zeroReg(physReg);
+    return true;
+}
 
 void Processor::squash(int sequenceNum) {
     cout << "Squashing all instructions over: " << sequenceNum << "\n";
@@ -1303,6 +1394,9 @@ void Processor::squash(int sequenceNum) {
 }
 
 void Processor::out_of_order_advance() { 
+    for (int i = 0; i < regMap.size(); i++) {
+        cout << "Arch" << i << " : Phys" << getRegMap(i) << "\n";
+    }
     DEBUG(cout << "==COMMIT==" <<  std::endl;)
     OOOcommit();
     DEBUG(cout << "==WRITEBACK==" <<  std::endl;)

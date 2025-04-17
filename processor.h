@@ -21,13 +21,17 @@ struct ReorderBufferEntry {
     bool validDest = false;
     int physDestReg = -1; //If -1 invalid dest reg
     int archDestReg = -1;
-    ReorderBufferEntry(int sequence, bool valid, int archDest = -1, int physDest = -1){
+    int physRS = -1;
+    int physRT = -1;
+    ReorderBufferEntry(int sequence, bool validD, int rs = -1, int rt = -1, int archDest = -1, int physDest = -1){
         sequenceNum = sequence;
-        validDest = valid;
+        validDest = validD;
         if (validDest){
             archDestReg = archDest;
             physDestReg = physDest;
         }
+        physRS = rs;
+        physRT = rt;
     }
 };
 struct QueueEntry {
@@ -87,7 +91,7 @@ class Processor {
         control_t control;
         Memory *memory;
         Registers regfile;
-        Registers physRegFile = Registers(96);
+        Registers physRegFile = Registers(64);
         map<int, int> regMap;
         vector<vector<int>> table;
         vector<vector<int>> table2;
@@ -98,7 +102,8 @@ class Processor {
 
         uint32_t finishedPC = 0;
         bool FDRegWrite = 1, memStall = false, stopFetch2 = false;
-
+        bool stopOOOFetch = false;
+        bool stopOOODecode = false;
         bool OOOmemStall = false;
 
         vector<BHTLine> BHT;
@@ -165,6 +170,7 @@ class Processor {
         void write_back_stage();
         void flush();
 
+        bool tryFreeReg(int archReg);
         int mapReg(int reg);
         void emptyOFDReg();
         void emptyODRReg();
@@ -178,5 +184,20 @@ class Processor {
         void OOOwriteback();
         void OOOcommit();
         void squash(int num);
+
+        void setRegMap(int archReg, int physReg ){
+            if (archReg > 31 || archReg < 0) {
+                std::cout << "Invalid regmap setting\n"; 
+            }
+            regMap[archReg] = physReg;
+        }
+
+        int getRegMap(int archReg){
+            if (archReg > 31 || archReg < 0) {
+                std::cout << "Invalid regmap getting\n"; 
+                return -1;
+            }
+            return regMap[archReg];
+        }
 
 };

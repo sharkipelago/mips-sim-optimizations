@@ -68,6 +68,7 @@ class Registers {
                     return i;
                 }
             }
+            std::cout << "NO FREE PHYSICAL REGISTERS\n"; 
             return -1;
         }
 
