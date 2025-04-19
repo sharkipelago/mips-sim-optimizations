@@ -23,6 +23,8 @@ struct ReorderBufferEntry {
     int archDestReg = -1;
     int physRS = -1;
     int physRT = -1;
+    bool writtenBack = false;
+    uint32_t pc;
     ReorderBufferEntry(int sequence, bool validD, int rs = -1, int rt = -1, int archDest = -1, int physDest = -1){
         sequenceNum = sequence;
         validDest = validD;
@@ -106,6 +108,8 @@ class Processor {
         bool stopOOODecode = false;
         bool OOOmemStall = false;
 
+        int forceLag = 100;
+        bool forceLagOn = false;
         vector<BHTLine> BHT;
 
         int sequence = 0;

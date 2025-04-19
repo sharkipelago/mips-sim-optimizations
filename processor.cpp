@@ -3,7 +3,7 @@
 #include "processor.h"
 #include <string>
 using namespace std;
-#define ENABLE_DEBUG
+// #define ENABLE_DEBUG
 
 #ifdef ENABLE_DEBUG
 #define DEBUG(x) x
@@ -893,8 +893,8 @@ void Processor::OOOrename() {
         for (unsigned int i = 0; i < regs.size(); i++){
             for (unsigned int j = 0; j < ReorderBuffer.size(); j++){
                 if (ReorderBuffer[j].validDest) {
-                    cout << "ROB" << j << " Seq" << ReorderBuffer[j].sequenceNum << " with physDest: " << ReorderBuffer[j].physDestReg << "\n";
-                    if (regs[i] == ReorderBuffer[j].physDestReg) {
+                    if (regs[i] == ReorderBuffer[j].physDestReg && !ReorderBuffer[j].writtenBack) {
+                        cout << "Dependent on ROB" << j << " Seq" << ReorderBuffer[j].sequenceNum << " with physDest: " << ReorderBuffer[j].physDestReg << "\n";
                         trueDepRegs.push_back(regs[i]);
                     }
                 }
@@ -1011,9 +1011,131 @@ void Processor::OOOexecute() {
 
 
     cout << "Prev Execute Forward PhysReg " << forwardReg << "\n";
-    bool exe = false;
-    bool memExe = false;
-    QueueEntry intr;
+
+// //  <--COMMENT BOUND BEG -->
+    
+//     bool exe = false;
+//     bool memExe = false;
+//     // QueueEntry intr; UNCOMMENT AFTER DOING UNBLOCKED CACHE
+//     if (LoadStoreQueue.size() > 0) {
+//         cout << "Front of lsq (Seq" << LoadStoreQueue.front().sequenceNum << ") has dependencies: ";
+//         for (unsigned int i = 0; i < LoadStoreQueue.front().regDependencies.size(); i++){
+//             cout << "Phys" << LoadStoreQueue.front().regDependencies[i] << " ";
+//         }
+//         cout << "\n";
+//         if (LoadStoreQueue.front().regDependencies.empty()) {
+//             cout << "Executing from Load Store Queue \n";
+//             intr = LoadStoreQueue.front();
+//             memExe = true;
+//             exe = true;
+//         }
+//     }
+//     if (!exe) {
+//         cout << "Instruction queue has dependencies: \n";
+//         for (unsigned int i = 0; i < InstructionQueue.size(); i++){
+//             cout << "  Instruction with pc: " << InstructionQueue[i].controls.pc << " (Seq" << InstructionQueue[i].sequenceNum << ") ";
+//             for (unsigned int j = 0; j < InstructionQueue[i].regDependencies.size(); j++){
+//                 cout << "Phys" << InstructionQueue[i].regDependencies[j] << " ";
+//             }
+//             cout << "\n";
+//             if (InstructionQueue[i].regDependencies.empty()){
+//                 cout << "Executing from Instruction Queue \n";
+//                 intr = InstructionQueue[i];
+//                 InstructionQueue.erase(InstructionQueue.begin() + i);
+//                 exe = true;
+//                 break;
+//             }
+//         }
+//         cout << "\n";
+//     }
+//     cout << "found instruction: " << exe << "\n";
+//     DEBUG(cout << "Execute inst:" << intr.controls.instruction << " Seq" << intr.sequenceNum << " \n";)
+//     cout << "LoadStore Q size: " << LoadStoreQueue.size() << " Inst Q Size: " << InstructionQueue.size() << "\n";
+
+//     if (!exe){
+//         table2[3].push_back(0);
+//         OEWReg.changed = false;
+//         return;
+//     }
+//     table2[3].push_back(intr.controls.pc);
+
+//     physRegFile.access(intr.controls.rs, intr.controls.rt, intr.controls.read_data_1, intr.controls.read_data_2, 0, 0, 0);
+//     DEBUG(cout << "read_data_1: " << intr.controls.read_data_1 << " read_data_2: " << intr.controls.read_data_2 << "\n";)
+//     cout << "Read " << intr.controls.read_data_1 << " from  RS " << intr.controls.rs << " read " << intr.controls.read_data_2 << " from  RT " << intr.controls.rt << "\n";
+
+
+//     alu.generate_control_inputs(intr.controls.control.ALU_op_control, intr.controls.funct, intr.controls.opcode);
+//     // DEBUG(cout << "ALU op: " << DXReg.ALU_op_control << " Funct: " << DXReg.funct << " opcode: " << DXReg.opcode << "\n";)
+
+
+//     // Find operands for the ALU Execution
+//     // Operand 1 is always R[rs] -> read_data_1, except sll and srl
+//     // Operand 2 is immediate if ALU_src = 1, for I-type
+//     uint32_t operand_1 = intr.controls.control.shift_control ? intr.controls.shamt : intr.controls.read_data_1;
+//     uint32_t operand_2 = intr.controls.control.ALU_src_control ? intr.controls.imm : intr.controls.read_data_2;
+//     uint32_t alu_zero = 0;
+    
+
+//     if (intr.controls.rs == forwardReg && validForward){
+//         operand_1 = forwardValue;
+//         DEBUG(cout << "Forwarding: " << operand_1 << " for operand 1\n";)
+//     }
+//     // Operand 2 is immediate if ALU_src = 1, for I-type, in this case do not forward to rt
+//     if (intr.controls.rt == forwardReg && validForward){
+//         if (intr.controls.control.ALU_src_control == 0){
+//             operand_2 = forwardValue;
+//         }
+//         DEBUG(cout << "Forwarding: " << operand_2 << " for operand 2\n";)
+//     }
+
+//     uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
+//     // DEBUG(cout << "pc: " << DXReg.pc << " op1 " << operand_1 << " op2 "  << operand_2 << " alu_zero " << alu_zero << " alu result " << alu_result << "\n";)
+//     DEBUG(cout << " op1 " << operand_1 << " op2 "  << operand_2 << " alu_zero " << alu_zero << " alu result " << alu_result << "\n";)
+
+    
+//     int write_reg = intr.controls.control.link_control ? 31 : intr.controls.oldDest;  
+
+//     uint32_t pc_add_result = intr.controls.pc + (intr.controls.imm << 2);
+//     uint32_t pc = intr.controls.control.jump_reg_control ? intr.controls.read_data_1 : intr.controls.control.jump_control ? (intr.controls.pc & 0xf0000000) & (intr.controls.addr << 2): intr.controls.pc;
+//     // DEBUG(cout << DXReg.jump_control << " " << DXReg.jump_reg_control << "\n";
+//     uint32_t orig_pc = intr.controls.pc;
+//     uint32_t predict_pc = intr.controls.predict_pc;
+
+//     // DEBUG(cout << "orig_pc: " << XMReg.orig_pc << " predict_pc " << DXReg.predict_pc << " pc_add_result "  << XMReg.pc_add_result << "\n";)
+//     uint32_t read_data_mem = 0;
+//     uint32_t write_data_mem = 0;
+//     // table[3].push_back(XMReg.orig_pc);
+
+
+//     if (intr.controls.instruction == 0){ // for nops - could be not necessary as well
+//         OEWReg.pc = orig_pc;
+//         OEWReg.sequence = intr.sequenceNum;
+//         OEWReg.changed = true;
+//         return;
+//     }
+//       // First read no matter whether it is a load or a store
+//     bool successful_access = memory->access(alu_result, read_data_mem, 0, intr.controls.control.mem_read_control | intr.controls.control.mem_write_control, 0);
+
+//     DEBUG(cout << "Succesful Access?: " << successful_access << "\n";)
+//     if (!successful_access) {
+//         OOOmemStall = true;
+//         DEBUG(cout << "Unsucessful Mem access => stalling\n" ;)
+//         OEWReg.changed = false;
+//         return;
+//     }
+//     if (memExe) { // When non blocking cache is implemented - make sure to not pull from lsq while waiting for cache
+//         LoadStoreQueue.erase(LoadStoreQueue.begin());
+//         OOOmemStall = false;
+//     }
+    // <-COMMENT BOUND END -->
+
+    // <--- Unblocking Cache Stuff --->
+
+    bool iqExe = false;
+    bool lsqExe = false;
+    QueueEntry lsqIntr;
+    QueueEntry iqIntr;
+    int iqIntrIndex = -1;
     if (LoadStoreQueue.size() > 0) {
         cout << "Front of lsq (Seq" << LoadStoreQueue.front().sequenceNum << ") has dependencies: ";
         for (unsigned int i = 0; i < LoadStoreQueue.front().regDependencies.size(); i++){
@@ -1021,44 +1143,91 @@ void Processor::OOOexecute() {
         }
         cout << "\n";
         if (LoadStoreQueue.front().regDependencies.empty()) {
-            cout << "Executing from Load Store Queue \n";
-            intr = LoadStoreQueue.front();
-            memExe = true;
-            exe = true;
+            cout << "Grabbing from Load Store Queue \n";
+            lsqIntr = LoadStoreQueue.front();
+            lsqExe = true;
         }
     }
-    if (!exe) {
-        cout << "Instruction queue has dependencies: \n";
-        for (unsigned int i = 0; i < InstructionQueue.size(); i++){
-            cout << "  Instruction with pc: " << InstructionQueue[i].controls.pc << " (Seq" << InstructionQueue[i].sequenceNum << ") ";
-            for (unsigned int j = 0; j < InstructionQueue[i].regDependencies.size(); j++){
-                cout << "Phys" << InstructionQueue[i].regDependencies[j] << " ";
-            }
-            cout << "\n";
-            if (InstructionQueue[i].regDependencies.empty()){
-                cout << "Executing from Instruction Queue \n";
-                intr = InstructionQueue[i];
-                InstructionQueue.erase(InstructionQueue.begin() + i);
-                exe = true;
-                break;
-            }
+
+    cout << "Instruction queue has dependencies: \n";
+    for (unsigned int i = 0; i < InstructionQueue.size(); i++){
+        cout << "  Instruction with pc: " << InstructionQueue[i].controls.pc << " (Seq" << InstructionQueue[i].sequenceNum << ") ";
+        for (unsigned int j = 0; j < InstructionQueue[i].regDependencies.size(); j++){
+            cout << "Phys" << InstructionQueue[i].regDependencies[j] << " ";
         }
         cout << "\n";
+        if (InstructionQueue[i].regDependencies.empty()){
+            cout << "Grabbing from Instruction Queue \n";
+            iqIntr = InstructionQueue[i];
+            iqIntrIndex = i;
+            // InstructionQueue.erase(InstructionQueue.begin() + i);
+            iqExe = true;
+            break;
+        }
     }
-    cout << "found instruction: " << exe << "\n";
-    DEBUG(cout << "Execute inst:" << intr.controls.instruction << " Seq" << intr.sequenceNum << " \n";)
+    cout << "\n";
+
+    cout << "found iqInst: " << iqExe << " found lsqInst: " << lsqExe << "\n";
     cout << "LoadStore Q size: " << LoadStoreQueue.size() << " Inst Q Size: " << InstructionQueue.size() << "\n";
 
-    if (!exe){
+    if (!iqExe && ! lsqExe){
         table2[3].push_back(0);
         OEWReg.changed = false;
         return;
     }
+    if (iqExe && lsqExe) {
+        physRegFile.access(lsqIntr.controls.rs, lsqIntr.controls.rt, lsqIntr.controls.read_data_1, lsqIntr.controls.read_data_2, 0, 0, 0);
+        DEBUG(cout << "read_data_1: " << lsqIntr.controls.read_data_1 << " read_data_2: " << lsqIntr.controls.read_data_2 << "\n";)
+        cout << "Read " << lsqIntr.controls.read_data_1 << " from  RS " << lsqIntr.controls.rs << " read " << lsqIntr.controls.read_data_2 << " from  RT " << lsqIntr.controls.rt << "\n";
+    
+    
+        alu.generate_control_inputs(lsqIntr.controls.control.ALU_op_control, lsqIntr.controls.funct, lsqIntr.controls.opcode);
+        // DEBUG(cout << "ALU op: " << DXReg.ALU_op_control << " Funct: " << DXReg.funct << " opcode: " << DXReg.opcode << "\n";)
+    
+    
+        // Find operands for the ALU Execution
+        // Operand 1 is always R[rs] -> read_data_1, except sll and srl
+        // Operand 2 is immediate if ALU_src = 1, for I-type
+        uint32_t lsq_operand_1 = lsqIntr.controls.control.shift_control ? lsqIntr.controls.shamt : lsqIntr.controls.read_data_1;
+        uint32_t lsq_operand_2 = lsqIntr.controls.control.ALU_src_control ? lsqIntr.controls.imm : lsqIntr.controls.read_data_2;
+        uint32_t lsq_alu_zero = 0;
+        
+    
+        if (lsqIntr.controls.rs == forwardReg && validForward){
+            lsq_operand_1 = forwardValue;
+            DEBUG(cout << "Forwarding: " << lsq_operand_1 << " for operand 1\n";)
+        }
+        // Operand 2 is immediate if ALU_src = 1, for I-type, in this case do not forward to rt
+        if (lsqIntr.controls.rt == forwardReg && validForward){
+            if (lsqIntr.controls.control.ALU_src_control == 0){
+                lsq_operand_2 = forwardValue;
+            }
+            DEBUG(cout << "Forwarding: " << lsq_operand_2 << " for operand 2\n";)
+        }
+    
+        uint32_t stall_test_read_data_mem = 0;
+    
+        uint32_t lsq_alu_result = alu.execute(lsq_operand_1, lsq_operand_2, lsq_alu_zero);
+        bool lsq_successful_access = memory->access(lsq_alu_result, stall_test_read_data_mem, 0, lsqIntr.controls.control.mem_read_control | lsqIntr.controls.control.mem_write_control, 0);
+        if (lsq_successful_access) { //Stalling
+            iqExe = false;
+        }
+        else {
+            lsqExe = false;
+            cout << "LSQ mem not in cache => fetching from lower level cache";
+        }
+    }
+    QueueEntry intr = lsqIntr;
+    if (iqExe) {
+        intr = iqIntr;
+        InstructionQueue.erase(InstructionQueue.begin() + iqIntrIndex);
+    }
+
     table2[3].push_back(intr.controls.pc);
 
     physRegFile.access(intr.controls.rs, intr.controls.rt, intr.controls.read_data_1, intr.controls.read_data_2, 0, 0, 0);
     DEBUG(cout << "read_data_1: " << intr.controls.read_data_1 << " read_data_2: " << intr.controls.read_data_2 << "\n";)
-    cout << "Read " << intr.controls.read_data_1 << " from  RS " << intr.controls.rs << " read " << intr.controls.read_data_2 << " from  RT " << intr.controls.rt << "\n";
+    DEBUG(cout << "Read " << intr.controls.read_data_1 << " from  RS " << intr.controls.rs << " read " << intr.controls.read_data_2 << " from  RT " << intr.controls.rt << "\n";)
 
 
     alu.generate_control_inputs(intr.controls.control.ALU_op_control, intr.controls.funct, intr.controls.opcode);
@@ -1112,17 +1281,17 @@ void Processor::OOOexecute() {
     }
       // First read no matter whether it is a load or a store
     bool successful_access = memory->access(alu_result, read_data_mem, 0, intr.controls.control.mem_read_control | intr.controls.control.mem_write_control, 0);
+    DEBUG(cout << "Execute inst:" << intr.controls.instruction << " Seq" << intr.sequenceNum << " \n";)
+
 
     DEBUG(cout << "Succesful Access?: " << successful_access << "\n";)
     if (!successful_access) {
-        OOOmemStall = true;
         DEBUG(cout << "Unsucessful Mem access => stalling\n" ;)
         OEWReg.changed = false;
         return;
     }
-    if (memExe) { // When non blocking cache is implemented - make sure to not pull from lsq while waiting for cache
+    if (lsqExe) { // When non blocking cache is implemented - make sure to not pull from lsq while waiting for cache
         LoadStoreQueue.erase(LoadStoreQueue.begin());
-        OOOmemStall = false;
     }
 
     DEBUG(cout << "read data mem: " << read_data_mem << " mem read control: " << intr.controls.control.mem_read_control << " Resulting alu result " << alu_result << "\n";)
@@ -1189,7 +1358,7 @@ void Processor::OOOexecute() {
     }
     //Jump
     else{
-        cout << "jump section\n";
+        DEBUG(cout << "jump section\n";)
         if (pc != orig_pc){
             regfile.pc = pc;
             squash(intr.sequenceNum);
@@ -1218,10 +1387,12 @@ void Processor::OOOexecute() {
 }
 void Processor::OOOwriteback() {
     table2[4].push_back(OEWReg.pc);
+    DEBUG(cout << "Writingback Seq" << OEWReg.sequence << "\n";)
+
     uint32_t read_data_dummy;
     uint32_t write_data = OEWReg.link_control ? regfile.pc+8 : OEWReg.mem_to_reg_control ? OEWReg.read_data_mem : OEWReg.alu_result; 
     DEBUG(cout << "Mem to reg: " << OEWReg.mem_to_reg_control << " Read data mem: " << OEWReg.read_data_mem << " Alu result: " << OEWReg.alu_result << "\n";)
-    DEBUG(cout << "Are we writing: " << OEWReg.reg_write_control << ", writing " << write_data << " to Phys" << OEWReg.write_reg << "\n";)
+    DEBUG(cout << "Are we writing: " << OEWReg.reg_write_control << ", writing " << write_data << " to Phys" << OEWReg.write_reg << std::endl;)
     physRegFile.access(0, 0, read_data_dummy, read_data_dummy, OEWReg.write_reg, OEWReg.reg_write_control, write_data);
     OWCReg.arch_write_reg = OEWReg.arch_write_reg;
     OWCReg.reg_write_control = OEWReg.reg_write_control;
@@ -1229,20 +1400,27 @@ void Processor::OOOwriteback() {
     OWCReg.write_reg = OEWReg.write_reg;
     OWCReg.sequence = OEWReg.sequence;
     OWCReg.pc = OEWReg.pc;
-    if (OEWReg.changed){
-        commitReady.push_back(OWCReg);
-        cout << "Writeback: Seq" << OEWReg.sequence<<"\n";
 
+    for (unsigned int i = 0; i < ReorderBuffer.size(); i++){
+        if (ReorderBuffer[i].sequenceNum == OEWReg.sequence) {
+            ReorderBuffer[i].writtenBack = true;
+        }
+    }
+
+    if (OEWReg.changed){
+        DEBUG(cout << "commit ready size:" << commitReady.size() << std::endl);
+        commitReady.push_back(OWCReg);
+        DEBUG(cout << "Writeback: Seq" << OEWReg.sequence<<"\n");
     }
 }
 
 void Processor::OOOcommit() {
     table2[5].push_back(OWCReg.pc);
-    cout << "List of ready instruction pcs: ";
+    DEBUG(cout << "List of ready instruction pcs: ");
     for (unsigned int i = 0; i < commitReady.size(); i++){
         cout << "(" << commitReady[i].pc << ",  Seq" << commitReady[i].sequence << ")";
     }
-    cout << "\n";
+    DEBUG(cout << "\n");
     uint32_t read_data_dummy;
     if (ReorderBuffer.size() == 0){
         return;
@@ -1251,8 +1429,8 @@ void Processor::OOOcommit() {
     for (WritebackCommitReg reg : commitReady){
         if (reg.sequence == ReorderBuffer.front().sequenceNum){
             ReorderBufferEntry rob_entry = ReorderBuffer[0];
-            cout << "PC CHECK " << reg.pc << "\n";
-            cout << "Committing: Seq" << reg.sequence << " with pc: " << reg.pc << "\n";
+            DEBUG(cout << "PC CHECK " << reg.pc << "\n");
+            DEBUG(cout << "Committing: Seq" << reg.sequence << " with pc: " << reg.pc << "\n");
             ReorderBuffer.erase(ReorderBuffer.begin());
             commitReady.erase(commitReady.begin() + ind);
             if (reg.pc > 3){
@@ -1273,7 +1451,7 @@ void Processor::OOOcommit() {
             if(rob_entry.physRT != -1) {
                 tryFreeReg(rob_entry.physRT);
             }
-
+            break;
     //         // Make sure phys reg is not being used in any queues or rename map before freeing
     //         bool canFreePhysReg = true;
     //         for (QueueEntry& entry : InstructionQueue){
@@ -1324,19 +1502,19 @@ void Processor::OOOcommit() {
 bool Processor::tryFreeReg(int physReg) {
 // Make sure phys reg is not being used in any queues or rename map before freeing
     if (physReg < 0 || physRegFile.getSize() < physReg ) {
-        cout << "Trying to free with invalid phys reg\n";
+        DEBUG(cout << "Trying to free with invalid phys reg\n");
         return false;
     }
     if (physRegFile.ready(physReg)) {
-        cout << "Phys" << physReg << " is already ready!\n"; 
+        DEBUG(cout << "Phys" << physReg << " is already ready!\n"); 
     }
     for (QueueEntry& entry : InstructionQueue){
         if (entry.controls.rs == physReg) {
-            cout << "Can't free R" << entry.controls.rs << "; its InstQ Seq" << entry.sequenceNum << " RS\n";
+            DEBUG(cout << "Can't free R" << entry.controls.rs << "; its InstQ Seq" << entry.sequenceNum << " RS\n");
             return false;
         }
         if (entry.controls.opcode == 0 && entry.controls.rt == physReg) {
-            cout << "Can't free R" << entry.controls.rt << "; its InstQ Seq" << entry.sequenceNum << " RT\n";
+            DEBUG(cout << "Can't free R" << entry.controls.rt << "; its InstQ Seq" << entry.sequenceNum << " RT\n");
             return false;
         }
     }
@@ -1344,9 +1522,9 @@ bool Processor::tryFreeReg(int physReg) {
         if (entry.controls.rs == physReg ) { return false; }
     }
     for (int i = 0 ; i < regfile.getSize(); i++) {
-        cout << "i: " << i << " regmap[i]: " << getRegMap(i) << " rob " << physReg << "\n";  
+        DEBUG(cout << "i: " << i << " regmap[i]: " << getRegMap(i) << " rob " << physReg << "\n");  
         if (getRegMap(i) ==  physReg ) {
-            cout << "Can't free R" << getRegMap(i)<< "; its in regmap for Arch" << i << " \n";
+            DEBUG(cout << "Can't free R" << getRegMap(i)<< "; its in regmap for Arch" << i << " \n");
             return false;
         }
     }
@@ -1357,7 +1535,7 @@ bool Processor::tryFreeReg(int physReg) {
 }
 
 void Processor::squash(int sequenceNum) {
-    cout << "Squashing all instructions over: " << sequenceNum << "\n";
+    DEBUG(cout << "Squashing all instructions over: " << sequenceNum << "\n");
     vector<ReorderBufferEntry>::iterator it = ReorderBuffer.begin();
 
     while(it != ReorderBuffer.end()) {
@@ -1394,8 +1572,12 @@ void Processor::squash(int sequenceNum) {
 }
 
 void Processor::out_of_order_advance() { 
+    if (forceLag > 0 && forceLagOn) {
+        forceLag -= 1;
+        return;
+    }
     for (int i = 0; i < regMap.size(); i++) {
-        cout << "Arch" << i << " : Phys" << getRegMap(i) << "\n";
+        DEBUG(cout << "Arch" << i << " : Phys" << getRegMap(i) << "\n");
     }
     DEBUG(cout << "==COMMIT==" <<  std::endl;)
     OOOcommit();
