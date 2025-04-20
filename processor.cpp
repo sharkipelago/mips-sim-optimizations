@@ -3,7 +3,7 @@
 #include "processor.h"
 #include <string>
 using namespace std;
-// #define ENABLE_DEBUG
+#define ENABLE_DEBUG
 
 #ifdef ENABLE_DEBUG
 #define DEBUG(x) x
@@ -702,6 +702,7 @@ void Processor::OOOfetch() {
     if (BHT[ind].prediction > 1){
         regfile.pc = BHT[ind].address;
         OFDReg.predict_pc = regfile.pc;
+        cout << "Update regfile to: " << regfile.pc << "\n";
     }
     else {
         // increment pc
@@ -1315,7 +1316,7 @@ void Processor::OOOexecute() {
     if ((intr.controls.control.branch_control && !intr.controls.control.bne_control && alu_zero) || (intr.controls.control.bne_control && !alu_zero)){
         // DEBUG(cout << "Branch taken => Flushing \n";)
         DEBUG(cout << "Branch taken \n";)
-        int ind = hash<uint32_t>{}(XMReg.orig_pc-4) % (BHTSIZE + 1);
+        int ind = hash<uint32_t>{}(orig_pc-4) % (BHTSIZE + 1);
         BHT[ind].prediction += 1;
         if (BHT[ind].prediction > 3) { BHT[ind].prediction = 3; }
         // Predicted taken
