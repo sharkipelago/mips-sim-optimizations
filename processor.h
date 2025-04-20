@@ -108,7 +108,7 @@ class Processor {
         bool stopOOODecode = false;
         bool OOOmemStall = false;
 
-        int forceLag = 100;
+        int forceLag = 10000;
         bool forceLagOn = false;
         vector<BHTLine> BHT;
 
