@@ -3,7 +3,7 @@
 #include "processor.h"
 #include <string>
 using namespace std;
-#define ENABLE_DEBUG
+// #define ENABLE_DEBUG
 
 #ifdef ENABLE_DEBUG
 #define DEBUG(x) x
@@ -702,7 +702,7 @@ void Processor::OOOfetch() {
     if (BHT[ind].prediction > 1){
         regfile.pc = BHT[ind].address;
         OFDReg.predict_pc = regfile.pc;
-        cout << "Update regfile to: " << regfile.pc << "\n";
+        DEBUG(cout << "Update regfile to: " << regfile.pc << "\n";)
     }
     else {
         // increment pc
@@ -813,7 +813,7 @@ int Processor::mapReg(int reg){
     physRegFile.setReady(newReg, false);
     // regMap[reg] = newReg;
     setRegMap(reg, newReg);
-    cout << "Mapped " << reg << " to " << newReg << "\n";
+    DEBUG(cout << "Mapped " << reg << " to " << newReg << "\n";)
     return newReg;
 }
 void Processor::OOOrename() {
@@ -852,22 +852,22 @@ void Processor::OOOrename() {
         if (getRegMap(ODRReg.rs) == -1){ mapReg(ODRReg.rs); } // "Initalize source rs if uninitalized"
         regs.push_back(getRegMap(ODRReg.rs));
         if (ODRReg.rs > 31 || ODRReg.rs < 0) {
-            cout << "RS OVER 31\n"; 
+            DEBUG(cout << "RS OVER 31\n";) 
         }   
         ODRReg.rs = getRegMap(ODRReg.rs);
 
         if (ODRReg.opcode == 0){ //R type
-            std::cout << "Rtype Rename" << std::endl;
+            DEBUG(std::cout << "Rtype Rename" << std::endl;)
             if (getRegMap(ODRReg.rt) == -1){ mapReg(ODRReg.rt); } // Initalize source rt
             regs.push_back(getRegMap(ODRReg.rt));
             if (ODRReg.rt > 31 || ODRReg.rt < 0) {
-                cout << "RT OVER 31\n"; 
+                DEBUG(cout << "RT OVER 31\n";)
             }
             ODRReg.rt = getRegMap(ODRReg.rt);
             ODRReg.oldDest = mapReg(archDest);
         }
         else { // Rest of I type
-            std::cout << "Itype Rename" << std::endl;
+            DEBUG(std::cout << "Itype Rename" << std::endl;)
             archDest = ODRReg.rt;
             if (ODRReg.opcode == 40 || ODRReg.opcode == 56 || ODRReg.opcode == 41 || ODRReg.opcode == 43 || ODRReg.opcode == 57 || ODRReg.opcode == 61 
                  || ODRReg.opcode == 4 || ODRReg.opcode == 5  ){ // branches
@@ -882,58 +882,58 @@ void Processor::OOOrename() {
         //     ODRReg.oldDest = mapReg(archDest);
         // }
 
-        cout << "Initial Dependencies " ;
-        for (unsigned int i = 0; i < regs.size(); i++){
-            cout << "Phys" << regs[i] << " ";
-        }
-        cout << std::endl;
+        DEBUG(cout << "Initial Dependencies " ;)
+        // for (unsigned int i = 0; i < regs.size(); i++){
+        //     cout << "Phys" << regs[i] << " ";
+        // }
+        DEBUG(cout << std::endl;)
 
         vector<int> trueDepRegs;
         vector<ReorderBufferEntry>::iterator it = ReorderBuffer.begin();
-        cout << "REGSIZE Check: " << regs.size() << "\n";
+        DEBUG(cout << "REGSIZE Check: " << regs.size() << "\n";)
         for (unsigned int i = 0; i < regs.size(); i++){
             for (unsigned int j = 0; j < ReorderBuffer.size(); j++){
                 if (ReorderBuffer[j].validDest) {
                     if (regs[i] == ReorderBuffer[j].physDestReg && !ReorderBuffer[j].writtenBack) {
-                        cout << "Dependent on ROB" << j << " Seq" << ReorderBuffer[j].sequenceNum << " with physDest: " << ReorderBuffer[j].physDestReg << "\n";
+                        DEBUG(cout << "Dependent on ROB" << j << " Seq" << ReorderBuffer[j].sequenceNum << " with physDest: " << ReorderBuffer[j].physDestReg << "\n";)
                         trueDepRegs.push_back(regs[i]);
                     }
                 }
             }
         }
 
-        cout << "Actual Dependencies " ;
-        for (unsigned int i = 0; i < trueDepRegs.size(); i++){
-            cout << "Phys" << trueDepRegs[i] << " ";
-        }
-        cout << std::endl;
+        DEBUG(cout << "Actual Dependencies " ;)
+        // for (unsigned int i = 0; i < trueDepRegs.size(); i++){
+        //     cout << "Phys" << trueDepRegs[i] << " ";
+        // }
+        DEBUG(cout << std::endl;)
 
         ReorderBufferEntry rob = ReorderBufferEntry(sequence, false, ODRReg.rs, ODRReg.rt);
         //REDO Reorder buffers
         if (archDest != -1) {
             rob = ReorderBufferEntry(sequence, true, ODRReg.rs, ODRReg.rt, archDest, getRegMap(archDest));
         }
-        cout << "Created Rob Entry w/Valid Dest: " << rob.validDest << " Arch Dest: " << rob.archDestReg << "\n";  
+        DEBUG(cout << "Created Rob Entry w/Valid Dest: " << rob.validDest << " Arch Dest: " << rob.archDestReg << "\n";)
 
         if (ODRReg.opcode != 35 && ODRReg.opcode != 43){ // Accept everything except load and store
             QueueEntry iqe = QueueEntry(sequence, ODRReg, trueDepRegs);
             InstructionQueue.push_back(iqe);
-            cout << "Instruction pushed to InstQueue with dependencies: ";
+            DEBUG(cout << "Instruction pushed to InstQueue with dependencies: ";)
         }
         else {
             QueueEntry lse = QueueEntry(sequence, ODRReg, trueDepRegs);
             LoadStoreQueue.push_back(lse);
-            cout << "Instruction pushed to LoadStoreQueue with dependencies: ";
+            DEBUG(cout << "Instruction pushed to LoadStoreQueue with dependencies: ";)
         }
         ReorderBuffer.push_back(rob);
         for (unsigned int i = 0; i < trueDepRegs.size(); i++){
-            cout << trueDepRegs[i] << " ";
+            DEBUG(cout << trueDepRegs[i] << " ";)
         }
         
-        cout << "prevMappingRT: " << prevMappingRT << "\n";
-        cout << "prevMappingRD: " << prevMappingRD << "\n";
+        DEBUG(cout << "prevMappingRT: " << prevMappingRT << "\n";)
+        DEBUG(cout << "prevMappingRD: " << prevMappingRD << "\n";)
         if (prevMappingRS != -1) {
-            cout << ": " << prevMappingRD << "\n";
+            DEBUG(cout << ": " << prevMappingRD << "\n";)
             tryFreeReg(prevMappingRS);
         }
         if (prevMappingRT != -1) {
@@ -942,23 +942,23 @@ void Processor::OOOrename() {
         if (prevMappingRD != -1) {
             tryFreeReg(prevMappingRD);
         }
-        cout << "\n";
+        DEBUG(cout << "\n";)
        
     }
     // DO NOT UNDERSTAND BELOW
     // cout << "Removing dependency: " << OEWReg.write_reg << "\n"; //Fix issue with write_reg being 0 by default
-    cout << "Created Rob Entry w/Seq" << sequence << "\n";  
+    DEBUG(cout << "Created Rob Entry w/Seq" << sequence << "\n";)
     sequence += 1;
     
     int entry_ind = 0;
     for (QueueEntry& entry : InstructionQueue){
         vector<int> newDeps;
         for (unsigned int i = 0; i < entry.regDependencies.size(); i++){
-            cout << "InstQ entry " << entry_ind <<  "(Seq" << entry.sequenceNum << "): Entry RegDep " << entry.regDependencies[i] << " V.S. OWCReg WriteReg " << OWCReg.write_reg << std::endl;
+            DEBUG(cout << "InstQ entry " << entry_ind <<  "(Seq" << entry.sequenceNum << "): Entry RegDep " << entry.regDependencies[i] << " V.S. OWCReg WriteReg " << OWCReg.write_reg << std::endl;)
             // if (entry.regDependencies[i] == OEWReg.write_reg || entry.regDependencies[i] == OWCReg.write_reg){ // Forward from Writeback
             if (entry.regDependencies[i] == OWCReg.write_reg){ // Forward from Writeback
                 // Forward from younger execute done in execute stage
-                cout << "Removed dependency: " << entry.regDependencies[i] << " from " << entry.controls.pc << "\n";
+                DEBUG(cout << "Removed dependency: " << entry.regDependencies[i] << " from " << entry.controls.pc << "\n";)
                 continue;
             }
             newDeps.push_back(entry.regDependencies[i]);
@@ -969,11 +969,11 @@ void Processor::OOOrename() {
     for (QueueEntry& entry : LoadStoreQueue){
         vector<int> newDeps;
         for (unsigned int i = 0; i < entry.regDependencies.size(); i++){
-            cout << "loadq i: " << i << std::endl;
-            cout << "Entry RegDep " << entry.regDependencies[i] << "\n";
-            cout << "OEWREG WriteReg " << OEWReg.write_reg << "\n"; 
+            DEBUG(cout << "loadq i: " << i << std::endl;)
+            DEBUG(cout << "Entry RegDep " << entry.regDependencies[i] << "\n";)
+            DEBUG(cout << "OEWREG WriteReg " << OEWReg.write_reg << "\n";)
             if (entry.regDependencies[i] == OWCReg.write_reg){ 
-                cout << "Removed dependency: " << entry.regDependencies[i] << " from " << entry.controls.pc << "\n";
+                DEBUG(cout << "Removed dependency: " << entry.regDependencies[i] << " from " << entry.controls.pc << "\n";)
                 continue;
             }
             newDeps.push_back(entry.regDependencies[i]);
@@ -1011,7 +1011,7 @@ void Processor::OOOexecute() {
     }
 
 
-    cout << "Prev Execute Forward PhysReg " << forwardReg << "\n";
+    DEBUG(cout << "Prev Execute Forward PhysReg " << forwardReg << "\n";)
 
 // //  <--COMMENT BOUND BEG -->
     
@@ -1138,27 +1138,27 @@ void Processor::OOOexecute() {
     QueueEntry iqIntr;
     int iqIntrIndex = -1;
     if (LoadStoreQueue.size() > 0) {
-        cout << "Front of lsq (Seq" << LoadStoreQueue.front().sequenceNum << ") has dependencies: ";
+        DEBUG(cout << "Front of lsq (Seq" << LoadStoreQueue.front().sequenceNum << ") has dependencies: ";)
         for (unsigned int i = 0; i < LoadStoreQueue.front().regDependencies.size(); i++){
-            cout << "Phys" << LoadStoreQueue.front().regDependencies[i] << " ";
+            DEBUG(cout << "Phys" << LoadStoreQueue.front().regDependencies[i] << " ";)
         }
-        cout << "\n";
+        DEBUG(cout << "\n";)
         if (LoadStoreQueue.front().regDependencies.empty()) {
-            cout << "Grabbing from Load Store Queue \n";
+            DEBUG(cout << "Grabbing from Load Store Queue \n";)
             lsqIntr = LoadStoreQueue.front();
             lsqExe = true;
         }
     }
 
-    cout << "Instruction queue has dependencies: \n";
+    DEBUG(cout << "Instruction queue has dependencies: \n";)
     for (unsigned int i = 0; i < InstructionQueue.size(); i++){
-        cout << "  Instruction with pc: " << InstructionQueue[i].controls.pc << " (Seq" << InstructionQueue[i].sequenceNum << ") ";
+        DEBUG(cout << "  Instruction with pc: " << InstructionQueue[i].controls.pc << " (Seq" << InstructionQueue[i].sequenceNum << ") ";)
         for (unsigned int j = 0; j < InstructionQueue[i].regDependencies.size(); j++){
-            cout << "Phys" << InstructionQueue[i].regDependencies[j] << " ";
+            DEBUG(cout << "Phys" << InstructionQueue[i].regDependencies[j] << " ";)
         }
-        cout << "\n";
+        DEBUG(cout << "\n";)
         if (InstructionQueue[i].regDependencies.empty()){
-            cout << "Grabbing from Instruction Queue \n";
+            DEBUG(cout << "Grabbing from Instruction Queue \n";)
             iqIntr = InstructionQueue[i];
             iqIntrIndex = i;
             // InstructionQueue.erase(InstructionQueue.begin() + i);
@@ -1166,10 +1166,10 @@ void Processor::OOOexecute() {
             break;
         }
     }
-    cout << "\n";
+    DEBUG(cout << "\n";)
 
-    cout << "found iqInst: " << iqExe << " found lsqInst: " << lsqExe << "\n";
-    cout << "LoadStore Q size: " << LoadStoreQueue.size() << " Inst Q Size: " << InstructionQueue.size() << "\n";
+    DEBUG(cout << "found iqInst: " << iqExe << " found lsqInst: " << lsqExe << "\n";)
+    DEBUG(cout << "LoadStore Q size: " << LoadStoreQueue.size() << " Inst Q Size: " << InstructionQueue.size() << "\n";)
 
     if (!iqExe && ! lsqExe){
         table2[3].push_back(0);
@@ -1179,7 +1179,7 @@ void Processor::OOOexecute() {
     if (iqExe && lsqExe) {
         physRegFile.access(lsqIntr.controls.rs, lsqIntr.controls.rt, lsqIntr.controls.read_data_1, lsqIntr.controls.read_data_2, 0, 0, 0);
         DEBUG(cout << "read_data_1: " << lsqIntr.controls.read_data_1 << " read_data_2: " << lsqIntr.controls.read_data_2 << "\n";)
-        cout << "Read " << lsqIntr.controls.read_data_1 << " from  RS " << lsqIntr.controls.rs << " read " << lsqIntr.controls.read_data_2 << " from  RT " << lsqIntr.controls.rt << "\n";
+        DEBUG(cout << "Read " << lsqIntr.controls.read_data_1 << " from  RS " << lsqIntr.controls.rs << " read " << lsqIntr.controls.read_data_2 << " from  RT " << lsqIntr.controls.rt << "\n";)
     
     
         alu.generate_control_inputs(lsqIntr.controls.control.ALU_op_control, lsqIntr.controls.funct, lsqIntr.controls.opcode);
@@ -1215,7 +1215,7 @@ void Processor::OOOexecute() {
         }
         else {
             lsqExe = false;
-            cout << "LSQ mem not in cache => fetching from lower level cache";
+            DEBUG(cout << "LSQ mem not in cache => fetching from lower level cache";)
         }
     }
     QueueEntry intr = lsqIntr;
